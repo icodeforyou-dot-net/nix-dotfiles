@@ -95,6 +95,9 @@
   nordic
   tela-icon-theme
 
+  # Android
+  android-file-transfer
+
   # Audio
   pavucontrol
 

@@ -45,7 +45,6 @@
   unstable.ardour
 
   # Browser
-  firefox
   chromium
   brave
 
@@ -71,6 +70,7 @@
   tokei
   ranger
   ncdu
+  xz
   youtube-dl
 
   # Shell
@@ -107,9 +107,6 @@
 
   # Audio
   pavucontrol
-
-  # Coding
-  openssl
 
   # general
   git
@@ -151,6 +148,10 @@
 
   lldb # debugging setup
 
+  # Containers
+  dive
+  skopeo
+
   #SQL
   unstable.sqlitebrowser
   unstable.dbeaver
@@ -160,6 +161,7 @@
   # ansible
   ansible
   ansible-lint
+  sshpass
   ];
 
 
@@ -248,106 +250,6 @@
       vscode-extensions.matklad.rust-analyzer ];
     };
 
- programs.neovim = {
-    enable = false;
-    vimAlias = true;
-    package = pkgs.unstable.neovim;
-
-    plugins = with pkgs.vimPlugins; [
-      # Appearance
-      indent-blankline-nvim
-      barbar-nvim
-      nvim-tree-lua
-      nvim-web-devicons
-      lualine-nvim
-      one-nvim
-      dracula-vim
-      # dashboard-nvim #vimscript
-
-      # Programming
-      which-key-nvim
-      # vim-haskellConcealPlus # vimscript
-      # vim-nix # vimscript
-      lspkind-nvim
-      nvim-treesitter
-      nvim-treesitter-refactor
-      nvim-treesitter-textobjects
-      nvim-lspconfig
-      lspsaga-nvim
-      lsp_signature-nvim
-      nvim-compe
-      vim-vsnip
-      vim-vsnip-integ
-      rust-tools-nvim
-      #vimPlugsFromSource.nvim-lsp-symbols-outline
-
-      # Text objects
-      tcomment_vim # vimscript
-      vim-surround # vimscript
-      nvim-autopairs
-
-      # Git
-      gitsigns-nvim
-
-      # DAP
-      nvim-dap
-      nvim-dap-ui
-      #vimPlugsFromSource.nvim-dap-python
-
-      # Fuzzy Finder
-      telescope-nvim
-
-      # Text Helpers
-      vim-table-mode # vimscript
-      todo-comments-nvim
-
-      # General Deps
-      popup-nvim
-      plenary-nvim
-    ];
-
-/*   extraConfig = ''
-      # ${builtins.readFile ~/.config/nvim/sane_defaults.vim}
-      # ${builtins.readFile ~/.config/nvim/dashboard.vim}
-
-      # colorscheme ${colorscheme.vim-name}
-
-
-      lua << EOF
-        local statusline_theme = '${colorscheme.vim-statusline}'
-
-        local lang_servers_cmd = {
-          bashls = {"${pkgs.nodePackages.bash-language-server}/bin/bash-language-server", "start"},
-          cssls = {"${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver", "--stdio"},
-          cmake = {"${pkgs.cmake-language-server}/bin/cmake-language-server"},
-          dockerls = {"${pkgs.nodePackages.dockerfile-language-server-nodejs}/bin/docker-langserver", "--stdio"},
-          elmls = {"${pkgs.elmPackages.elm-language-server}/bin/elm-language-server"},
-          gopls = {"${pkgs.gopls}/bin/gopls"},
-          hls = {"${pkgs.haskellPackages.haskell-language-server}/bin/haskell-language-server", "--lsp"},
-          html = {"${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver", "--stdio"},
-          jsonls = {"${pkgs.nodePackages.vscode-json-languageserver-bin}/bin/json-languageserver", "--stdio"},
-          pyright = {"${pkgs.nodePackages.pyright}/bin/pyright-langserver", "--stdio"},
-          rnix = {"${pkgs.rnix-lsp}/bin/rnix-lsp"},
-          rust_analyzer = {"${pkgs.rust-analyzer}/bin/rust-analyzer"},
-          tsserver = {"${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server", "--stdio"},
-          vimls = {"${pkgs.nodePackages.vim-language-server}/bin/vim-language-server", "--stdio"},
-          yamlls = {"${pkgs.nodePackages.yaml-language-server}/bin/yaml-language-server", "--stdio"},
-          efmls = {"${pkgs.nur.repos.crazazy.efm-langserver}/bin/efm-langserver"},
-
-          prettier = "${pkgs.nodePackages.prettier}/bin/prettier",
-          isort = "${pkgs.python3Packages.isort}/bin/isort",
-          black = "${pkgs.python3Packages.black}/bin/black",
-          lua_format = "${pkgs.luaformatter}/bin/lua-format",
-          clippy = "${pkgs.clippy}/bin/cargo-clippy",
-          rustfmt = "${pkgs.rustfmt}/bin/cargo-fmt",
-
-          elm = "${pkgs.elmPackages.elm}/bin/elm",
-          elm_test = "${pkgs.elmPackages.elm-test}/bin/elm-test",
-          elm_format = "${pkgs.elmPackages.elm-format}/bin/elm-format",
-        }
-  '' */
-  };
-
  programs.alacritty = {
 	enable = true;
 	settings = {};
@@ -368,41 +270,13 @@
     eval "$(direnv hook bash)"
     eval "$(zoxide init bash)"
     eval "$(starship init bash)"
+
+    alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+
+    alias js='cd /home/ap/Coding/javascript'
+    alias py='cd /home/ap/Coding/python'
+    alias rs='cd /home/ap/Coding/rust'
+    alias cpp='cd /home/ap/Coding/cpp'
+    alias ans='cd /home/ap/Coding/ansible'
     '';
   };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    defaultKeymap = "viins";
-    enableAutosuggestions = true;
-    # shellAliases = (import ./zsh/aliases.nix);
-    history.extended = true;
-    plugins = [
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "be3882aeb054d01f6667facc31522e82f00b5e94";
-          sha256 = "0w8x5ilpwx90s2s2y56vbzq92ircmrf0l5x8hz4g1nx3qzawv6af";
-        };
-      }
-    ];
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "vi-mode" ];
-    };
-
-    # For this to work with flakes we need to get this into git
-    # ${builtins.readFile ./zsh/secrets.zsh}
-    # ${builtins.readFile ../../../.secrets/env-vars.sh}
-    initExtraBeforeCompInit = ''
-      eval "$(direnv hook zsh)"
-      eval "$(zoxide init zsh)"
-      eval "$(starship init zsh)"
-      bindkey -M vicmd 'k' history-beginning-search-backward
-      bindkey -M vicmd 'j' history-beginning-search-forward
-    '';
-  };
-}

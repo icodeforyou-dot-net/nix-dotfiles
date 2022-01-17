@@ -5,6 +5,12 @@
   ./hardware-configuration.nix
     ];
 
+  # nix = {
+  #       package = pkgs.nixUnstable;
+  #       extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+  #       "experimental-features = nix-command flakes";
+  # };
+
   nix = {
         package = pkgs.nixUnstable;
         extraOptions = ''
@@ -56,7 +62,6 @@
   environment.systemPackages = with pkgs; [
      vim
      wget
-     firefox
      pstree
      lm_sensors
      killall
