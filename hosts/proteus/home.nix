@@ -211,6 +211,7 @@
      enable = true;
      package = pkgs.unstable.vscode;
      extensions = with pkgs; [
+      vscode-extensions.pkief.material-icon-theme
       vscode-extensions.bbenoist.nix
       vscode-extensions.haskell.haskell
       vscode-extensions.ms-vscode.cpptools
