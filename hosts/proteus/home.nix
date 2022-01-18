@@ -41,6 +41,7 @@
   # Browser
   chromium
   brave
+  lagrange
 
   # tor
   unstable.onionshare-gui
@@ -214,7 +215,8 @@
       vscode-extensions.haskell.haskell
       vscode-extensions.ms-vscode.cpptools
       vscode-extensions.graphql.vscode-graphql
-      vscode-extensions.matklad.rust-analyzer ];
+      vscode-extensions.matklad.rust-analyzer
+      vscode-extensions.ms-vscode-remote.remote-ssh ];
     };
 
   programs.bat = {
