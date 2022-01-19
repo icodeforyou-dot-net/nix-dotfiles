@@ -92,7 +92,7 @@
   virtualisation.libvirtd = {
     enable = true;
     # qemuOvmf = true;
-    qemuRunAsRoot = false;
+    qemu.runAsRoot = false;
     onBoot = "ignore";
     onShutdown = "shutdown";
   };

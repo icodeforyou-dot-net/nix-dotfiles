@@ -3,13 +3,21 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-21.11";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-21.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+        url = "github:nix-community/neovim-nightly-overlay";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, neovim-nightly-overlay, ... }@inputs: 
     let
       system = "x86_64-linux";
       
@@ -39,19 +47,21 @@
     in 
     {
      nixosConfigurations = {
-       proteus = lib.nixosSystem {
-         inherit system;
 
+      proteus = lib.nixosSystem {
+        inherit system;
 	      modules = [ 
 	        ./hosts/proteus/configuration.nix
 	      ];
        };
-       archon = lib.nixosSystem {
-          inherit system;
-          modules = [ 
-	          ./hosts/archon/configuration.nix
-	        ];
+
+      archon = lib.nixosSystem {
+        inherit system;
+        modules = [ 
+	        ./hosts/archon/configuration.nix
+	      ];
        };
+
      };
 
      homeConfigurations = {
