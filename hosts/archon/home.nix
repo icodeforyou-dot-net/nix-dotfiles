@@ -46,6 +46,9 @@
   zoom-us
   tutanota-desktop
 
+  # Gaming
+  dosbox-staging
+
   # Browser
   chromium
   brave
