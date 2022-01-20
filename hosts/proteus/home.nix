@@ -72,6 +72,7 @@
   ncdu
   xz
   youtube-dl
+  quickemu
 
   # Shell
   starship
