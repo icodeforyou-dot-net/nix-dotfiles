@@ -37,6 +37,11 @@
   vlc
   pcmanfm
   lxappearance
+  gimp
+  darktable
+  inkscape
+  pdfarranger
+  unstable.onlyoffice-bin
   zoom-us
   tutanota-desktop
 
