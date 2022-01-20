@@ -37,6 +37,11 @@
   vlc
   pcmanfm
   lxappearance
+  zoom-us
+  tutanota-desktop
+
+  # Gaming
+  dosbox-staging
 
   # Browser
   chromium
@@ -129,6 +134,9 @@
   # markdown
   nodePackages.livedown
   pandoc
+
+  # Nix
+  dconf2nix
 
   # python
   (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))

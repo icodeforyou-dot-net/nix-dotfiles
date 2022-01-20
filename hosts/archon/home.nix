@@ -43,6 +43,8 @@
   pdfarranger
   unstable.onlyoffice-bin
   unstable.ardour
+  zoom-us
+  tutanota-desktop
 
   # Browser
   chromium
@@ -133,6 +135,9 @@
   # markdown
   nodePackages.livedown
   pandoc
+
+  # Nix
+  dconf2nix
 
   # python
   (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
@@ -248,7 +253,8 @@
       vscode-extensions.haskell.haskell
       vscode-extensions.ms-vscode.cpptools
       vscode-extensions.graphql.vscode-graphql
-      vscode-extensions.matklad.rust-analyzer ];
+      vscode-extensions.matklad.rust-analyzer
+      vscode-extensions.ms-vscode-remote.remote-ssh ];
     };
 
  programs.alacritty = {
