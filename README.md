@@ -35,6 +35,4 @@ Some files import from others. They like to depend on each other to avoid duplic
 The helper scripts `apply-system.sh`, `apply-user.sh` and `test_system.sh` apply or test configuration for system or home-manager respectivly. In case the bootloader start to act up, you might want to try `rebuild-bootloader.sh`.
 
 ```console
-$ nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-hdmi.activationPackage
-$ result/activate
 ```
