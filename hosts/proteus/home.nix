@@ -77,7 +77,6 @@
   ncdu
   xz
   youtube-dl
-  quickemu
 
   # Shell
   starship
@@ -101,6 +100,7 @@
   gnome.networkmanager-openvpn
   unstable.gnomeExtensions.dash-to-dock
   gnomeExtensions.tweaks-in-system-menu
+  gnomeExtensions.gnome-vagrant-indicator
   flat-remix-gtk
   flat-remix-icon-theme
   papirus-icon-theme
@@ -172,6 +172,10 @@
   ansible
   ansible-lint
   sshpass
+
+  # VMs
+  quickemu
+  vagrant
   ];
 
   xresources.extraConfig = ''
