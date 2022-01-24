@@ -77,6 +77,7 @@
   ncdu
   xz
   youtube-dl
+  unrar
 
   # Shell
   starship
