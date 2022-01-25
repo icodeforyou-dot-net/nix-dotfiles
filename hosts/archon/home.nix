@@ -45,6 +45,7 @@
   unstable.ardour
   zoom-us
   tutanota-desktop
+  calibre
 
   # Gaming
   dosbox-staging

@@ -44,6 +44,7 @@
   unstable.onlyoffice-bin
   zoom-us
   tutanota-desktop
+  calibre
 
   # Gaming
   dosbox-staging
