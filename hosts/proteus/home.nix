@@ -152,6 +152,7 @@
   autoflake
   python3Packages.pip
   python3Packages.ipython
+  python3Packages.ipykernel
   python3Packages.parso
   python3Packages.twine
 
