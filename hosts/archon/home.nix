@@ -151,11 +151,14 @@
   (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
   poetry
   autoflake
+  black
   python3Packages.pip
   python3Packages.ipython
   python3Packages.ipykernel
   python3Packages.parso
   python3Packages.twine
+  python3Packages.requests
+  python3Packages.docker
 
   # rust
   rustup
