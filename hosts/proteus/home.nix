@@ -33,6 +33,7 @@
   unstable.bitwarden
   unstable.signal-desktop
   unstable.tdesktop
+  unstable.whatsapp-for-linux
   insomnia
   vlc
   pcmanfm
