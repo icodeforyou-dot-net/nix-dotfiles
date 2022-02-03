@@ -100,10 +100,18 @@
     enableOnBoot = false;
   };
 
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableHardening = true;
+    enableExtensionPack = true;
+  };
+
+  virtualisation.virtualbox.guest.enable = false;
+
   virtualisation.libvirtd = {
     enable = true;
     # qemuOvmf = true;
-    qemuRunAsRoot = false;
+    qemu.runAsRoot = false;
     onBoot = "ignore";
     onShutdown = "shutdown";
   };
