@@ -281,7 +281,7 @@
 
           [joystick]
           joysticktype  = auto
-          timed         = true
+          timed         = false
           autofire      = false
           swap34        = false
           buttonwrap    = false
