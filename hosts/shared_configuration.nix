@@ -11,14 +11,20 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "btrfs" ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.cleanTmpDir = true;
+  boot = {
+      cleanTmpDir = true;
+      kernelPackages = pkgs.linuxPackages_latest;
+      loader = {
+        efi.canTouchEfiVariables = true;
+        systemd-boot.enable = true;
+      };
+      supportedFilesystems = [ "btrfs" ];
+  };
 
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+  networking = {
+      firewall.enable = true;
+      networkmanager.enable = true;
+  };
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -27,14 +33,16 @@
      keyMap = "us";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  services.xserver.layout = "us";
-  services.xserver.windowManager.openbox.enable = true;
-  
-  services.printing.enable = true;
+  services = {
+      printing.enable = true;
+      xserver = {
+          enable = true;
+          desktopManager.gnome.enable = true;
+          displayManager.gdm.enable = true;
+          layout = "us";
+          windowManager.openbox.enable = true;
+      };
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -75,29 +83,32 @@
                 };                                                                                                                                        };
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    # qemuOvmf = true;
-    qemu.runAsRoot = false;
-    onBoot = "ignore";
-    onShutdown = "shutdown";
+  virtualisation = {
+    docker = {
+        enable = true;
+        enableOnBoot = false;
+    };
+
+    libvirtd = {
+        enable = true;
+        # qemuOvmf = true;
+        qemu.runAsRoot = false;
+        onBoot = "ignore";
+        onShutdown = "shutdown";
+    };
+
+    lxc.lxcfs.enable = true;
+    lxd.enable = true;
+
+    virtualbox = {
+        guest.enable = false;
+        host = {
+            enable = true;
+            enableHardening = true;
+            enableExtensionPack = true;
+        };
+    };
   };
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-  };
-
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableHardening = true;
-    enableExtensionPack = true;
-  };
-
-  virtualisation.virtualbox.guest.enable = false;
-
-  virtualisation.lxd.enable = true;
-  virtualisation.lxc.lxcfs.enable = true;
 
   system.stateVersion = "21.05";
 
