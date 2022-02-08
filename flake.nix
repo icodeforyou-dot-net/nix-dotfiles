@@ -58,6 +58,7 @@
       archon = lib.nixosSystem {
         inherit system;
         modules = [ 
+          ./hosts/shared_configuration.nix
 	        ./hosts/archon/configuration.nix
 	      ];
        };
