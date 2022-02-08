@@ -1,15 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ 
-  ./hardware-configuration.nix
-    ];
-
-  # nix = {
-  #       package = pkgs.nixUnstable;
-  #       extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
-  #       "experimental-features = nix-command flakes";
-  # };
+  imports = [ ./hardware-configuration.nix ];
 
   nix = {
         package = pkgs.nixUnstable;

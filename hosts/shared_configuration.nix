@@ -40,7 +40,6 @@
           desktopManager.gnome.enable = true;
           displayManager.gdm.enable = true;
           layout = "us";
-          windowManager.openbox.enable = true;
       };
   };
 
