@@ -172,7 +172,6 @@
 
   #SQL
   unstable.sqlitebrowser
-  unstable.dbeaver
   unstable.beekeeper-studio
   # unstable.pgadmin
 
