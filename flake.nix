@@ -51,6 +51,7 @@
       proteus = lib.nixosSystem {
         inherit system;
 	      modules = [ 
+          ./hosts/shared_configuration.nix
 	        ./hosts/proteus/configuration.nix
 	      ];
        };
