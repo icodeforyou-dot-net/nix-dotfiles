@@ -4,6 +4,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.consoleMode = "auto";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "proteus";
 
