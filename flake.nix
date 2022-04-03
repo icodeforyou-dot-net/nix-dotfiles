@@ -17,7 +17,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, neovim-nightly-overlay, ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
     let
       system = "x86_64-linux";
       
@@ -27,14 +27,6 @@
       };
 
       lib = nixpkgs.lib;
-
-      overlays = [
-        inputs.neovim-nightly-overlay.overlay
-        ];
-
-      overlay-neovim = final: prev: {
-        neovim = inputs.neovim-nightly-overlay.overlay;
-        };
 
       overlay-unstable = final: prev: {
           unstable = import nixpkgs-unstable {
@@ -75,7 +67,7 @@
 	      configuration = {
 
           nixpkgs.config = { allowUnfree = true; };
-          nixpkgs.overlays = [ overlay-neovim overlay-unstable ];
+          nixpkgs.overlays = [ overlay-unstable ];
 	   
           imports = [
             ./hosts/proteus/home.nix
@@ -90,7 +82,7 @@
         configuration = {
   
           nixpkgs.config = { allowUnfree = true; };
-          nixpkgs.overlays = [ overlay-neovim overlay-unstable ];
+          nixpkgs.overlays = [ overlay-unstable ];
       
           imports = [
             ./hosts/archon/home.nix
