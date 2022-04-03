@@ -32,6 +32,7 @@
   zoom-us
   tutanota-desktop
   calibre
+  koreader
 
   # Gaming
   dosbox-staging
@@ -66,6 +67,7 @@
   xz
   youtube-dl
   unrar
+  helix
 
   # Shell
   starship
@@ -95,6 +97,7 @@
   papirus-icon-theme
   nordic
   tela-icon-theme
+  lyrebird
 
   # Android
   android-file-transfer
