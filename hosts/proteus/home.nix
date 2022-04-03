@@ -67,7 +67,7 @@
   xz
   youtube-dl
   unrar
-  helix
+  unstable.helix
 
   # Shell
   starship
