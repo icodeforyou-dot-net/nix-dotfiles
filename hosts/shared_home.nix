@@ -12,7 +12,7 @@
     # Configuration for helix editor
       ".config/helix/config.toml" = {
         executable = false;
-        text = "
+        text = ''
         theme = "nord"
 
         [editor]
@@ -20,14 +20,20 @@
         mouse = true
         scrolloff = 2
 
-        [editor.cursor-shape]
-        insert = "bar"
-        normal = "block"
-        select = "underline"
-
         [editor.file-picker]
         hidden = false
-        ";
+
+        [keys.normal]
+        C-s = ":w"
+        g = { a = "code_action" } # Maps `ga` to show possible code actions
+
+        [keys.insert]
+        j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+        C-c = "normal_mode"
+
+        [keys.select]
+        C-c = "normal_mode"
+        '';
       };
 
     # Configuration for doxbox-staging
