@@ -9,6 +9,28 @@
 
 # Dosbox-staging config to mount drive on startup
   home.file = {
+    # Configuration for helix editor
+      ".config/helix/config.toml" = {
+        executable = false;
+        text = "
+        theme = "nord"
+
+        [editor]
+        line-number = "absolute"
+        mouse = true
+        scrolloff = 2
+
+        [editor.cursor-shape]
+        insert = "bar"
+        normal = "block"
+        select = "underline"
+
+        [editor.file-picker]
+        hidden = false
+        ";
+      };
+
+    # Configuration for doxbox-staging
       ".config/dosbox/dosbox-staging.conf" = {
           executable = false;
           text = "
@@ -226,4 +248,16 @@
     alias ans='cd /home/ap/Coding/ansible'
     '';
   };
+
+  xdg.userDirs = {
+        enable = true;
+        documents = "$HOME/misc/";
+        download = "$HOME/Downloads/";
+        videos = "$HOME/misc/";
+        music = "$HOME/misc/";
+        pictures = "$HOME/Pictures/";
+        desktop = "$HOME/misc/";
+        publicShare = "$HOME/misc/";
+        templates = "$HOME/misc/";
+    };
 }

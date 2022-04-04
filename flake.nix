@@ -10,11 +10,6 @@
       url = "github:nix-community/home-manager/release-21.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim-nightly-overlay = {
-        url = "github:nix-community/neovim-nightly-overlay";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
@@ -71,6 +66,7 @@
 	   
           imports = [
             ./hosts/proteus/home.nix
+            ./hosts/shared_home.nix
           ];
 	        };
        };
