@@ -24,15 +24,15 @@
         hidden = false
 
         [keys.normal]
-        C-s = ":w"
         g = { a = "code_action" } # Maps `ga` to show possible code actions
+        C-c = "esc"
 
         [keys.insert]
         j = { k = "normal_mode" } # Maps `jk` to exit insert mode
-        C-c = "normal_mode"
+        C-c = "esc"
 
         [keys.select]
-        C-c = "normal_mode"
+        C-c = "esc"
         '';
       };
 
