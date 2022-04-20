@@ -26,8 +26,8 @@
         [keys.normal]
         g = { a = "code_action" } # Maps `ga` to show possible code actions
         C-c = "no_op"
-        C-a = "toggle_comments"
-         
+        "C-/" = "toggle_comments"
+
         [keys.insert]
         j = { k = "normal_mode" } # Maps `jk` to exit insert mode
         C-c = "normal_mode"
@@ -252,6 +252,7 @@
     alias rs='cd /home/ap/Coding/rust'
     alias cpp='cd /home/ap/Coding/cpp'
     alias ans='cd /home/ap/Coding/ansible'
+    alias ndf='cd /home/ap/Coding/nix-dotfiles'
     '';
   };
   
@@ -259,6 +260,10 @@
       enable = true;
       settings = {    
       };
+    };
+  
+  programs.go = {
+      enable = true;
     };
   
   # programs.zellij = {

@@ -2,13 +2,13 @@
 
 {
   home.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Iosevka" "Overpass" ]; })
+  (nerdfonts.override { fonts = [ "Iosevka" "Overpass" "FiraCode" ]; })
 
   # GUI Apps
   unstable.mailspring
   slack
   unstable.discord
-  element-desktop
+  unstable.element-desktop
   skypeforlinux
   unstable.bitwarden
   unstable.signal-desktop
@@ -62,7 +62,10 @@
   youtube-dl
   unrar
   unstable.helix
-
+  unstable.asciinema
+  unstable.moc
+  unstable.havoc
+    
   # Shell
   starship
   zsh-syntax-highlighting
@@ -108,18 +111,6 @@
   # C
   gcc
 
-  # go
-  go
-
-  # Haskell
-  ghc
-  haskellPackages.cabal-install
-  haskellPackages.stack
-
-  # JavaScript
-  nodejs
-  yarn
-
   # lua
   lua
 
@@ -129,6 +120,7 @@
 
   # Nix
   dconf2nix
+  rnix-lsp
 
   # python
   (python3.withPackages (ps: with ps; [ setuptools pip debugpy requests ]))
@@ -152,7 +144,6 @@
   #SQL
   unstable.sqlitebrowser
   unstable.beekeeper-studio
-  # unstable.pgadmin
 
   # ansible
   ansible
