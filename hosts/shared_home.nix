@@ -7,7 +7,6 @@
   home.homeDirectory = "/home/ap";
   home.stateVersion = "21.11";
 
-# Dosbox-staging config to mount drive on startup
   home.file = {
     # Configuration for helix editor
       ".config/helix/config.toml" = {
@@ -163,11 +162,6 @@
   };
 
   xresources.extraConfig = ''
-	URxvt*foreground:  White
-
-	Xft*dpi:                192
-	Xft*antialias:          true
-
 	#define nord0 #2E3440
 	#define nord1 #3B4252
 	#define nord2 #434C5E
@@ -286,15 +280,15 @@
   #     };
   # };
 
-  xdg.userDirs = {
-        enable = true;
-        documents = "$HOME/misc/";
-        download = "$HOME/Downloads/";
-        videos = "$HOME/misc/";
-        music = "$HOME/misc/";
-        pictures = "$HOME/Pictures/";
-        desktop = "$HOME/misc/";
-        publicShare = "$HOME/misc/";
-        templates = "$HOME/misc/";
-    };
+  # xdg.userDirs = {
+  #       enable = true;
+  #       documents = "$HOME/misc/";
+  #       download = "$HOME/Downloads/";
+  #       videos = "$HOME/misc/";
+  #       music = "$HOME/misc/";
+  #       pictures = "$HOME/Pictures/";
+  #       desktop = "$HOME/misc/";
+  #       publicShare = "$HOME/misc/";
+  #       templates = "$HOME/misc/";
+  #   };
 }
