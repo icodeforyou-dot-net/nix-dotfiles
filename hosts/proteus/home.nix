@@ -26,7 +26,6 @@
   zoom-us
   tutanota-desktop
   calibre
-  koreader
 
   # Gaming
   dosbox-staging
@@ -115,7 +114,7 @@
   lua
 
   # markdown
-  nodePackages.livedown
+  # nodePackages.livedown
   pandoc
 
   # Nix
@@ -154,4 +153,13 @@
   quickemu
   vagrant
   ];
+
+  xresources.properties = {
+    "Xft.dpi" = 192;
+    "Xft.antialias" = true;
+    "Xft.autohint" = false;
+    "Xft.lcdfilter" = "lcddefault";
+    "Xft.hintsyle" = "hintful";
+    "URxvt.foreground" = "White";
+  };
 }
