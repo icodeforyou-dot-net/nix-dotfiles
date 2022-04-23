@@ -83,6 +83,7 @@
       
           imports = [
             ./hosts/archon/home.nix
+            ./hosts/shared_home.nix
           ];
           };
      };
