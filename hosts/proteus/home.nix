@@ -135,7 +135,10 @@
   rustup
 
   lldb # debugging setup
-
+    
+  # Julia
+  unstable.julia-bin
+    
   # Containers
   dive
   skopeo
