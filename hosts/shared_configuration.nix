@@ -33,13 +33,16 @@
   };
 
   services = {
-      printing.enable = true;
+      printing = {
+        enable = true;
+        drivers = with pkgs; [ hplip ];
+        };
       xserver = {
           enable = true;
           desktopManager.gnome.enable = true;
           displayManager.gdm.enable = true;
           layout = "us";
-      };
+        };
   };
 
   sound.enable = true;
