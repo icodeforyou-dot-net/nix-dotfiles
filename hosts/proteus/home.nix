@@ -104,11 +104,11 @@
   # Coding
 
   # general
-  git
-  github-desktop
+  unstable.git
+  unstable.github-desktop
 
   # C
-  gcc
+  unstable.gcc
 
   # lua
   lua
