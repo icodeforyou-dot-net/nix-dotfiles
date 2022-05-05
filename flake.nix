@@ -48,7 +48,7 @@
         modules = [ 
           ./hosts/shared_configuration.nix
 	        ./hosts/archon/configuration.nix
-          ./hosts/archon/configuration-kernel-5.16.9.nix
+          ./hosts/kernels/configuration-kernel-5.16.9.nix
 	      ];
        };
 
@@ -66,8 +66,14 @@
           nixpkgs.overlays = [ overlay-unstable ];
 	   
           imports = [
-            ./hosts/proteus/home.nix
             ./hosts/shared_home.nix
+            ./hosts/home_modules/cli-os.nix
+            ./hosts/home_modules/coding.nix
+            ./hosts/home_modules/fonts.nix
+            ./hosts/home_modules/gaming.nix
+            ./hosts/home_modules/gnome.nix
+            ./hosts/home_modules/gui.nix            
+            ./hosts/proteus/home.nix
           ];
 	        };
        };
