@@ -35,7 +35,7 @@
   services = {
       printing = {
         enable = true;
-        drivers = with pkgs; [ hplip ];
+        drivers = with pkgs; [ hplipWithPlugin ];
         };
       xserver = {
           enable = true;
@@ -99,16 +99,9 @@
     };
 
     lxc.lxcfs.enable = true;
-    lxd.enable = true;
-
-    virtualbox = {
-        guest.enable = false;
-        host = {
-            enable = true;
-            enableHardening = true;
-            enableExtensionPack = true;
-        };
-    };
+    lxd.enable = true;           
+        
+    waydroid.enable = true;
   };
 
   system.stateVersion = "21.05";
