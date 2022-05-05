@@ -27,6 +27,15 @@
 
   networking.hostName = "archon"; 
 
+  virtualization.virtualbox = {
+        guest.enable = false;
+        host = {
+            enable = true;
+            enableHardening = true;
+            enableExtensionPack = true;
+            };
+  };
+  
   services.xserver.dpi = 144;
   services.xserver.windowManager.openbox.enable = true;
 
