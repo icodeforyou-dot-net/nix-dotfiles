@@ -25,7 +25,7 @@
   unstable.onlyoffice-bin
   unstable.ardour
   zoom-us
-  tutanota-desktop
+  unstable.tutanota-desktop
   calibre
 
   # Gaming

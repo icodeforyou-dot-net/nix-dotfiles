@@ -16,16 +16,16 @@
   unstable.whatsapp-for-linux
   insomnia
   vlc
-  pcmanfm
-  lxappearance
   gimp
   darktable
   inkscape
   pdfarranger
   unstable.onlyoffice-bin
   zoom-us
-  tutanota-desktop
+  unstable.tutanota-desktop
   calibre
+  unstable.obsidian
+  unstable.neovide
 
   # Gaming
   dosbox-staging
@@ -64,6 +64,8 @@
   unstable.asciinema
   unstable.moc
   unstable.havoc
+  kaggle
+  unstable.tiny
     
   # Shell
   starship
