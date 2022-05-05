@@ -260,6 +260,11 @@
       enable = true;
     };
   
+  programs.neovim = {
+      enable = true;
+      package = pkgs.unstable.neovim-unwrapped;
+    };
+  
   # programs.zellij = {
   #     enable = true;
   #     settings = {
