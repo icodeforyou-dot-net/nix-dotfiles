@@ -36,5 +36,5 @@
   unstable.onionshare-gui
   unstable.onionshare
   unstable.tor-browser-bundle-bin
-
+];
 }
