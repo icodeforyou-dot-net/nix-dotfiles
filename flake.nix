@@ -48,7 +48,7 @@
         modules = [ 
           ./hosts/shared_configuration.nix
 	        ./hosts/archon/configuration.nix
-          ./hosts/kernels/configuration-kernel-5.16.9.nix
+          ./hosts/kernels/linuxPackages_latest.nix
 	      ];
        };
 
