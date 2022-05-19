@@ -27,7 +27,7 @@
 
   networking.hostName = "archon"; 
 
-  virtualization.virtualbox = {
+  virtualisation.virtualbox = {
         guest.enable = false;
         host = {
             enable = true;
