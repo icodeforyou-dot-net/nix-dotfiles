@@ -23,7 +23,9 @@
     driSupport = true;
   # For 32 bit applications
     driSupport32Bit = true;
-  }; 
+  };
+
+  hardware.opentabletdriver.enable = true;
 
   networking.hostName = "archon"; 
 
@@ -35,7 +37,7 @@
             enableExtensionPack = true;
             };
   };
-  
+
   services.xserver.dpi = 144;
   services.xserver.windowManager.openbox.enable = true;
 
