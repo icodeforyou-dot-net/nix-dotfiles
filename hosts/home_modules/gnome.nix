@@ -11,6 +11,7 @@
   flat-remix-icon-theme
   papirus-icon-theme
   nordic
+  orchis-theme
   tela-icon-theme
   lyrebird
   pavucontrol
