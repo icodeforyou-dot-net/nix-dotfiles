@@ -40,6 +40,8 @@
 	      modules = [ 
           ./hosts/shared_configuration.nix
 	        ./hosts/proteus/configuration.nix
+          { nix.registry.nixpkgs.flake = nixpkgs; }
+          { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
        };
 
@@ -49,6 +51,8 @@
           ./hosts/shared_configuration.nix
 	        ./hosts/archon/configuration.nix
           ./hosts/kernels/kernel-5.16.9.nix
+          { nix.registry.nixpkgs.flake = nixpkgs; }
+          { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
        };
 
