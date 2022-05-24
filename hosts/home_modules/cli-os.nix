@@ -31,6 +31,7 @@
   unstable.moc
   unstable.havoc
   unstable.tiny
+  unstable.tealdeer
 
   bottom
   neofetch

@@ -70,7 +70,6 @@
             ./hosts/home_modules/cli-os.nix
             ./hosts/home_modules/coding.nix
             ./hosts/home_modules/fonts.nix
-            ./hosts/home_modules/gaming.nix
             ./hosts/home_modules/gnome.nix
             ./hosts/home_modules/gui.nix            
             ./hosts/proteus/home.nix
@@ -88,8 +87,16 @@
           nixpkgs.overlays = [ overlay-unstable ];
       
           imports = [
-            ./hosts/archon/home.nix
             ./hosts/shared_home.nix
+            ./hosts/home_modules/audio.nix
+            ./hosts/home_modules/cli-os.nix
+            ./hosts/home_modules/coding.nix
+            ./hosts/home_modules/fonts.nix
+            ./hosts/home_modules/gaming.nix
+            ./hosts/home_modules/gnome.nix
+            ./hosts/home_modules/gui.nix            
+            ./hosts/proteus/home.nix
+            ./hosts/archon/home.nix
           ];
           };
      };

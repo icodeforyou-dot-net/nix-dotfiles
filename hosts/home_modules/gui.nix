@@ -16,7 +16,7 @@
   unstable.whatsapp-for-linux
   insomnia
   vlc
-  gimp
+  gimp-with-plugins
   darktable
   inkscape
   pdfarranger
@@ -25,7 +25,6 @@
   unstable.tutanota-desktop
   calibre
   unstable.obsidian
-  unstable.neovide
 
 # Browser
   chromium

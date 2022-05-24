@@ -28,10 +28,6 @@
   poetry
   autoflake
   black
-  python3Packages.ipython
-  python3Packages.ipykernel
-  python3Packages.parso
-  python3Packages.twine
 
   # rust
   rustup
