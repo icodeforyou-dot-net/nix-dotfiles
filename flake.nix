@@ -95,7 +95,6 @@
             ./hosts/home_modules/gaming.nix
             ./hosts/home_modules/gnome.nix
             ./hosts/home_modules/gui.nix            
-            ./hosts/proteus/home.nix
             ./hosts/archon/home.nix
           ];
           };
