@@ -74,6 +74,7 @@
             ./hosts/home_modules/cli-os.nix
             ./hosts/home_modules/coding.nix
             ./hosts/home_modules/fonts.nix
+            ./hosts/home_modules/gaming.nix
             ./hosts/home_modules/gnome.nix
             ./hosts/home_modules/gui.nix            
             ./hosts/proteus/home.nix
