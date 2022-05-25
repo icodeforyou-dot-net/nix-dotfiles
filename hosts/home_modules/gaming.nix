@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
   dosbox-staging
-  unstable.openra
+  openra
   unstable.openraPackages.mods.yr
   unstable.openraPackages.mods.ss
   unstable.openraPackages.mods.ura
