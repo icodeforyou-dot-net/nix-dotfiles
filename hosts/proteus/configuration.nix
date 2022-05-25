@@ -6,6 +6,16 @@
   boot.loader.systemd-boot.consoleMode = "auto";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ 
+      mesa_drivers
+      intel-ocl
+      beignet ];
+  };
+
   networking.hostName = "proteus";
 
   services.xserver.dpi = 192;

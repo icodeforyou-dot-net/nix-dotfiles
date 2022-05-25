@@ -19,7 +19,7 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [ 
-      mesa.drivers
+      mesa_drivers
       rocm-opencl-icd 
       rocm-opencl-runtime ];
   };
