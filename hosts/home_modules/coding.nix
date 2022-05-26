@@ -21,6 +21,7 @@
   pandoc
 
   # Nix
+  nixpkgs-fmt
   dconf2nix
   rnix-lsp
 
@@ -101,6 +102,7 @@
       vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
       unstable.vscode-extensions.jnoortheen.nix-ide
+      unstable.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
       unstable.vscode-extensions.arrterian.nix-env-selector
       unstable.vscode-extensions.haskell.haskell
       unstable.vscode-extensions.ms-vscode.cpptools
