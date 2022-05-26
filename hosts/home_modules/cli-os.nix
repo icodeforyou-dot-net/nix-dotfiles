@@ -24,7 +24,7 @@
   ranger
   ncdu
   xz
-  youtube-dl
+  unstable.youtube-dl
   unrar
   unstable.asciinema
   unstable.moc
