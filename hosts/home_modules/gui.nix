@@ -26,6 +26,10 @@
   calibre
   unstable.obsidian
 
+# Handwritng
+  write_stylus
+  xournalpp
+
 # Browser
   chromium
   brave
