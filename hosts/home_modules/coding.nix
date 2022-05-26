@@ -100,6 +100,8 @@
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
+      unstable.vscode-extensions.jnoortheen.nix-ide
+      unstable.vscode-extensions.arrterian.nix-env-selector
       unstable.vscode-extensions.haskell.haskell
       unstable.vscode-extensions.ms-vscode.cpptools
       vscode-extensions.graphql.vscode-graphql
