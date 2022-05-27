@@ -18,6 +18,15 @@
 
   networking.hostName = "proteus";
 
+  powerManagement.powertop.enable = true;
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      PCIE_ASPM_ON_BAT = "powersupersave";
+    };
+  };
+
   services.xserver.dpi = 192;
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
