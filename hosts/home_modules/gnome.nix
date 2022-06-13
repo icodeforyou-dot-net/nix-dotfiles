@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
   gnome.gnome-tweaks
   gnome.networkmanager-openvpn
+  gnome-terminal
   unstable.gnomeExtensions.dash-to-dock
   gnomeExtensions.tweaks-in-system-menu
   gnomeExtensions.gnome-vagrant-indicator
