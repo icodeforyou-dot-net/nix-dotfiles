@@ -8,6 +8,9 @@
   stress
   starship
 
+  minicom
+  picocom
+
   fzf
   exa
   zoxide

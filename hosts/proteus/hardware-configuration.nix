@@ -10,9 +10,22 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "wl" "facetimehd" ];
+  boot.kernelModules = [
+    "facetimehd"
+    "kvm-intel" 
+    "wl" 
+   ];
+  
+  boot.extraModulePackages = [ config.boot.kernelPackages.facetimehd config.boot.kernelPackages.broadcom_sta ];
 
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta config.boot.kernelPackages.facetimehd ];
+  # boot.extraModulePackages = [ (config.boot.kernelPackages.broadcom_sta.overrideAttrs (old: {
+  #   patches = old.patches ++ [
+  #     (builtins.fetchurl {
+  #       url = "https://raw.githubusercontent.com/archlinux/svntogit-community/2e1fd240f9ce06f500feeaa3e4a9675e65e6b967/trunk/013-linux518.patch";
+  #       sha256 = "sha256:1img0a0vqnkmq4c21aywq2ajyigzcfhbbpg1hw9nx7cbj9hf6d0l";
+  #     })
+  #   ];
+  # })) ];
   
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/af19011c-9b51-4ada-9658-5cb91a1ddfd0";
