@@ -4,7 +4,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.consoleMode = "auto";
-  boot.kernelPackages = pkgs.linuxPackages_5_17;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.opengl = {
     enable = true;
