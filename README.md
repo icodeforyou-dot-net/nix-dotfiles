@@ -3,7 +3,7 @@
 
 ## Structure
 
-Here is the current structure of the repo:
+Here is the current structure of the repo (will be changed often):
 
 ```
 ./
