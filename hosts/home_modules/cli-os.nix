@@ -2,11 +2,13 @@
 
 {
   home.packages = with pkgs; [
+  unstable.alacritty
   pciutils
   usbutils
   less
   stress
   starship
+  glxinfo
 
   minicom
   picocom
