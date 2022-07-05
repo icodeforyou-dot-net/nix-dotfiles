@@ -58,7 +58,6 @@
 
     alias ls='exa -al --color=always --group-directories-first' # my preferred listing
     alias cd='z'
-    alias lvim='/home/ap/.local/bin/lvim'
 
     alias js='cd /home/ap/Coding/javascript'
     alias py='cd /home/ap/Coding/python/recent'
@@ -67,7 +66,7 @@
     alias ans='cd /home/ap/Coding/ansible'
     alias ndf='cd /home/ap/Coding/nix-dotfiles'
 
-    PATH="$PATH:/home/ap/.local/bin/lvim"
+    PATH="$PATH:/home/ap/.local/bin/"
     '';
   };
 
