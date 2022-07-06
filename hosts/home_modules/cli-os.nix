@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-  unstable.alacritty
   pciutils
   usbutils
   less
@@ -44,6 +43,34 @@
   android-file-transfer
   ];
 
+  # alacritty with edited desktop entry
+  programs.alacritty = {
+    enable = true;
+    package = pkgs.unstable.alacritty;
+  };
+
+  xdg.desktopEntries.alacritty = {
+    type = "Application";
+    tryExec = "env WAYLAND_DISPLAY= alacritty";
+    exec = "env WAYLAND_DISPLAY= alacritty";
+    icon = "Alacritty";
+    terminal = false;
+    categories = [ "System" "TerminalEmulator" ];
+
+
+    name = "Alacritty";
+    genericName = "Terminal";
+    comment = "A fast, cross-platform, OpenGL terminal emulator";
+    startupWMClass = "Alacritty";
+    actions = {
+      new = {
+        name = "New Terminal";
+        exec = "env WAYLAND_DISPLAY= alacritty";
+      }
+    };
+  };
+
+  # bash
   programs.bash = {
     enable = true;
     profileExtra = ''
@@ -70,21 +97,25 @@
     '';
   };
 
+  # bat
   programs.bat = {
     enable = true;
   };
 
+  # direnv
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
 
+  # lazygit
   programs.lazygit = {
       enable = true;
       settings = {    
       };
     };
 
+  # zellij
   programs.zellij = {
       enable = true;
       # settings = {
@@ -104,5 +135,4 @@
       #   };
       # };
   };
-
 }
