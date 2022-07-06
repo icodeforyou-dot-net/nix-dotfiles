@@ -2,6 +2,18 @@
 
 {
   home.packages = with pkgs; [
+
+  # Creating a wrappter for alacritty to run it in XWayland
+  (symlinkJoin {
+    paths = [alacritty];
+    inherit (alacritty) name pname version;
+    nativeBuildInputs = [makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/alacritty \
+        --set WAYLAND_DISPLAY alacritty
+    '';
+  })
+
   pciutils
   usbutils
   less
@@ -20,6 +32,10 @@
   du-dust
   duf
   tree-sitter
+
+  # language servers for neovim to be globally accesible
+  nodePackages.bash-language-server
+  sumneko-lua-language-server
 
   awscli
   kaggle
@@ -44,31 +60,28 @@
   ];
 
   # alacritty with edited desktop entry
-  programs.alacritty = {
-    enable = true;
-    package = pkgs.unstable.alacritty;
-  };
 
-  xdg.desktopEntries.alacritty = {
-    type = "Application";
-    tryExec = "env WAYLAND_DISPLAY= alacritty";
-    exec = "env WAYLAND_DISPLAY= alacritty";
-    icon = "Alacritty";
-    terminal = false;
-    categories = [ "System" "TerminalEmulator" ];
+  # home.file.".local/share/applications/alacritty.desktop" = {
+  #   text = ''
+  #   [Desktop Entry]
+  #   Type=Application
+  #   TryExec=env WAYLAND_DISPLAY= alacritty
+  #   Exec=env WAYLAND_DISPLAY= alacritty
+  #   Icon=Alacritty
+  #   Terminal=false
+  #   Categories=System;TerminalEmulator;
 
+  #   Name=Alacritty
+  #   GenericName=Terminal
+  #   Comment=A fast, cross-platform, OpenGL terminal emulator
+  #   StartupWMClass=Alacritty
+  #   Actions=New;
 
-    name = "Alacritty";
-    genericName = "Terminal";
-    comment = "A fast, cross-platform, OpenGL terminal emulator";
-    startupWMClass = "Alacritty";
-    actions = {
-      new = {
-        name = "New Terminal";
-        exec = "env WAYLAND_DISPLAY= alacritty";
-      }
-    };
-  };
+  #   [Desktop Action New]
+  #   Name=New Terminal
+  #   Exec=env WAYLAND_DISPLAY= alacritty
+  #   '';
+  # };
 
   # bash
   programs.bash = {
