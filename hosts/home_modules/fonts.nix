@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Iosevka" "Overpass" "FiraCode" ]; })
+  (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" "Iosevka" "Overpass" "FiraCode" ]; })
   ];
 }
