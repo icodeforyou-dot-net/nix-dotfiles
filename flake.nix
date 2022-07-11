@@ -43,6 +43,7 @@
           ./hosts/shared_configuration.nix
 	        ./hosts/proteus/configuration.nix
           ./hosts/system_modules/sway.nix
+          ./hosts/system_modules/pipewire.nix
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
