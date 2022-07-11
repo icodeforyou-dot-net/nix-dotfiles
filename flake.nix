@@ -42,6 +42,8 @@
 	      modules = [ 
           ./hosts/shared_configuration.nix
 	        ./hosts/proteus/configuration.nix
+          ./hosts/system_modules/pipewire.nix
+          ./hosts/system_modules/sway.nix
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
@@ -76,9 +78,9 @@
             ./hosts/home_modules/cli-os.nix
             ./hosts/home_modules/coding.nix
             ./hosts/home_modules/fonts.nix
-            ./hosts/home_modules/gaming/dosbox.nix
             ./hosts/home_modules/gnome.nix
-            ./hosts/home_modules/gui.nix            
+            ./hosts/home_modules/gui.nix
+            ./hosts/home_modules/wm-hyperland.nix      
             ./hosts/proteus/home.nix
           ];
 	        };
