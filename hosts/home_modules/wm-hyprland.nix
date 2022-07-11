@@ -10,6 +10,8 @@
     unstable.lf
     # Wofi wayland launcher
     unstable.wofi
+    # Command-line copy/paste utilities for Wayland
+    wl-clipboard
     # wayland based logout menu
     unstable.wlogout
     # Xfce file manager
