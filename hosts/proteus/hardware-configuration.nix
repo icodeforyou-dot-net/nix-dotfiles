@@ -12,8 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "facetimehd"
-    "kvm-intel" 
-    "wl" 
+    "kvm-intel"
+    "wl"
    ];
   boot.extraModulePackages = [ 
     config.boot.kernelPackages.facetimehd
