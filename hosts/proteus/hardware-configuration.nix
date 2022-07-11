@@ -17,7 +17,7 @@
    ];
   boot.extraModulePackages = [ 
     config.boot.kernelPackages.facetimehd
-    config.boot.kernelPackages.broadcom_sta 
+    config.boot.kernelPackages.broadcom_sta
   ];
   
   fileSystems."/" =

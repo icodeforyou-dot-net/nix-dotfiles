@@ -80,7 +80,7 @@
             ./hosts/home_modules/fonts.nix
             ./hosts/home_modules/gnome.nix
             ./hosts/home_modules/gui.nix
-            ./hosts/home_modules/wm-hyperland.nix      
+            ./hosts/home_modules/wm-hyprland.nix      
             ./hosts/proteus/home.nix
           ];
 	        };

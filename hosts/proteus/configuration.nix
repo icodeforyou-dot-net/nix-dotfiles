@@ -4,7 +4,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.consoleMode = "auto";
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.opengl = {
     enable = true;
@@ -21,6 +21,8 @@
   networking.hostName = "proteus";
 
   powerManagement.powertop.enable = true;
+
+  programs.sway.enable = true;
 
   services.power-profiles-daemon.enable = false;
 
