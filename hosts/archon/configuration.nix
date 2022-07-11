@@ -26,6 +26,8 @@
 
   hardware.opentabletdriver.enable = true;
 
+  hardware.pulseaudio.enable = true;
+
   networking.hostName = "archon"; 
 
   virtualisation.virtualbox = {
