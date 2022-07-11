@@ -9,11 +9,10 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "wl" ];
   boot.kernelModules = [
     "facetimehd"
     "kvm-intel"
-    "wl"
    ];
   boot.extraModulePackages = [ 
     config.boot.kernelPackages.facetimehd
