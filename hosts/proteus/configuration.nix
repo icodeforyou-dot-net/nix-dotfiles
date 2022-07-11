@@ -4,7 +4,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.consoleMode = "auto";
-  # boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.opengl = {
     enable = true;
@@ -16,7 +16,7 @@
       beignet ];
   };
 
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = true;
 
   networking.hostName = "proteus";
 
