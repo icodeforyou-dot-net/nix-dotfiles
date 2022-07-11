@@ -40,6 +40,7 @@
   };
 
   services.xserver.dpi = 144;
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.windowManager.openbox.enable = true;
 
 }

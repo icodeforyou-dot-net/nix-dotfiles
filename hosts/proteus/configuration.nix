@@ -16,8 +16,6 @@
       beignet ];
   };
 
-  hardware.pulseaudio.enable = false;
-
   networking.hostName = "proteus";
 
   powerManagement.powertop.enable = true;
@@ -34,6 +32,7 @@
   };
 
   services.xserver.dpi = 192;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
