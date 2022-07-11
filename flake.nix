@@ -9,16 +9,16 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
-
+    };
+    
     hyprland = {
       url = "github:hyprwm/Hyprland";
       # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs: 
     let
       system = "x86_64-linux";
       
