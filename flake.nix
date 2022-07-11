@@ -44,6 +44,7 @@
 	        ./hosts/proteus/configuration.nix
           ./hosts/system_modules/pipewire.nix
           ./hosts/system_modules/sway.nix
+          ./hosts/kernels/kernel-5.15.43.nix
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
