@@ -9,10 +9,16 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland ... }@inputs: 
     let
       system = "x86_64-linux";
       
@@ -44,6 +50,8 @@
 	        ./hosts/proteus/configuration.nix
           ./hosts/system_modules/sway.nix
           ./hosts/system_modules/pipewire.nix
+          hyprland.nixosModules.default 
+          { programs.hyprland.enable = true; }
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
