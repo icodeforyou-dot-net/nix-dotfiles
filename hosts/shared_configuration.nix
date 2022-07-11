@@ -20,6 +20,15 @@
       supportedFilesystems = [ "btrfs" ];
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    # Replacement for Times New Roman, Arial
+    liberation_ttf
+    google-fonts
+  ];
+
   networking = {
       firewall.enable = true;
       networkmanager.enable = true;
