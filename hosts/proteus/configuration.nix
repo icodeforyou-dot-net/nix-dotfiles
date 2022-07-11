@@ -16,6 +16,8 @@
       beignet ];
   };
 
+  hardware.pulseaudio.enable = false;
+
   networking.hostName = "proteus";
 
   powerManagement.powertop.enable = true;
