@@ -10,7 +10,7 @@
 
         src = pkgs.fetchurl {
             url = "https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
-            sha256 = "0kvlidg7qgj49in9h92sw0dnnzyrvqax2fcpq63w36f2iqiffq0n";
+            sha256 = "sha256-BkuROp1YdzqFyvpi8qL5Axru5yTX5BtmYxA32aZXHBI=";
         };
         
           kernelPatches = [];
