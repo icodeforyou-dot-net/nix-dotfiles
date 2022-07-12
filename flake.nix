@@ -53,7 +53,7 @@
           hyprland.nixosModules.default 
           { programs.hyprland = { 
               enable = true;
-              extraPackages = [ 
+              extraPackages = with pkgs; [ 
                 wofi
                 waybar
                 swaybg
@@ -61,7 +61,6 @@
                 swaylock
                 mako
                 lf
-                thunar
                 slurp
                 grim
                 wf-recorder
@@ -70,6 +69,7 @@
                 viewnior
                 wl-clipboard
                 wlroots
+                xfce.thunar
                 xwayland
               ]; 
               };
