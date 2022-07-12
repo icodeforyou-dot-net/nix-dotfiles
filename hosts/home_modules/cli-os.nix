@@ -59,30 +59,6 @@
   android-file-transfer
   ];
 
-  # alacritty with edited desktop entry
-
-  # home.file.".local/share/applications/alacritty.desktop" = {
-  #   text = ''
-  #   [Desktop Entry]
-  #   Type=Application
-  #   TryExec=env WAYLAND_DISPLAY= alacritty
-  #   Exec=env WAYLAND_DISPLAY= alacritty
-  #   Icon=Alacritty
-  #   Terminal=false
-  #   Categories=System;TerminalEmulator;
-
-  #   Name=Alacritty
-  #   GenericName=Terminal
-  #   Comment=A fast, cross-platform, OpenGL terminal emulator
-  #   StartupWMClass=Alacritty
-  #   Actions=New;
-
-  #   [Desktop Action New]
-  #   Name=New Terminal
-  #   Exec=env WAYLAND_DISPLAY= alacritty
-  #   '';
-  # };
-
   # bash
   programs.bash = {
     enable = true;
@@ -131,21 +107,5 @@
   # zellij
   programs.zellij = {
       enable = true;
-      # settings = {
-      #   theme = "nord";
-      #   themes.nord = {
-      #     fg = "[216, 222, 233] #D8DEE9";
-      #     bg = "[46, 52, 64] #2E3440";
-      #     black = "[59, 66, 82] #3B4252";
-      #     red = "[191, 97, 106] #BF616A";
-      #     green = "[163, 190, 140] #A3BE8C";
-      #     yellow = "[235,203,139] #EBCB8B";
-      #     blue = "[129, 161, 193] #81A1C1";
-      #     magenta = "[180, 142, 173] #B48EAD";
-      #     cyan = "[136, 192, 208] #88C0D0";
-      #     white = "[229, 233, 240] #E5E9F0";
-      #     orange = "[208, 135, 112] #D08770";
-      #   };
-      # };
   };
 }

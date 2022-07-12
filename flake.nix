@@ -51,7 +51,19 @@
           ./hosts/system_modules/sway.nix
           ./hosts/system_modules/pipewire.nix
           hyprland.nixosModules.default 
-          { programs.hyprland.enable = true; }
+          { programs.hyprland = { 
+              enable = true;
+              extraPackages = [ 
+                wofi
+                waybar
+                swaybg
+                mako
+                lf
+                thunar
+                wl-clipboard
+              ]; 
+              };
+          }
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
