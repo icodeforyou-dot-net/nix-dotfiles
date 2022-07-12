@@ -57,10 +57,20 @@
                 wofi
                 waybar
                 swaybg
+                swayidle
+                swaylock
                 mako
                 lf
                 thunar
+                slurp
+                grim
+                wf-recorder
+                light
+                yad
+                viewnior
                 wl-clipboard
+                wlroots
+                xwayland
               ]; 
               };
           }
