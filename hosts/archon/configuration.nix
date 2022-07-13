@@ -14,6 +14,11 @@
   #     };
   # });
 
+  console = {
+     font = "Lat2-Terminus16";
+     keyMap = "us";
+  };
+
   hardware.opengl = {
     enable = true;
     driSupport = true;

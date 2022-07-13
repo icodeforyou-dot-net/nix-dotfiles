@@ -5,6 +5,7 @@
 
   boot.loader.systemd-boot.consoleMode = "auto";
   boot.kernelPackages = pkgs.linuxPackages;
+  boot.earlyVconsoleSetup = true;
 
   hardware.opengl = {
     enable = true;
@@ -16,8 +17,9 @@
       beignet ];
   };
 
-  i18n = {
-    consoleFont = "latarcyrheb-sun32";
+  console = {
+     font = "Lat2-Terminus32";
+     keyMap = "us";
   };
 
   networking.hostName = "proteus";
