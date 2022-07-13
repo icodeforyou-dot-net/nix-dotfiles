@@ -68,9 +68,7 @@
                 yad
                 viewnior
                 wl-clipboard
-                wlroots
                 xfce.thunar
-                xwayland
               ]; 
               };
           }
