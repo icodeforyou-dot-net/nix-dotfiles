@@ -38,6 +38,12 @@
     };
   };
 
+  services.xserver = {
+          enable = true;
+          desktopManager.gnome.enable = false;
+          layout = "us";
+  };
+
   services.xserver.dpi = 192;
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.displayManager.sddm.enable = false;
