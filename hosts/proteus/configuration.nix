@@ -57,7 +57,7 @@
   security.polkit.enable = true;
   fonts.enableDefaultFonts = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ xdg-desktop-portal-wlr ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
