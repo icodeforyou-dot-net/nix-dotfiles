@@ -14,7 +14,7 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
       # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -23,6 +23,13 @@
       system = "x86_64-linux";
       
       pkgs = import nixpkgs {
+        inherit system;
+	      config = { 
+          allowUnfree = true;
+        };
+      };
+
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
 	      config = { 
           allowUnfree = true;
@@ -43,7 +50,7 @@
     {
      nixosConfigurations = {
 
-      proteus = lib.nixosSystem {
+      proteus = nixpkgs-unstable.lib.nixosSystem {
         inherit system;
 	      modules = [ 
           ./hosts/shared_configuration.nix
@@ -53,7 +60,7 @@
           hyprland.nixosModules.default 
           { programs.hyprland = { 
               enable = true;
-              extraPackages = with pkgs; [ 
+              extraPackages = with pkgs-unstable; [ 
                 wofi
                 waybar
                 swaybg
@@ -72,8 +79,8 @@
               ]; 
               };
           }
-          { nix.registry.nixpkgs.flake = nixpkgs; }
-          { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+          { nix.registry.nixpkgs.flake = nixpkgs-unstable; }
+          { nix.nixPath = [ "nixpkgs=${nixpkgs-unstable}" ]; }
 	      ];
        };
 
