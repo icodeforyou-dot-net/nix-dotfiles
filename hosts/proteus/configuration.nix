@@ -41,23 +41,23 @@
 
   services.xserver = {
           enable = true;
-          desktopManager.gnome.enable = false;
+          desktopManager.gnome.enable = true;
           layout = "us";
   };
 
   environment.systemPackages = [ pkgs.wayland ];
 
   services.xserver.dpi = 192;
-  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.sddm.enable = false;
   services.xserver.displayManager.lightdm.enable = false;
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
-  security.polkit.enable = true;
-  fonts.enableDefaultFonts = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+  # security.polkit.enable = true;
+  # fonts.enableDefaultFonts = true;
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
