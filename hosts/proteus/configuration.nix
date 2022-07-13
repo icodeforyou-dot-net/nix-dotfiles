@@ -45,7 +45,7 @@
           layout = "us";
   };
 
-  environment.systemPackages = [ wayland ];
+  environment.systemPackages = [ pkgs.wayland ];
 
   services.xserver.dpi = 192;
   services.xserver.displayManager.gdm.enable = false;
