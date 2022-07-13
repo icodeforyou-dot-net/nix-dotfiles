@@ -16,6 +16,10 @@
       beignet ];
   };
 
+  i18n = {
+    consoleFont = "latarcyrheb-sun32";
+  };
+
   networking.hostName = "proteus";
 
   powerManagement.powertop.enable = true;
