@@ -18,7 +18,7 @@
   };
 
   console = {
-     font = "Lat2-Terminus32";
+     font = "latarcyrheb-sun32";
      keyMap = "us";
   };
 
