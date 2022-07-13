@@ -42,11 +42,6 @@
         enable = true;
         drivers = with pkgs; [ hplipWithPlugin ];
         };
-      xserver = {
-          enable = true;
-          desktopManager.gnome.enable = true;
-          layout = "us";
-        };
   };
 
   sound.enable = true;
@@ -71,8 +66,6 @@
   ];
 
   security.sudo.execWheelOnly = true;
-
-  programs.dconf.enable = true;
 
   programs.firejail = {
         enable = true;

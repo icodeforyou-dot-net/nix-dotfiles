@@ -44,6 +44,8 @@
             };
   };
 
+  programs.dconf.enable = true;
+
   services.xserver = {
           enable = true;
           desktopManager.gnome.enable = true;

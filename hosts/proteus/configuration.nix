@@ -26,6 +26,7 @@
 
   powerManagement.powertop.enable = true;
 
+  programs.dconf.enable = true;
   programs.sway.enable = false;
   programs.xwayland.enable = true;
 
