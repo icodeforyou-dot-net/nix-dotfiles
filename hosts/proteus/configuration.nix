@@ -27,6 +27,7 @@
   powerManagement.powertop.enable = true;
 
   programs.sway.enable = false;
+  programs.xwayland.enable = true;
 
   services.power-profiles-daemon.enable = false;
 
