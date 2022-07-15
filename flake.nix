@@ -59,6 +59,15 @@
           ./hosts/system_modules/pipewire.nix
           hyprland.nixosModules.default 
           { programs.hyprland = { 
+              # package = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
+              #   version = "v0.7.1beta";
+              #   src = fetchFromGitHub {
+              #     owner = "hyprwm";
+              #     repo = pname;
+              #     rev = "v${version}";
+              #     sha256 = "sha256-0Msqe2ErAJvnO1zHoB2k6TkDhTYnHRGkvJrfSG12dTU=";
+              #   };
+              # });
               enable = true;
               extraPackages = with pkgs-unstable; [ 
                 wofi
