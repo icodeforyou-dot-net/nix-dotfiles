@@ -11,11 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   # build with your own instance of nixpkgs
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs: 
@@ -57,7 +57,7 @@
 	        ./hosts/proteus/configuration.nix
           # ./hosts/system_modules/sway.nix
           ./hosts/system_modules/pipewire.nix
-          hyprland.nixosModules.default 
+          # hyprland.nixosModules.default 
           # { programs.hyprland = { 
               # package = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
               #   version = "v0.7.1beta";
@@ -87,7 +87,7 @@
               #   xfce.thunar
               # ]; 
               # };
-          }
+          # }
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];

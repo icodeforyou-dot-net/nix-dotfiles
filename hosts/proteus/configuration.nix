@@ -30,33 +30,6 @@
   programs.sway.enable = false;
   programs.xwayland.enable = true;
 
-  # programs.hyprland = { 
-  #   package = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
-  #     version = "v0.7.1beta";
-  #     src = fetchFromGitHub {
-  #       sha256 = "sha256-0Msqe2ErAJvnO1zHoB2k6TkDhTYnHRGkvJrfSG12dTU=";
-  #     };
-  #   });
-  #   enable = true;
-  #   extraPackages = with pkgs-unstable; [ 
-  #     wofi
-  #     waybar
-  #     swaybg
-  #     swayidle
-  #     swaylock
-  #     mako
-  #     lf
-  #     slurp
-  #     grim
-  #     wf-recorder
-  #     light
-  #     yad
-  #     viewnior
-  #     wl-clipboard
-  #     xfce.thunar
-  #   ]; 
-  #   };
-
   services.power-profiles-daemon.enable = false;
 
   services.tlp = {
@@ -72,7 +45,7 @@
           layout = "us";
   };
 
-  environment.systemPackages = [ pkgs.wayland ];
+  # environment.systemPackages = [ pkgs.wayland ];
 
   services.xserver.dpi = 192;
   services.xserver.displayManager.gdm.enable = true;
@@ -81,10 +54,10 @@
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
-  security.polkit.enable = true;
-  fonts.enableDefaultFonts = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+  # security.polkit.enable = true;
+  # fonts.enableDefaultFonts = true;
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

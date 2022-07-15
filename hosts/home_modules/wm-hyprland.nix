@@ -6,7 +6,23 @@
 
 {
   home.packages = with pkgs; [
-  unstable.hyprland
+    unstable.hyprland
+
+    wofi
+    waybar
+    swaybg
+    swayidle
+    swaylock
+    mako
+    lf
+    slurp
+    grim
+    wf-recorder
+    light
+    yad
+    viewnior
+    wl-clipboard
+    xfce.thunar
   ];
 }
   # home.file = {
