@@ -13,8 +13,7 @@
     
     # hyprland = {
     #   url = "github:hyprwm/Hyprland";
-    #   # build with your own instance of nixpkgs
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
 
@@ -50,44 +49,12 @@
     {
      nixosConfigurations = {
 
-      proteus = nixpkgs.lib.nixosSystem {
+      proteus = lib.nixosSystem {
         inherit system;
 	      modules = [ 
           ./hosts/shared_configuration.nix
 	        ./hosts/proteus/configuration.nix
-          # ./hosts/system_modules/sway.nix
           ./hosts/system_modules/pipewire.nix
-          # hyprland.nixosModules.default 
-          # { programs.hyprland = { 
-              # package = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
-              #   version = "v0.7.1beta";
-              #   src = fetchFromGitHub {
-              #     owner = "hyprwm";
-              #     repo = pname;
-              #     rev = "v${version}";
-              #     sha256 = "sha256-0Msqe2ErAJvnO1zHoB2k6TkDhTYnHRGkvJrfSG12dTU=";
-              #   };
-              # });
-              # enable = true;
-              # extraPackages = with pkgs-unstable; [ 
-              #   wofi
-              #   waybar
-              #   swaybg
-              #   swayidle
-              #   swaylock
-              #   mako
-              #   lf
-              #   slurp
-              #   grim
-              #   wf-recorder
-              #   light
-              #   yad
-              #   viewnior
-              #   wl-clipboard
-              #   xfce.thunar
-              # ]; 
-              # };
-          # }
           { nix.registry.nixpkgs.flake = nixpkgs; }
           { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
 	      ];
@@ -123,8 +90,7 @@
             ./hosts/home_modules/coding.nix
             ./hosts/home_modules/fonts.nix
             ./hosts/home_modules/gnome.nix
-            ./hosts/home_modules/gui.nix
-            ./hosts/home_modules/wm-hyprland.nix      
+            ./hosts/home_modules/gui.nix   
             ./hosts/proteus/home.nix
           ];
 	        };
