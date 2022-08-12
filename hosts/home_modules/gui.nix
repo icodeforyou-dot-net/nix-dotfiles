@@ -17,7 +17,7 @@ in
 
     unstable.mailspring
     slack
-    unstable.discord
+    discord
     unstable.element-desktop
     skypeforlinux
     unstable.bitwarden
