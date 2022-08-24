@@ -2,20 +2,20 @@
 
 {
   home.packages = with pkgs; [
-  unstable.gnome.gnome-tweaks
-  gnome.networkmanager-openvpn
-  gnome.gnome-terminal
-  unstable.gnomeExtensions.dash-to-dock
-  gnomeExtensions.tweaks-in-system-menu
-  gnomeExtensions.gnome-vagrant-indicator
-  flat-remix-gtk
-  flat-remix-icon-theme
-  papirus-icon-theme
-  nordic
-  orchis-theme
-  tela-icon-theme
-  lyrebird
-  pavucontrol
-  wl-clipboard
+    unstable.gnome.gnome-tweaks
+    gnome.networkmanager-openvpn
+    gnome.gnome-terminal
+    unstable.gnomeExtensions.dash-to-dock
+    gnomeExtensions.tweaks-in-system-menu
+    gnomeExtensions.gnome-vagrant-indicator
+    flat-remix-gtk
+    flat-remix-icon-theme
+    papirus-icon-theme
+    nordic
+    orchis-theme
+    tela-icon-theme
+    lyrebird
+    pavucontrol
+    wl-clipboard
   ];
 }

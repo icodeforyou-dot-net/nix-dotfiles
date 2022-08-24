@@ -1,23 +1,24 @@
 { pkgs, ... }:
 
 {
-  boot.kernelPackages = let
+  boot.kernelPackages =
+    let
       linux_pkg = { fetchurl, buildLinux, ... } @ args:
 
         buildLinux (args // rec {
           version = "5.16.9";
           modDirVersion = version;
 
-        src = pkgs.fetchurl {
+          src = pkgs.fetchurl {
             url = "https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz";
             sha256 = "0kvlidg7qgj49in9h92sw0dnnzyrvqax2fcpq63w36f2iqiffq0n";
-        };
-        
-          kernelPatches = [];
+          };
+
+          kernelPatches = [ ];
 
           extraMeta.branch = "5.16";
-        } // (args.argsOverride or {}));
-      linux_5-16-9 = pkgs.callPackage linux_pkg{};
-    in 
-      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_5-16-9);
+        } // (args.argsOverride or { }));
+      linux_5-16-9 = pkgs.callPackage linux_pkg { };
+    in
+    pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_5-16-9);
 }

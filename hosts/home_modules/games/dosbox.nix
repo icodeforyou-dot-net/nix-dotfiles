@@ -2,13 +2,13 @@
 
 {
   home.packages = with pkgs; [
-  dosbox-staging
+    dosbox-staging
   ];
 
   # Configuration for doxbox-staging
   home.file.".config/dosbox/dosbox-staging.conf" = {
-          executable = false;
-          text = "
+    executable = false;
+    text = "
           # This is the configuration file for dosbox-staging (0.77.1).
           [sdl]
           fullscreen       = false

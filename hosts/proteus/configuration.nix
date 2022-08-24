@@ -11,15 +11,16 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [ 
+    extraPackages = with pkgs; [
       mesa_drivers
       intel-ocl
-      beignet ];
+      beignet
+    ];
   };
 
   console = {
-     font = "latarcyrheb-sun32";
-     keyMap = "us";
+    font = "latarcyrheb-sun32";
+    keyMap = "us";
   };
 
   networking.hostName = "proteus";
@@ -40,9 +41,9 @@
   };
 
   services.xserver = {
-          enable = true;
-          desktopManager.gnome.enable = true;
-          layout = "us";
+    enable = true;
+    desktopManager.gnome.enable = true;
+    layout = "us";
   };
 
   # environment.systemPackages = [ pkgs.wayland ];

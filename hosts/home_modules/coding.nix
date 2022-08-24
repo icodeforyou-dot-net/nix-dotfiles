@@ -2,102 +2,102 @@
 
 {
   home.packages = with pkgs; [
-    
-  # Coding
-  unstable.helix
 
-  # general
-  unstable.git
-  unstable.github-desktop
+    # Coding
+    unstable.helix
 
-  # C
-  unstable.gcc
+    # general
+    unstable.git
+    unstable.github-desktop
 
-  # lua
-  lua
+    # C
+    unstable.gcc
 
-  # markdown
-  # nodePackages.livedown
-  pandoc
+    # lua
+    lua
 
-  # Nix
-  nixpkgs-fmt
-  dconf2nix
-  rnix-lsp
+    # markdown
+    # nodePackages.livedown
+    pandoc
 
-  # python
-  (python3.withPackages (ps: with ps; [ setuptools pip debugpy requests ]))
-  poetry
-  autoflake
-  black
+    # Nix
+    nixpkgs-fmt
+    dconf2nix
+    rnix-lsp
 
-  # rust
-  rustup
+    # python
+    (python3.withPackages (ps: with ps; [ setuptools pip debugpy requests ]))
+    poetry
+    autoflake
+    black
 
-  lldb # debugging setup
-    
-  # Julia
-  unstable.julia-bin
-    
-  # Containers
-  dive
-  skopeo
-  docker-compose
+    # rust
+    rustup
 
-  #SQL
-  unstable.sqlitebrowser
-  unstable.beekeeper-studio
+    lldb # debugging setup
 
-  # ansible
-  ansible
-  ansible-lint
-  sshpass
+    # Julia
+    unstable.julia-bin
 
-  # VMs
-  quickemu
-  vagrant
+    # Containers
+    dive
+    skopeo
+    docker-compose
+
+    #SQL
+    unstable.sqlitebrowser
+    unstable.beekeeper-studio
+
+    # ansible
+    ansible
+    ansible-lint
+    sshpass
+
+    # VMs
+    quickemu
+    vagrant
   ];
 
   # Configuration for helix editor
   home.file.".config/helix/config.toml" = {
-        executable = false;
-        text = ''
-        theme = "nord"
+    executable = false;
+    text = ''
+      theme = "nord"
 
-        [editor]
-        line-number = "absolute"
-        mouse = true
-        scrolloff = 2
+      [editor]
+      line-number = "absolute"
+      mouse = true
+      scrolloff = 2
 
-        [editor.file-picker]
-        hidden = false
+      [editor.file-picker]
+      hidden = false
 
-        [keys.normal]
-        g = { a = "code_action" } # Maps `ga` to show possible code actions
-        C-c = "no_op"
-        "C-/" = "toggle_comments"
+      [keys.normal]
+      g = { a = "code_action" } # Maps `ga` to show possible code actions
+      C-c = "no_op"
+      "C-/" = "toggle_comments"
 
-        [keys.insert]
-        j = { k = "normal_mode" } # Maps `jk` to exit insert mode
-        C-c = "normal_mode"
+      [keys.insert]
+      j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+      C-c = "normal_mode"
         
-        [keys.select]
-        '';
+      [keys.select]
+    '';
   };
 
   programs.go = {
-      enable = true;
-    };
+    enable = true;
+  };
 
   programs.neovim = {
-      enable = true;
-      package = pkgs.unstable.neovim-unwrapped;
-    };
+    enable = true;
+    package = pkgs.unstable.neovim-unwrapped;
+  };
 
   programs.vscode = {
-     enable = true;
-     package = pkgs.unstable.vscode;
-     extensions = with pkgs; [
+    enable = true;
+    package = pkgs.unstable.vscode;
+    extensions = with pkgs; [
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
@@ -114,6 +114,7 @@
       unstable.vscode-extensions.matklad.rust-analyzer
       vscode-extensions.ms-vscode-remote.remote-ssh
       vscode-extensions.redhat.vscode-yaml
-      vscode-extensions.svelte.svelte-vscode ];
-    };
+      vscode-extensions.svelte.svelte-vscode
+    ];
+  };
 }
