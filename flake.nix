@@ -112,6 +112,7 @@
               ./hosts/home_modules/coding.nix
               ./hosts/home_modules/fonts.nix
               ./hosts/home_modules/gaming/dosbox.nix
+              ./hosts/home_modules/gaming/openwm.nix
               ./hosts/home_modules/gnome.nix
               ./hosts/home_modules/gui.nix
               ./hosts/archon/home.nix
