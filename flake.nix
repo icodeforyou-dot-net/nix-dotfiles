@@ -107,9 +107,7 @@
 
             imports = [
               ./hosts/shared_home.nix
-              ./hosts/home_modules/dosbox.nix
-              ./hosts/home_modules/games/openmw.nix
-              ./hosts/home_modules/audio.nix
+              # ./hosts/home_modules/audio.nix
               ./hosts/home_modules/cli-os.nix
               ./hosts/home_modules/coding.nix
               ./hosts/home_modules/fonts.nix
