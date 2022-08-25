@@ -1,3 +1,3 @@
-nix build ../#homeConfigurations.ap-proteus.activationPackage
+nix build ../#homeConfigurations.ap-${HOSTNAME}.activationPackage
 ./result/activate
 rm -rf ./result
