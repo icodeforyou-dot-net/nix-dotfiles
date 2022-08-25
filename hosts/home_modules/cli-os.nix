@@ -57,8 +57,6 @@
     neofetch
 
     android-file-transfer
-
-    openmw
   ];
 
   # bash
