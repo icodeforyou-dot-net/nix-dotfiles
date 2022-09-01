@@ -49,4 +49,13 @@
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
   system.stateVersion = "22.05";
+
+  virtualisation.virtualbox = {
+    guest.enable = false;
+    host = {
+      enable = true;
+      enableHardening = true;
+      enableExtensionPack = true;
+    };
+  };
 }
