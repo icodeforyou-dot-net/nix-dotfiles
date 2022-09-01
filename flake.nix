@@ -71,6 +71,17 @@
           ];
         };
 
+        perseus = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/shared_configuration.nix
+            ./hosts/perseus/configuration.nix
+            ./hosts/system_modules/pipewire.nix
+            { nix.registry.nixpkgs.flake = nixpkgs; }
+            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+          ];
+        };
+
       };
 
       homeConfigurations = {
@@ -118,7 +129,32 @@
             ];
           };
         };
-      };
 
+        ap-perseus = home-manager.lib.homeManagerConfiguration {
+          inherit system pkgs;
+          username = "ap";
+          homeDirectory = "/home/ap";
+          stateVersion = "22.05";
+          configuration = {
+
+            nixpkgs.config = { allowUnfree = true; };
+            nixpkgs.overlays = [ overlay-unstable ];
+
+            imports = [
+              ./hosts/shared_home.nix
+              ./hosts/home_modules/games/openmw.nix
+              ./hosts/home_modules/audio.nix
+              ./hosts/home_modules/cli-os.nix
+              ./hosts/home_modules/coding.nix
+              ./hosts/home_modules/fonts.nix
+              ./hosts/home_modules/gnome.nix
+              ./hosts/home_modules/gui.nix
+              ./hosts/archon/home.nix
+            ];
+          };
+        };
+      };
     };
+
+};
 }
