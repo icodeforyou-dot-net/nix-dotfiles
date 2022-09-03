@@ -11,10 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
@@ -74,6 +74,8 @@
         perseus = lib.nixosSystem {
           inherit system;
           modules = [
+            hyprland.nixosModules.default 
+            { programs.hyprland.enable = true; }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
             ./hosts/system_modules/pipewire.nix
