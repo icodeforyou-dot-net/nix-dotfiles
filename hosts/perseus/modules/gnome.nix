@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     unstable.gnome.gnome-tweaks
+    catppuccin-gtk
     gnome.networkmanager-openvpn
     gnome.gnome-terminal
     unstable.gnomeExtensions.dash-to-dock
