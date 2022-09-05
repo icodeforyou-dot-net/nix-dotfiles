@@ -33,7 +33,17 @@ in
     # Browser
     chromium
     unstable.brave
-    unstable.firefox
+
+    # Creating a wrapper for firefox to run it in firejail
+    (symlinkJoin {
+      paths = [ firefox ];
+      inherit (firefox) name pname version;
+      nativeBuildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/firefox \
+          firejail firefox
+      '';
+    })
 
     # tor
     unstable.onionshare-gui
