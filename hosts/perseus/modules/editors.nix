@@ -70,6 +70,7 @@
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Frappé";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontLigatures" = true;
     };
   };
 }
