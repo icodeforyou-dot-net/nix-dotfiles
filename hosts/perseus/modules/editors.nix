@@ -68,7 +68,7 @@
     ];
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
-      "workbench.colorTheme" = "Catppuccin Frappé";
+      "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
       "editor.fontLigatures" = true;
     };
