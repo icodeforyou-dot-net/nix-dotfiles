@@ -144,11 +144,12 @@
 
             imports = [
               ./hosts/shared_home.nix
-              ./hosts/home_modules/cli-os.nix
-              ./hosts/home_modules/coding.nix
-              ./hosts/home_modules/fonts.nix
-              ./hosts/home_modules/gnome.nix
-              ./hosts/home_modules/gui.nix
+              ./hosts/perseus/modules/cli-os.nix
+              ./hosts/perseus/modules/editors.nix
+              ./hosts/perseus/modules/languages.nix
+              ./hosts/perseus/modules/fonts.nix
+              ./hosts/perseus/modules/gnome.nix
+              ./hosts/perseus/modules/gui.nix
               ./hosts/perseus/home.nix
             ];
           };
