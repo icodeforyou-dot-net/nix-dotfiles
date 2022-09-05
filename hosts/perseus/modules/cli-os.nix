@@ -63,7 +63,6 @@
   programs.bash = {
     enable = true;
     profileExtra = ''
-      export env WAYLAND_DISPLAY= alacritty
       export MOZ_ENABLE_WAYLAND=1
       export MOZ_USE_XINPUT2=1
     '';
@@ -95,6 +94,11 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  # foot terminal
+  programs.foot = {
+    enable = true;
   };
 
   # lazygit
