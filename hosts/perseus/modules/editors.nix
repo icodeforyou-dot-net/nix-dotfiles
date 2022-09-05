@@ -16,7 +16,7 @@
   home.file.".config/helix/config.toml" = {
     executable = false;
     text = ''
-      theme = "nord"
+      theme = "catpuccin"
 
       [editor]
       line-number = "absolute"
@@ -69,7 +69,7 @@
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Frappé";
-      "editor.fontFamily" = "'OverpassMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
     };
   };
 }
