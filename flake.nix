@@ -150,6 +150,7 @@
               ./hosts/perseus/modules/fonts.nix
               ./hosts/perseus/modules/gnome.nix
               ./hosts/perseus/modules/gui.nix
+              ./hosts/perseus/modules/wayland.nix
               ./hosts/perseus/home.nix
             ];
           };
