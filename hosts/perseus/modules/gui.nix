@@ -16,7 +16,7 @@ let
   '');
 
   wrapped-discord = with pkgs; (writeShellScriptBin "discord" ''
-    exec firejail ${pkgs.chromium}/bin/discord
+    exec firejail ${pkgs.discord}/bin/discord
   '');
 
   wrapped-firefox = with pkgs; (writeShellScriptBin "firefox" ''
@@ -28,7 +28,7 @@ in
 
     unstable.bitwarden
     darktable
-    
+
     # Creating a wrapper for discord to run it in firejail
     (symlinkJoin {
       name = "discord";
