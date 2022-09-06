@@ -16,7 +16,7 @@
   home.file.".config/helix/config.toml" = {
     executable = false;
     text = ''
-      theme = "catpuccin"
+      theme = "catppuccin_mocha"
 
       [editor]
       line-number = "absolute"
