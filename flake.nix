@@ -11,13 +11,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -74,6 +74,8 @@
         perseus = lib.nixosSystem {
           inherit system;
           modules = [
+            hyprland.nixosModules.default 
+            { programs.hyprland.enable = true; }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
             ./hosts/system_modules/pipewire.nix
@@ -142,11 +144,13 @@
 
             imports = [
               ./hosts/shared_home.nix
-              ./hosts/home_modules/cli-os.nix
-              ./hosts/home_modules/coding.nix
-              ./hosts/home_modules/fonts.nix
-              ./hosts/home_modules/gnome.nix
-              ./hosts/home_modules/gui.nix
+              ./hosts/perseus/modules/cli-os.nix
+              ./hosts/perseus/modules/editors.nix
+              ./hosts/perseus/modules/languages.nix
+              ./hosts/perseus/modules/fonts.nix
+              ./hosts/perseus/modules/gnome.nix
+              ./hosts/perseus/modules/gui.nix
+              ./hosts/perseus/modules/wayland.nix
               ./hosts/perseus/home.nix
             ];
           };
