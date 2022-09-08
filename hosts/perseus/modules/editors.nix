@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
-
+let
+  vscode-override = with pkgs; (unstable.vscode.overrideAttrs
+    (oldAttrs: rec {
+      desktopItem = oldAttrs.desktopItem.override ({
+        mimeTypes = [ "text/plain" ];
+      });
+    }));
+in
 {
   home.packages = with pkgs; [
 
@@ -46,7 +53,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode;
+    package = vscode-override;
     extensions = with pkgs; [
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.arcticicestudio.nord-visual-studio-code
@@ -71,6 +78,12 @@
       "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
       "editor.fontLigatures" = true;
+      "editor.formatOnSave" = true;
+      "[nix]"."editor.defaultFormatter" = "b4dM4n.nixpkgs-fmt";
+      "[nix]"."editor.tabSize" = 2;
+      "python.formatting.provider" = "black";
+      "redhat.telemetry.enabled" = false;
+      "update.channel" = "none";
     };
   };
 }
