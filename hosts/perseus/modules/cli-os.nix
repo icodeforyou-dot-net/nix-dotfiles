@@ -1,17 +1,18 @@
 { config, pkgs, ... }:
-
+let
+  wrapped-alacritty = with pkgs; (writeShellScriptBin "alacritty" ''
+    if pgrep ".gnome-shell" > /dev/null; then env WAYLAND_DISPLAY= ${pkgs.alacritty}/bin/alacritty; else ${pkgs.alacritty}/bin/alacritty; fi
+  '');
+in
 {
   home.packages = with pkgs; [
-
-    # Creating a wrappter for alacritty to run it in XWayland
+    # Wrap alacritty in script
     (symlinkJoin {
-      paths = [ alacritty ];
-      inherit (alacritty) name pname version;
-      nativeBuildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/alacritty \
-          --set WAYLAND_DISPLAY alacritty
-      '';
+      name = "alacritty";
+      paths = [
+        wrapped-alacritty
+        pkgs.alacritty
+      ];
     })
 
     pciutils
@@ -65,6 +66,7 @@
     profileExtra = ''
       export MOZ_ENABLE_WAYLAND=1
       export MOZ_USE_XINPUT2=1
+      export NIXPKGS_ALLOW_UNFREE=1
     '';
     initExtra = ''
       eval "$(direnv hook bash)"
