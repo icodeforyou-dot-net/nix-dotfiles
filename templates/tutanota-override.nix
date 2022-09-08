@@ -1,7 +1,7 @@
-  # Overriding the tutanota package installed via home-manager
-  { config, pkgs, nixpkgs, ... }:
-  
-  let
+# Overriding the tutanota package installed via home-manager
+{ config, pkgs, nixpkgs, ... }:
+
+let
   tutanota-desktop-override = with pkgs; (unstable.tutanota-desktop.overrideAttrs
     (oldAttrs: rec {
       pname = "tutanota-desktop";
