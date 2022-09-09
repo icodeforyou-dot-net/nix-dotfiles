@@ -4,7 +4,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.earlyVconsoleSetup = true;
+  console.earlySetup = true;
 
   hardware.opengl = {
     enable = true;
