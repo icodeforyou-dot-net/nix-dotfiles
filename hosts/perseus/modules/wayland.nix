@@ -2,15 +2,16 @@
 
 {
   home.packages = with pkgs; [
-    grim
-    light
-    mako
-    swaybg
-    swaylock
-    waybar
+    unstable.eww-wayland
+    unstable.grim
+    unstable.light
+    unstable.mako
+    unstable.swaybg
+    unstable.swaylock
+    unstable.waybar
     wev
-    wlogout
-    wofi
+    unstable.wlogout
+    unstable.wofi
     xorg.xev
    ];
 }

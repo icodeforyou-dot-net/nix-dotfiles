@@ -48,7 +48,7 @@
 
   users.users.ap = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "vboxusers" "lxd" "docker" ];
+    extraGroups = [ "wheel" "libvirtd" "vboxusers" "lxd" "docker" "video" ];
     initialPassword = "123";
   };
 
