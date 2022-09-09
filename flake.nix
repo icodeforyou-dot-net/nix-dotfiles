@@ -85,6 +85,7 @@
                       --set NIXOS_OZONE_WL 1 \
                   '';
                 });
+                # recommendedEnvironment = false;
               };
             }
             ./hosts/shared_configuration.nix
