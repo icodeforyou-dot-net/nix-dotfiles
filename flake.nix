@@ -12,7 +12,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/a74b803";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -74,8 +74,19 @@
         perseus = lib.nixosSystem {
           inherit system;
           modules = [
-            hyprland.nixosModules.default 
-            { programs.hyprland.enable = true; }
+            hyprland.nixosModules.default
+            {
+              programs.hyprland = {
+                enable = true;
+                package = inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (old: {
+                  nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
+                  postInstall = ''
+                    wrapProgram $out/bin/Hyprland \
+                      --set NIXOS_OZONE_WL 1 \
+                  '';
+                });
+              };
+            }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
             ./hosts/system_modules/pipewire.nix
