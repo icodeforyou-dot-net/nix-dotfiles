@@ -1,1 +1,1 @@
-../nix flake lock --update-input hyprland
+nix flake ../ lock --update-input hyprland
