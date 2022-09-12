@@ -19,14 +19,7 @@ in
     unstable.bitwarden
     darktable
 
-    Creating
-    a
-    wrapper
-    for
-    discord
-    to
-    run
-    it in firejail
+    # Creating a wrapper for discord to run it in firejail
     (symlinkJoin {
       name = "discord";
       paths = [
@@ -34,11 +27,9 @@ in
         pkgs.discord
       ];
     })
-    # unstable.discord
 
     unstable.element-desktop
     unstable.mailspring
-
 
     skypeforlinux
 

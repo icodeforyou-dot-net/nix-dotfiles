@@ -12,7 +12,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/a74b803";
+      url = "github:hyprwm/Hyprland/9370c7a";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -83,9 +83,12 @@
                   postInstall = ''
                     wrapProgram $out/bin/Hyprland \
                       --set NIXOS_OZONE_WL 1 \
+                      --set GDK_BACKEND wayland \
+                      --set _JAVA_AWT_WM_NONREPARENTING 1 \
+                      --set XDG_SESSION_TYPE wayland
                   '';
                 });
-                # recommendedEnvironment = false;
+                recommendedEnvironment = false;
               };
             }
             ./hosts/shared_configuration.nix

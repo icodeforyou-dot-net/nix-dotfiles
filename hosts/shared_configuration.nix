@@ -63,6 +63,8 @@
     gocryptfs
     virtmanager
     gptfdisk
+    acpi
+    virglrenderer
   ];
 
   security.sudo.execWheelOnly = true;
