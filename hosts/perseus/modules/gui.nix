@@ -25,12 +25,11 @@ in
       paths = [
         wrapped-discord
         pkgs.discord
-        ];
+      ];
     })
 
     unstable.element-desktop
     unstable.mailspring
-
 
     skypeforlinux
 
@@ -52,7 +51,7 @@ in
       paths = [
         wrapped-chromium
         pkgs.chromium
-        ];
+      ];
     })
 
     # Creating a wrapper for firefox to run it in firejail
@@ -61,7 +60,7 @@ in
       paths = [
         wrapped-firefox
         pkgs.firefox
-        ];
+      ];
     })
 
     # tor

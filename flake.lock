@@ -29,15 +29,16 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1662458231,
-        "narHash": "sha256-0aU8hLyIGJfaltJYDh2VorV4cWxFqUz5kNXbcLyjA+o=",
+        "lastModified": 1662732084,
+        "narHash": "sha256-uW9KRO0zNC2xPISInFCFP0Nqko1x/DLI+jrhndERuRQ=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "e71a4d75dea28db4437b2aab34efb3ac399ba079",
+        "rev": "9370c7aa8a0f43b4471626f95013e1bf55539c19",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "9370c7a",
         "repo": "Hyprland",
         "type": "github"
       }
