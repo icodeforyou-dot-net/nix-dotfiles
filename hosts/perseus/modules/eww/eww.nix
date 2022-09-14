@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.eww = {
     enable = true;
-    package = unstable.eww-wayland;
+    package = pkgs.unstable.eww-wayland;
     configDir = ./.;
   };
 }
