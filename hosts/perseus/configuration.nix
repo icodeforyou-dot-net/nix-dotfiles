@@ -4,7 +4,6 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.kernelPackages = pkgs.linuxPackages;
-  console.earlySetup = true;
 
   hardware.opengl = {
     enable = true;
@@ -18,6 +17,7 @@
   };
 
   console = {
+    earlySetup = true;
     font = "latarcyrheb-sun32";
     keyMap = "us";
   };
@@ -27,6 +27,7 @@
   powerManagement.powertop.enable = true;
 
   programs.dconf.enable = true;
+  programs.light.enable = true;
 
   services.power-profiles-daemon.enable = false;
 

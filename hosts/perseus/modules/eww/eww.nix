@@ -1,28 +1,6 @@
-{ pkgs, inputs, lib, ... }:
-let
-  dependencies = with pkgs; [
-    bc
-    bluez
-    coreutils
-    findutils
-    gawk
-    gnused
-    jq
-    light
-    networkmanager
-    playerctl
-    procps
-    ripgrep
-    socat
-    upower
-    wget
-    wireplumber
-    wofi
-  ];
-in
-{
-  home.packages = dependencies;
+{ config, pkgs, inputs, lib, ... }:
 
+{
   programs.eww = {
     enable = true;
     package = unstable.eww-wayland;

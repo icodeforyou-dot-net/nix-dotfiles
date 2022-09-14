@@ -2,9 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    unstable.eww-wayland
     unstable.grim
-    unstable.light
     unstable.mako
     unstable.swaybg
     unstable.swaylock
@@ -13,5 +11,8 @@
     unstable.wlogout
     unstable.wofi
     xorg.xev
-   ];
+    bc
+    bluez
+    playerctl
+  ];
 }
