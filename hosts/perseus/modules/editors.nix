@@ -84,7 +84,7 @@ in
       "python.formatting.provider" = "black";
       "redhat.telemetry.enabled" = false;
       "update.channel" = "none";
-      # "window.zoomLevel" = 1;
+      "window.zoomLevel" = 1;
     };
   };
 }

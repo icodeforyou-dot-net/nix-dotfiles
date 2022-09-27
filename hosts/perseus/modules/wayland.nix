@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    unstable.eww-wayland
     unstable.grim
     unstable.mako
     unstable.swaybg
@@ -15,4 +16,9 @@
     bluez
     playerctl
   ];
+
+  services = {
+    easyeffects.enable = true;
+    playerctld.enable = true;
+  };
 }

@@ -2,8 +2,8 @@
 
 {
   programs.eww = {
-    enable = true;
+    enable = false;
     package = pkgs.unstable.eww-wayland;
-    configDir = ./.;
+    # configDir = ./.;
   };
 }

@@ -1,28 +1,28 @@
 // Catppuccin theme
-$rosewater:   #f5e0dc;
-$flamingo:    #f2cdcd;
-$mauve:       #ddb6f2;
-$pink:        #f5c2e7;
-$maroon:      #e8a2af;
-$red:         #f28fad;
-$peach:       #f8bd96;
-$yellow:      #fae3b0;
-$green:       #abe9b3;
-$teal:        #b5e8e0;
-$blue:        #96cdfb;
-$sky:         #89dceb;
-$lavender:    #c9cbff;
+$rosewater: #f5e0dc;
+$flamingo: #f2cdcd;
+$mauve: #ddb6f2;
+$pink: #f5c2e7;
+$maroon: #e8a2af;
+$red: #f28fad;
+$peach: #f8bd96;
+$yellow: #fae3b0;
+$green: #abe9b3;
+$teal: #b5e8e0;
+$blue: #96cdfb;
+$sky: #89dceb;
+$lavender: #c9cbff;
 
-$crust:       #11111b;
-$black0:      #161320;
-$black1:      #1a1826;
-$black2:      #1e1e2e;
-$black3:      #302d41;
-$black4:      #575268;
-$gray0:       #6e6c7e;
-$gray1:       #988ba2;
-$gray2:       #c3bac6;
-$white:       #d9e0ee;
+$crust: #11111b;
+$black0: #161320;
+$black1: #1a1826;
+$black2: #1e1e2e;
+$black3: #302d41;
+$black4: #575268;
+$gray0: #6e6c7e;
+$gray1: #988ba2;
+$gray2: #c3bac6;
+$white: #d9e0ee;
 
 $fg: $white;
 $bg: $crust;
@@ -31,7 +31,7 @@ $shadow: $black4;
 
 * {
   all: unset;
-  font-family: Roboto;
+  font-family: JetBrainsMono Nerd Font;
   font-size: 1.3rem;
 }
 
@@ -41,14 +41,19 @@ $shadow: $black4;
   border-radius: 16px;
 }
 
-.module { margin: 0 5px; }
+.module {
+  margin: 0 5px;
+}
+
 tooltip.background {
   background-color: $bg;
   border-radius: 10px;
   color: $fg;
 }
 
-tooltip label { margin: 5px; }
+tooltip label {
+  margin: 5px;
+}
 
 .clock_time_sep {
   color: $fg;
@@ -71,40 +76,72 @@ tooltip label { margin: 5px; }
 }
 
 // system
-.membar { color: $peach; }
-.cpubar { color: $blue; }
-.batbar { color: $green; }
-.membar, .cpubar, .batbar {
+.membar {
+  color: $peach;
+}
+
+.cpubar {
+  color: $blue;
+}
+
+.batbar {
+  color: $green;
+}
+
+.membar,
+.cpubar,
+.batbar {
   background-color: $bg1;
 }
 
-.iconmem { color: $peach; }
-.iconbat { color: $green; }
-.iconcpu { color: $blue; }
+.iconmem {
+  color: $peach;
+}
+
+.iconbat {
+  color: $green;
+}
+
+.iconcpu {
+  color: $blue;
+}
+
 .icon_text {
   font-size: 3rem;
   padding: .7rem;
 }
 
-.bright_icon { color: $yellow; }
+.bright_icon {
+  color: $yellow;
+}
+
 .brightbar trough highlight {
   background-image: linear-gradient(to right, $yellow 30%, $peach 100%);
   border-radius: 10px;
 }
 
-.vol_icon { color: $teal; }
+.vol_icon {
+  color: $teal;
+}
+
 .volbar trough highlight {
   background-image: linear-gradient(to right, $teal 30%, $sky 100%);
   border-radius: 10px;
 }
 
-.module_ssid, .module_net {
+.module_ssid,
+.module_net {
   color: $lavender;
   font-size: 1.2rem;
 }
 
-.module_bt { font-size: 1.2rem; }
-.separ { color: $black4; }
+.module_bt {
+  font-size: 1.2rem;
+}
+
+.separ {
+  color: $black4;
+}
 
 scale trough {
   background-color: $bg1;
@@ -155,12 +192,16 @@ calendar.highlight {
   margin-left: 2rem;
 }
 
-.sys_text_mem, .sys_text_cpu, .sys_text_bat {
+.sys_text_mem,
+.sys_text_cpu,
+.sys_text_bat {
   font-weight: bold;
   margin-left: 2rem;
 }
 
-.sys_icon_mem, .sys_icon_cpu, .sys_icon_bat {
+.sys_icon_mem,
+.sys_icon_cpu,
+.sys_icon_bat {
   font-size: 30px;
   margin: 25px;
 }
@@ -170,11 +211,33 @@ calendar.highlight {
   border-radius: 16px 0 0 16px;
 }
 
-.sys_mem, .sys_cpu, .sys_bat { background-color: $bg1; }
-.sys_icon_mem, .sys_text_mem, .sys_mem { color: $peach; }
-.sys_icon_cpu, .sys_text_cpu, .sys_cpu { color: $blue; }
-.sys_icon_bat, .sys_text_bat, .sys_bat { color: $green; }
-.sys_box { margin: 1em; }
+.sys_mem,
+.sys_cpu,
+.sys_bat {
+  background-color: $bg1;
+}
+
+.sys_icon_mem,
+.sys_text_mem,
+.sys_mem {
+  color: $peach;
+}
+
+.sys_icon_cpu,
+.sys_text_cpu,
+.sys_cpu {
+  color: $blue;
+}
+
+.sys_icon_bat,
+.sys_text_bat,
+.sys_bat {
+  color: $green;
+}
+
+.sys_box {
+  margin: 1em;
+}
 
 .music_window {
   background-color: $bg;
@@ -204,7 +267,10 @@ calendar.highlight {
   font-size: 1.1rem;
 }
 
-.music_button { color: $fg; }
+.music_button {
+  color: $fg;
+}
+
 .music_time {
   color: $gray2;
   font-size: 1rem;
@@ -236,8 +302,13 @@ calendar.highlight {
   font-weight: bold;
 }
 
-.mic_icon { background-image: url('images/mic.png'); }
-.speaker_icon { background-image: url('images/speaker.png'); }
+.mic_icon {
+  background-image: url('images/mic.png');
+}
+
+.speaker_icon {
+  background-image: url('images/speaker.png');
+}
 
 .volume_icon {
   background-position: center;
