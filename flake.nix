@@ -93,9 +93,9 @@
             }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
-            ./hosts/system_modules/pipewire.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            { nixpkgs.overlays = [ overlay-unstable ]; }
           ];
         };
 
