@@ -14,7 +14,9 @@
     xorg.xev
     bc
     bluez
+    blueman
     playerctl
+    pavucontrol
   ];
 
   services = {

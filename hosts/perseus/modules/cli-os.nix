@@ -25,6 +25,8 @@ in
     glxinfo
     procps
 
+    unstable.gh
+
     minicom
     picocom
 
