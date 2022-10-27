@@ -4,7 +4,14 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.kernelPackages = pkgs.linuxPackages;
-  console.earlySetup = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    disabledPlugins = [ "sap" ];
+    hsphfpd.enable = true;
+    package = pkgs.bluezFull;
+    powerOnBoot = false;
+  };
 
   hardware.opengl = {
     enable = true;
@@ -14,12 +21,33 @@
       mesa_drivers
       intel-ocl
       beignet
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
     ];
   };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
+  hardware.pulseaudio.enable = false;
+
   console = {
+    earlySetup = true;
     font = "latarcyrheb-sun32";
     keyMap = "us";
+  };
+
+  fonts = {
+    enableDefaultFonts = false;
+
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
   };
 
   networking.hostName = "perseus";
@@ -27,13 +55,31 @@
   powerManagement.powertop.enable = true;
 
   programs.dconf.enable = true;
+  programs.light.enable = true;
+
+  security.rtkit.enable = true;
 
   services.power-profiles-daemon.enable = false;
+
+  services.blueman.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    jack.enable = true;
+    pulse.enable = true;
+    wireplumber = {
+      enable = true;
+      package = pkgs.unstable.wireplumber;
+    };
+  };
 
   services.tlp = {
     enable = true;
     settings = {
       PCIE_ASPM_ON_BAT = "powersupersave";
+      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
     };
   };
 

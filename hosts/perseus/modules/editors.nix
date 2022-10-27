@@ -56,11 +56,11 @@ in
     package = vscode-override;
     extensions = with pkgs; [
       vscode-extensions.pkief.material-icon-theme
-      vscode-extensions.arcticicestudio.nord-visual-studio-code
+      # vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
       unstable.vscode-extensions.jnoortheen.nix-ide
       unstable.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
-      unstable.vscode-extensions.arrterian.nix-env-selector
+      # unstable.vscode-extensions.arrterian.nix-env-selector
       unstable.vscode-extensions.haskell.haskell
       unstable.vscode-extensions.ms-vscode.cpptools
       vscode-extensions.graphql.vscode-graphql
@@ -79,12 +79,16 @@ in
       "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
+      "extensions.autoUpdate" = false;
+      "extensions.autoCheckUpdates" = false;
       "[nix]"."editor.defaultFormatter" = "b4dM4n.nixpkgs-fmt";
       "[nix]"."editor.tabSize" = 2;
       "python.formatting.provider" = "black";
       "redhat.telemetry.enabled" = false;
-      "update.channel" = "none";
-      # "window.zoomLevel" = 1;
+      "telemetry.telemetryLevel" = "off";
+      "update.mode" = "none";
+      "window.zoomLevel" = 1;
+      "window.menuBarVisibility" = "toggle";
     };
   };
 }

@@ -17,10 +17,15 @@ in
 
     pciutils
     usbutils
+    smartmontools
+    findutils
     less
     stress
     starship
     glxinfo
+    procps
+
+    unstable.gh
 
     minicom
     picocom
@@ -33,6 +38,7 @@ in
     du-dust
     duf
     tree-sitter
+    jq
 
     # language servers for neovim to be globally accesible
     nodePackages.bash-language-server
@@ -42,7 +48,10 @@ in
     kaggle
     ngrok
     gnumake
+    gnused
+    gawk
     tokei
+    socat
     ranger
     ncdu
     xz

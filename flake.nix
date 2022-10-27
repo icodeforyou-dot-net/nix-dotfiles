@@ -12,7 +12,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/9370c7a";
+      url = "github:hyprwm/Hyprland/7a775c0"; #9370c7a
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -93,9 +93,9 @@
             }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
-            ./hosts/system_modules/pipewire.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            { nixpkgs.overlays = [ overlay-unstable ]; }
           ];
         };
 
@@ -161,6 +161,7 @@
               ./hosts/shared_home.nix
               ./hosts/perseus/modules/cli-os.nix
               ./hosts/perseus/modules/editors.nix
+              ./hosts/perseus/modules/eww/eww.nix
               ./hosts/perseus/modules/languages.nix
               ./hosts/perseus/modules/fonts.nix
               ./hosts/perseus/modules/gnome.nix

@@ -21,6 +21,8 @@
   };
 
   fonts.fonts = with pkgs; [
+    material-icons
+    material-design-icons
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
