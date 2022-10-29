@@ -11,6 +11,8 @@
     wev
     unstable.wlogout
     unstable.wofi
+    unstable.iwgtk
+    unstable.blueberry
     xorg.xev
     bc
     bluez
