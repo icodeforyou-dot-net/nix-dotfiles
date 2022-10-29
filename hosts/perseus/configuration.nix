@@ -52,6 +52,8 @@
 
   networking.hostName = "perseus";
 
+  networking.wireless.iwd.enable = true;
+
   powerManagement.powertop.enable = true;
 
   programs.dconf.enable = true;
