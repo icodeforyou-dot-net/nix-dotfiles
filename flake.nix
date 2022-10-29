@@ -162,6 +162,7 @@
               ./hosts/perseus/modules/cli-os.nix
               ./hosts/perseus/modules/editors.nix
               ./hosts/perseus/modules/eww/eww.nix
+              ./hosts/perseus/modules/mako/mako.nix
               ./hosts/perseus/modules/languages.nix
               ./hosts/perseus/modules/fonts.nix
               ./hosts/perseus/modules/gnome.nix
