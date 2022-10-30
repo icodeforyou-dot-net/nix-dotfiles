@@ -13,50 +13,52 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/bb3927d6-ca2b-42b4-b9f4-689445b1a084";
+      device = "/dev/disk/by-uuid/1c7cc345-3829-4e88-bd68-47306c7efcef";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
-  boot.initrd.luks.devices."nixenc".device = "/dev/disk/by-uuid/af7c2808-6537-4a5a-9067-53a01a8c4b13";
+  boot.initrd.luks.devices."nixenc".device = "/dev/disk/by-uuid/272cbce9-e471-4116-a5c3-6538d92e532e";
 
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/bb3927d6-ca2b-42b4-b9f4-689445b1a084";
+      device = "/dev/disk/by-uuid/1c7cc345-3829-4e88-bd68-47306c7efcef";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
     {
-      device = "/dev/disk/by-uuid/bb3927d6-ca2b-42b4-b9f4-689445b1a084";
+      device = "/dev/disk/by-uuid/1c7cc345-3829-4e88-bd68-47306c7efcef";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/log" =
     {
-      device = "/dev/disk/by-uuid/bb3927d6-ca2b-42b4-b9f4-689445b1a084";
+      device = "/dev/disk/by-uuid/1c7cc345-3829-4e88-bd68-47306c7efcef";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
     };
 
+
   fileSystems."/swap" =
     {
-      device = "/dev/disk/by-uuid/bb3927d6-ca2b-42b4-b9f4-689445b1a084";
+      device = "/dev/disk/by-uuid/1c7cc345-3829-4e88-bd68-47306c7efcef";
       fsType = "btrfs";
-      options = [ "subvol=swap" "compress=zstd" "noatime" ];
+      options = [ "subvol=swap" "noatime" ];
     };
+
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/0522-EE87";
+      device = "/dev/disk/by-uuid/C4FD-1C4E";
       fsType = "vfat";
     };
 
   swapDevices = [{
     device = "/swap/swapfile";
-    size = 8192;
+    size = 16384;
   }];
 
   networking.useDHCP = lib.mkDefault true;
