@@ -6,13 +6,8 @@
   programs.mako = {
     enable = true;
     package = pkgs.unstable.mako;
-    iconPath = ./icons;
-  };
-
-  # mako config
-  home.file.".config/mako/config" = {
-    executable = false;
-    text = ''
+    iconPath = "~/Coding/nix/nix-dotfiles/hosts/perseus/modules/mako/icons";
+    extraConfig = ''
       # GLOBAL CONFIGURATION OPTIONS
       max-history=100
       sort=-time
@@ -69,4 +64,12 @@
       group-by=category
     '';
   };
+
+  # mako config
+  # home.file.".config/mako/config" = {
+  #   executable = false;
+  #   text = ''
+
+  # '';
+  # };
 }
