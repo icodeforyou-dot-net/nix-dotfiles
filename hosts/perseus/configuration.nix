@@ -1,8 +1,6 @@
 { config, lib, pkgs, pkgs-unstable, fetchFromGitHub, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
-
   boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.bluetooth = {
@@ -49,8 +47,6 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
-
-  networking.hostName = "perseus";
 
   networking.wireless.iwd.enable = true;
 
