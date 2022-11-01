@@ -56,6 +56,7 @@
   programs.light.enable = true;
 
   security.rtkit.enable = true;
+  security.pam.services.swaylock = { };
 
   services.power-profiles-daemon.enable = false;
 
