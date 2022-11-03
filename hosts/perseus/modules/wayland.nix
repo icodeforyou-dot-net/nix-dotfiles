@@ -19,6 +19,7 @@
     blueman
     playerctl
     pavucontrol
+    pulseaudio
   ];
 
   services = {
