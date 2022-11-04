@@ -48,7 +48,8 @@
     };
   };
 
-  # networking.wireless.iwd.enable = false;
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   powerManagement.powertop.enable = true;
 
