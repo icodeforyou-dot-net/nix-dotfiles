@@ -132,10 +132,6 @@ with lib.hm.gvariant;
       secondary-color = "#000000000000";
     };
 
-    "org/gnome/desktop/session" = {
-      idle-delay = mkUint32 300;
-    };
-
     "org/gnome/desktop/sound" = {
       event-sounds = true;
       theme-name = "__custom";
@@ -156,15 +152,6 @@ with lib.hm.gvariant;
       network-monitor-gio-name = "";
     };
 
-    "org/gnome/gnome-system-monitor" = {
-      current-tab = "resources";
-      maximized = false;
-      network-total-in-bits = false;
-      show-dependencies = false;
-      show-whose-processes = "user";
-      window-state = mkTuple [ 1378 817 ];
-    };
-
     "org/gnome/gnome-system-monitor/disktreenew" = {
       col-6-visible = true;
       col-6-width = 0;
@@ -183,7 +170,6 @@ with lib.hm.gvariant;
       disable-user-extensions = false;
       disabled-extensions = [ ];
       enabled-extensions = [ "tweaks-system-menu@extensions.gnome-shell.fifi.org" "user-theme@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "gnome-system-monitor.desktop" "org.gnome.Calendar.desktop" "Mailspring.desktop" "tutanota-desktop.desktop" "foot.desktop" "Alacritty.desktop" "brave-browser.desktop" "firefox.desktop" "chromium-browser.desktop" "torbrowser.desktop" "telegramdesktop.desktop" "signal-desktop.desktop" "code.desktop" "discord.desktop" "github-desktop.desktop" "bitwarden.desktop" "virtualbox.desktop" ];
       had-bluetooth-devices-setup = true;
       remember-mount-password = false;
     };
@@ -218,7 +204,7 @@ with lib.hm.gvariant;
     "org/gtk/gtk4/settings/file-chooser" = {
       date-format = "regular";
       location-mode = "path-bar";
-      show-hidden = false;
+      show-hidden = true;
       show-size-column = true;
       show-type-column = true;
       sidebar-width = 189;
@@ -232,7 +218,7 @@ with lib.hm.gvariant;
     "org/gtk/settings/file-chooser" = {
       date-format = "regular";
       location-mode = "path-bar";
-      show-hidden = false;
+      show-hidden = true;
       show-size-column = true;
       show-type-column = true;
       sidebar-width = 185;
