@@ -44,6 +44,9 @@
         };
       };
 
+      overlay-custom-packages = final: prev: {
+        custom-packages = import ./packages inputs;
+      };
 
     in
     {
