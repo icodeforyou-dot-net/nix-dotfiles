@@ -56,6 +56,7 @@ in
     package = vscode-override;
     extensions = with pkgs; [
       vscode-extensions.pkief.material-icon-theme
+      unstable.vscode-extensions.catppuccin.catppuccin-vsc
       # vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
       unstable.vscode-extensions.jnoortheen.nix-ide
@@ -76,7 +77,7 @@ in
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Material Icons'";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;
@@ -86,6 +87,7 @@ in
       "python.formatting.provider" = "black";
       "redhat.telemetry.enabled" = false;
       "telemetry.telemetryLevel" = "off";
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
       "update.mode" = "none";
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "toggle";

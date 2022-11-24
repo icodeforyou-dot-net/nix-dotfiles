@@ -17,7 +17,7 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
-    supportedFilesystems = [ "btrfs" ];
+    supportedFilesystems = [ "btrfs" "ntfs" ];
   };
 
   fonts.fonts = with pkgs; [

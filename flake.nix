@@ -12,7 +12,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/7a775c0"; #9370c7a
+      url = "github:hyprwm/Hyprland/2c2e35e"; #2c2e35e #7a775c0 #9370c7a
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -93,6 +93,38 @@
             }
             ./hosts/shared_configuration.nix
             ./hosts/perseus/configuration.nix
+            ./hosts/perseus/hostname.nix
+            ./hosts/perseus/hardware-configuration.nix
+            { nix.registry.nixpkgs.flake = nixpkgs; }
+            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            { nixpkgs.overlays = [ overlay-unstable ]; }
+          ];
+        };
+
+        cadmus = lib.nixosSystem {
+          inherit system;
+          modules = [
+            hyprland.nixosModules.default
+            {
+              programs.hyprland = {
+                enable = true;
+                package = inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (old: {
+                  nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
+                  postInstall = ''
+                    wrapProgram $out/bin/Hyprland \
+                      --set NIXOS_OZONE_WL 1 \
+                      --set GDK_BACKEND wayland \
+                      --set _JAVA_AWT_WM_NONREPARENTING 1 \
+                      --set XDG_SESSION_TYPE wayland
+                  '';
+                });
+                recommendedEnvironment = false;
+              };
+            }
+            ./hosts/shared_configuration.nix
+            ./hosts/perseus/configuration.nix
+            ./hosts/cadmus/hostname.nix
+            ./hosts/cadmus/hardware-configuration.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable ]; }
@@ -123,6 +155,7 @@
             ];
           };
         };
+
         ap-archon = home-manager.lib.homeManagerConfiguration {
           inherit system pkgs;
           username = "ap";
@@ -160,8 +193,37 @@
             imports = [
               ./hosts/shared_home.nix
               ./hosts/perseus/modules/cli-os.nix
+              ./hosts/perseus/modules/dconf.nix
               ./hosts/perseus/modules/editors.nix
               ./hosts/perseus/modules/eww/eww.nix
+              ./hosts/perseus/modules/mako/mako.nix
+              ./hosts/perseus/modules/languages.nix
+              ./hosts/perseus/modules/fonts.nix
+              ./hosts/perseus/modules/gnome.nix
+              ./hosts/perseus/modules/gui.nix
+              ./hosts/perseus/modules/swaylock.nix
+              ./hosts/perseus/modules/wayland.nix
+              ./hosts/perseus/home.nix
+            ];
+          };
+        };
+
+        ap-cadmus = home-manager.lib.homeManagerConfiguration {
+          inherit system pkgs;
+          username = "ap";
+          homeDirectory = "/home/ap";
+          stateVersion = "22.05";
+          configuration = {
+
+            nixpkgs.config = { allowUnfree = true; };
+            nixpkgs.overlays = [ overlay-unstable ];
+
+            imports = [
+              ./hosts/shared_home.nix
+              ./hosts/perseus/modules/cli-os.nix
+              ./hosts/perseus/modules/editors.nix
+              ./hosts/perseus/modules/eww/eww.nix
+              ./hosts/perseus/modules/mako/mako.nix
               ./hosts/perseus/modules/languages.nix
               ./hosts/perseus/modules/fonts.nix
               ./hosts/perseus/modules/gnome.nix

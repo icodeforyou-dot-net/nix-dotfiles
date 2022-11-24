@@ -64,8 +64,8 @@ in
     })
 
     # tor
-    unstable.onionshare-gui
-    unstable.onionshare
+    # unstable.onionshare-gui
+    # unstable.onionshare
     unstable.tor-browser-bundle-bin
   ];
 }
