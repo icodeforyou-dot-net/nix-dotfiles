@@ -193,6 +193,7 @@
             imports = [
               ./hosts/shared_home.nix
               ./hosts/perseus/modules/cli-os.nix
+              ./hosts/perseus/modules/dconf.nix
               ./hosts/perseus/modules/editors.nix
               ./hosts/perseus/modules/eww/eww.nix
               ./hosts/perseus/modules/mako/mako.nix
@@ -200,6 +201,7 @@
               ./hosts/perseus/modules/fonts.nix
               ./hosts/perseus/modules/gnome.nix
               ./hosts/perseus/modules/gui.nix
+              ./hosts/perseus/modules/swaylock.nix
               ./hosts/perseus/modules/wayland.nix
               ./hosts/perseus/home.nix
             ];

@@ -6,16 +6,34 @@
   programs.mako = {
     enable = true;
     package = pkgs.unstable.mako;
-    iconPath = ./icons;
-  };
-
-  # mako config
-  home.file.".config/mako/config" = {
-    executable = false;
-    text = ''
+    iconPath = "~/Coding/nix/nix-dotfiles/hosts/perseus/modules/mako/icons";
+    actions = true;
+    anchor = "top-right";
+    backgroundColor = "#1e1e2e";
+    borderColor = "#313244";
+    borderRadius = 5;
+    borderSize = 2;
+    defaultTimeout = 5000;
+    font = "JetBrains Mono 10";
+    format = null;
+    groupBy = "category";
+    height = 100;
+    icons = true;
+    ignoreTimeout = false;
+    layer = "overlay";
+    margin = "10";
+    markup = true;
+    maxIconSize = 48;
+    maxVisible = 5;
+    output = null;
+    padding = "15";
+    progressColor = "over #89b4fa";
+    sort = "-time";
+    textColor = "#d9e0ee";
+    width = 300;
+    extraConfig = ''
       # GLOBAL CONFIGURATION OPTIONS
       max-history=100
-      sort=-time
 
       # BINDING OPTIONS
       on-button-left=dismiss
@@ -25,30 +43,9 @@
       on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
       # STYLE OPTIONS
-      font=JetBrains Mono 10
-      width=300
-      height=100
-      margin=10
-      padding=15
-      border-size=2
-      border-radius=0
-      icons=1
-      max-icon-size=48
       icon-location=left
-      markup=1
-      actions=1
       history=1
       text-alignment=left
-      default-timeout=5000
-      ignore-timeout=0
-      max-visible=5
-      layer=overlay
-      anchor=top-right
-
-      background-color=#1e1e2e
-      text-color=#d9e0ee
-      border-color=#313244
-      progress-color=over #89b4fa
 
       [urgency=low]
       border-color=#313244
@@ -66,7 +63,14 @@
       [category=mpd]
       border-color=#f9e2af
       default-timeout=2000
-      group-by=category
     '';
   };
+
+  # mako config
+  # home.file.".config/mako/config" = {
+  #   executable = false;
+  #   text = ''
+
+  # '';
+  # };
 }

@@ -49,6 +49,7 @@
   };
 
   networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   powerManagement.powertop.enable = true;
 
@@ -56,6 +57,7 @@
   programs.light.enable = true;
 
   security.rtkit.enable = true;
+  security.pam.services.swaylock = { };
 
   services.power-profiles-daemon.enable = false;
 

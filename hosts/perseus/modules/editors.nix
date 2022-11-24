@@ -56,6 +56,7 @@ in
     package = vscode-override;
     extensions = with pkgs; [
       vscode-extensions.pkief.material-icon-theme
+      unstable.vscode-extensions.catppuccin.catppuccin-vsc
       # vscode-extensions.arcticicestudio.nord-visual-studio-code
       unstable.vscode-extensions.bbenoist.nix
       unstable.vscode-extensions.jnoortheen.nix-ide
