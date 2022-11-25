@@ -16,6 +16,7 @@ in
 {
   home.packages = with pkgs; [
 
+    simp1e-cursor-theme-catppuccin-frappe
     unstable.bitwarden
     darktable
 
