@@ -1,7 +1,4 @@
-{ stdenv
-, fetchurl
-, lib
-}:
+{ lib, stdenv, fetchurl }:
 
 stdenv.mkDerivation rec {
   pname = "simp1e-cursor-theme-catppuccin-frappe";
@@ -10,16 +7,16 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://gitlab.com/cursors/simp1e/-/jobs/3269567407/artifacts/raw/built_themes/Simp1e-Catppuccin-Frappe.tgz";
-    sha256 = "";
+    sha256 = "0r6fm340xr1w3hqjpgfba7gjlkfbngks6q1h2g45kzf02ays0kl3";
   };
 
   # phases = "unpackPhase installPhase";
 
+  sourceRoot = ".";
+
   installPhase = ''
-    runHook preInstall
     mkdir -p $out/share/icons
     cp -r Simp1e-Catppuccin-Frappe/ $out/share/icons/Simp1e-Catppuccin-Frappe
-    runHook postInstall
   '';
 
   meta = with lib; {
