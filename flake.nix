@@ -44,9 +44,7 @@
         };
       };
 
-      overlay-custom-packages = final: prev: {
-        custom-packages = import ./packages inputs;
-      };
+      overlay-custom = import ./packages;
 
     in
     {
@@ -100,7 +98,7 @@
             ./hosts/perseus/hardware-configuration.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-            { nixpkgs.overlays = [ overlay-unstable ]; }
+            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
         };
 
@@ -130,7 +128,7 @@
             ./hosts/cadmus/hardware-configuration.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-            { nixpkgs.overlays = [ overlay-unstable ]; }
+            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
         };
 
@@ -191,7 +189,7 @@
           configuration = {
 
             nixpkgs.config = { allowUnfree = true; };
-            nixpkgs.overlays = [ overlay-unstable ];
+            nixpkgs.overlays = [ overlay-unstable overlay-custom ];
 
             imports = [
               ./hosts/shared_home.nix
