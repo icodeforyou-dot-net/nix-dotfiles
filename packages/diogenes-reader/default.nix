@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/pjheslin/diogenes/releases/download/${version}/diogenes-${version}_amd64.deb";
-    hash = "16vr4l08cfngvw6nxq8v1m435jld6hnvx22qbdnwrl2g2bsr0b56";
+    sha256 = "16vr4l08cfngvw6nxq8v1m435jld6hnvx22qbdnwrl2g2bsr0b56";
   };
 
   nativeBuildInputs = [
@@ -36,8 +36,8 @@ stdenv.mkDerivation rec {
     # xorg.libXdamage
     # xorg.libX11
     # libsecret
-    git
-    curl
+    # git
+    # curl
     # nss
     # nspr
     # libdrm
@@ -46,10 +46,15 @@ stdenv.mkDerivation rec {
     # mesa
   ];
 
+  sourceRoot = ".";
+
   unpackPhase = ''
     mkdir -p $TMP/${pname} $out/{opt,bin}
     cp $src $TMP/${pname}.deb
     ar vx ${pname}.deb
+    pwd
+    ls -la
+    tar --no-overwrite-dir -xvf control.tar.xz -C $TMP/${pname}/
     tar --no-overwrite-dir -xvf data.tar.xz -C $TMP/${pname}/
   '';
 
