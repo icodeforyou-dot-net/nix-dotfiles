@@ -17,6 +17,8 @@ in
   home.packages = with pkgs; [
 
     simp1e-cursor-theme-catppuccin-frappe
+    # diogenes-reader
+
     unstable.bitwarden
     darktable
 
@@ -31,6 +33,7 @@ in
 
     unstable.element-desktop
     unstable.mailspring
+    unstable.thunderbird-bin
 
     skypeforlinux
 
