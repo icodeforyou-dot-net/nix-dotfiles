@@ -64,9 +64,9 @@ stdenv.mkDerivation rec {
     ln -sf $out/opt/${pname} $out/bin/${pname}
   '';
 
-  # runtimeDependencies = [
-  #   (lib.getLib systemd)
-  # ];
+  runtimeDependencies = [
+    (lib.getLib systemd)
+  ];
 
   meta = with lib; {
     description = "An electron based reader for TLG and PHI databases.";
