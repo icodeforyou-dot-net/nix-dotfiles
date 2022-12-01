@@ -35,6 +35,10 @@ in
     unstable.mailspring
     unstable.thunderbird-bin
 
+    unstable.obs-studio
+    unstable.obs-studio-plugins.wlrobs
+    davinci-resolve
+
     skypeforlinux
 
     unstable.signal-desktop
