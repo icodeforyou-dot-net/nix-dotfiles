@@ -5,7 +5,7 @@
 
   home.username = "ap";
   home.homeDirectory = "/home/ap";
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 
   xresources.extraConfig = ''
     	#define nord0 #2E3440
