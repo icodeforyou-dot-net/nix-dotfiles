@@ -513,9 +513,10 @@ in
       alternate-scroll-mode=yes
 
       [colors]
-      alpha=0.9
+      alpha=1
       foreground=d9e0ee
-      background=11111b
+      background=1E1E2E
+      # background=11111b
 
       ## Normal/regular colors (color palette 0-7)
       regular0=6e6c7e  # black
