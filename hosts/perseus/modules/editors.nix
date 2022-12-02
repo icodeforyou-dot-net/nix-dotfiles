@@ -82,7 +82,7 @@ in
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;
       "extensions.autoCheckUpdates" = false;
-      "[nix]"."editor.defaultFormatter" = "b4dM4n.nixpkgs-fmt";
+      "[nix]"."editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
       "[nix]"."editor.tabSize" = 2;
       "python.formatting.provider" = "black";
       "redhat.telemetry.enabled" = false;
