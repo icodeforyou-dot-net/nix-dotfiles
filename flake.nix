@@ -198,7 +198,7 @@
             }
             ./hosts/shared_home.nix
             ./hosts/perseus/modules/cli-os.nix
-            ./hosts/perseus/modules/dconf.nix
+            #./hosts/perseus/modules/dconf.nix
             ./hosts/perseus/modules/editors.nix
             ./hosts/perseus/modules/eww/eww.nix
             ./hosts/perseus/modules/mako/mako.nix
