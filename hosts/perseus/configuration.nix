@@ -112,7 +112,7 @@ in
     videoDrivers = [ "nvidia" ];
   };
 
-  services.xserver.dpi = 144;
+  services.xserver.dpi = 96;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
