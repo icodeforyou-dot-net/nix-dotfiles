@@ -65,12 +65,4 @@
       default-timeout=2000
     '';
   };
-
-  # mako config
-  # home.file.".config/mako/config" = {
-  #   executable = false;
-  #   text = ''
-
-  # '';
-  # };
 }

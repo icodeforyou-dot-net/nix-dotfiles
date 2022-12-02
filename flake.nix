@@ -136,103 +136,104 @@
 
       homeConfigurations = {
         ap-proteus = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "ap";
-          homeDirectory = "/home/ap";
-          stateVersion = "22.11";
-          configuration = {
-
-            nixpkgs.config = { allowUnfree = true; };
-            nixpkgs.overlays = [ overlay-unstable ];
-
-            imports = [
-              ./hosts/shared_home.nix
-              ./hosts/home_modules/cli-os.nix
-              ./hosts/home_modules/coding.nix
-              ./hosts/home_modules/fonts.nix
-              ./hosts/home_modules/gnome.nix
-              ./hosts/home_modules/gui.nix
-              ./hosts/proteus/home.nix
-            ];
-          };
+          inherit pkgs;
+          # pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            {
+              home = {
+                username = "ap";
+                homeDirectory = "/home/ap";
+                stateVersion = "22.11";
+              };
+              nixpkgs.config = { allowUnfree = true; };
+              nixpkgs.overlays = [ overlay-unstable ];
+            }
+            ./hosts/shared_home.nix
+            ./hosts/home_modules/cli-os.nix
+            ./hosts/home_modules/coding.nix
+            ./hosts/home_modules/fonts.nix
+            ./hosts/home_modules/gnome.nix
+            ./hosts/home_modules/gui.nix
+            ./hosts/proteus/home.nix
+          ];
         };
 
         ap-archon = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "ap";
-          homeDirectory = "/home/ap";
-          stateVersion = "22.11";
-          configuration = {
-
-            nixpkgs.config = { allowUnfree = true; };
-            nixpkgs.overlays = [ overlay-unstable ];
-
-            imports = [
-              ./hosts/shared_home.nix
-              ./hosts/home_modules/games/openmw.nix
-              ./hosts/home_modules/audio.nix
-              ./hosts/home_modules/cli-os.nix
-              ./hosts/home_modules/coding.nix
-              ./hosts/home_modules/fonts.nix
-              ./hosts/home_modules/gnome.nix
-              ./hosts/home_modules/gui.nix
-              ./hosts/archon/home.nix
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            {
+              home = {
+                username = "ap";
+                homeDirectory = "/home/ap";
+                stateVersion = "22.11";
+              };
+              nixpkgs.config = { allowUnfree = true; };
+              nixpkgs.overlays = [ overlay-unstable ];
+            }
+            ./hosts/shared_home.nix
+            ./hosts/home_modules/games/openmw.nix
+            ./hosts/home_modules/audio.nix
+            ./hosts/home_modules/cli-os.nix
+            ./hosts/home_modules/coding.nix
+            ./hosts/home_modules/fonts.nix
+            ./hosts/home_modules/gnome.nix
+            ./hosts/home_modules/gui.nix
+            ./hosts/archon/home.nix
+          ];
         };
 
         ap-perseus = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "ap";
-          homeDirectory = "/home/ap";
-          stateVersion = "22.11";
-          configuration = {
-
-            nixpkgs.config = { allowUnfree = true; };
-            nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-
-            imports = [
-              ./hosts/shared_home.nix
-              ./hosts/perseus/modules/cli-os.nix
-              ./hosts/perseus/modules/dconf.nix
-              ./hosts/perseus/modules/editors.nix
-              ./hosts/perseus/modules/eww/eww.nix
-              ./hosts/perseus/modules/mako/mako.nix
-              ./hosts/perseus/modules/languages.nix
-              ./hosts/perseus/modules/fonts.nix
-              ./hosts/perseus/modules/gnome.nix
-              ./hosts/perseus/modules/gui.nix
-              ./hosts/perseus/modules/swaylock.nix
-              ./hosts/perseus/modules/wayland.nix
-              ./hosts/perseus/home.nix
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            {
+              home = {
+                username = "ap";
+                homeDirectory = "/home/ap";
+                stateVersion = "22.11";
+              };
+              nixpkgs.config = { allowUnfree = true; };
+              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+            }
+            ./hosts/shared_home.nix
+            ./hosts/perseus/modules/cli-os.nix
+            ./hosts/perseus/modules/dconf.nix
+            ./hosts/perseus/modules/editors.nix
+            ./hosts/perseus/modules/eww/eww.nix
+            ./hosts/perseus/modules/mako/mako.nix
+            ./hosts/perseus/modules/languages.nix
+            ./hosts/perseus/modules/fonts.nix
+            ./hosts/perseus/modules/gnome.nix
+            ./hosts/perseus/modules/gui.nix
+            ./hosts/perseus/modules/swaylock.nix
+            ./hosts/perseus/modules/wayland.nix
+            ./hosts/perseus/home.nix
+          ];
         };
 
         ap-cadmus = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "ap";
-          homeDirectory = "/home/ap";
-          stateVersion = "22.11";
-          configuration = {
-
-            nixpkgs.config = { allowUnfree = true; };
-            nixpkgs.overlays = [ overlay-unstable ];
-
-            imports = [
-              ./hosts/shared_home.nix
-              ./hosts/perseus/modules/cli-os.nix
-              ./hosts/perseus/modules/editors.nix
-              ./hosts/perseus/modules/eww/eww.nix
-              ./hosts/perseus/modules/mako/mako.nix
-              ./hosts/perseus/modules/languages.nix
-              ./hosts/perseus/modules/fonts.nix
-              ./hosts/perseus/modules/gnome.nix
-              ./hosts/perseus/modules/gui.nix
-              ./hosts/perseus/modules/wayland.nix
-              ./hosts/perseus/home.nix
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            {
+              home = {
+                username = "ap";
+                homeDirectory = "/home/ap";
+                stateVersion = "22.11";
+              };
+              nixpkgs.config = { allowUnfree = true; };
+              nixpkgs.overlays = [ overlay-unstable ];
+            }
+            ./hosts/shared_home.nix
+            ./hosts/perseus/modules/cli-os.nix
+            ./hosts/perseus/modules/editors.nix
+            ./hosts/perseus/modules/eww/eww.nix
+            ./hosts/perseus/modules/mako/mako.nix
+            ./hosts/perseus/modules/languages.nix
+            ./hosts/perseus/modules/fonts.nix
+            ./hosts/perseus/modules/gnome.nix
+            ./hosts/perseus/modules/gui.nix
+            ./hosts/perseus/modules/wayland.nix
+            ./hosts/perseus/home.nix
+          ];
         };
       };
     };
