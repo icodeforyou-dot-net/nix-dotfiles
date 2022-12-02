@@ -2,12 +2,12 @@
   description = "System Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.05";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -139,7 +139,7 @@
           inherit system pkgs;
           username = "ap";
           homeDirectory = "/home/ap";
-          stateVersion = "22.05";
+          stateVersion = "22.11";
           configuration = {
 
             nixpkgs.config = { allowUnfree = true; };
@@ -161,7 +161,7 @@
           inherit system pkgs;
           username = "ap";
           homeDirectory = "/home/ap";
-          stateVersion = "22.05";
+          stateVersion = "22.11";
           configuration = {
 
             nixpkgs.config = { allowUnfree = true; };
@@ -185,7 +185,7 @@
           inherit system pkgs;
           username = "ap";
           homeDirectory = "/home/ap";
-          stateVersion = "22.05";
+          stateVersion = "22.11";
           configuration = {
 
             nixpkgs.config = { allowUnfree = true; };
@@ -213,7 +213,7 @@
           inherit system pkgs;
           username = "ap";
           homeDirectory = "/home/ap";
-          stateVersion = "22.05";
+          stateVersion = "22.11";
           configuration = {
 
             nixpkgs.config = { allowUnfree = true; };
