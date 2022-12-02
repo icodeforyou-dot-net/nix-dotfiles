@@ -117,7 +117,7 @@ in
         bold:
           family: JetBrainsMono Nerd Font
           style: Bold
-        size: 13.5
+        size: 11
     '';
   };
 
