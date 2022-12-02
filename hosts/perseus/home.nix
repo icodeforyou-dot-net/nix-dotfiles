@@ -46,7 +46,6 @@
   # '';
 
   xresources.properties = {
-    "Xft.dpi" = 96;
     "Xft.antialias" = true;
     "Xft.autohint" = false;
     "Xcursor.theme" = "Simp1e-Catppuccin-Frappe";
