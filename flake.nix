@@ -58,6 +58,7 @@
             ./hosts/system_modules/pipewire.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
         };
 
@@ -69,6 +70,7 @@
             ./hosts/kernels/kernel-5.16.9.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
         };
 
@@ -146,7 +148,7 @@
                 stateVersion = "22.11";
               };
               nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable ];
+              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
             ./hosts/shared_home.nix
             ./hosts/home_modules/cli-os.nix
@@ -168,7 +170,7 @@
                 stateVersion = "22.11";
               };
               nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable ];
+              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
             ./hosts/shared_home.nix
             ./hosts/home_modules/games/openmw.nix
@@ -220,7 +222,7 @@
                 stateVersion = "22.11";
               };
               nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable ];
+              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
             ./hosts/shared_home.nix
             ./hosts/perseus/modules/cli-os.nix
