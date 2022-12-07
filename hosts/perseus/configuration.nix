@@ -119,6 +119,9 @@ in
 
   system.stateVersion = "22.05";
 
+  # Needed for hardware passthrough
+  virtualisation.libvirtd.qemu.ovmf = true;
+
   virtualisation.virtualbox = {
     guest.enable = false;
     host = {
