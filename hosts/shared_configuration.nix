@@ -93,6 +93,9 @@
 
     libvirtd = {
       enable = true;
+      extraConfig = ''
+        user="ap"
+      '';
       # qemu.ovmf = true;
       qemu.runAsRoot = false;
       onBoot = "ignore";
