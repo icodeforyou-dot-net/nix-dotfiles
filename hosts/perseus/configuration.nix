@@ -120,12 +120,12 @@ in
   system.stateVersion = "22.05";
 
   systemd.sleep.extraConfig = ''
-    AllowSuspend=no
+    AllowSuspend=yes
     AllowHibernation=no
   '';
 
   # Needed for hardware passthrough
-  virtualisation.libvirtd.qemu.ovmf = true;
+  virtualisation.libvirtd.qemu.ovmf.enable = true;
 
   virtualisation.virtualbox = {
     guest.enable = false;
