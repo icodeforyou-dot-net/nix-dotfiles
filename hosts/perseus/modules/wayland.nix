@@ -23,7 +23,7 @@
   ];
 
   services = {
-    easyeffects.enable = true;
+    # easyeffects.enable = true;
     playerctld.enable = true;
   };
 }
