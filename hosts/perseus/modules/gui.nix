@@ -17,7 +17,7 @@ in
   home.packages = with pkgs; [
 
     simp1e-cursor-theme-catppuccin-frappe
-    # diogenes-reader
+    diogenes-reader
 
     unstable.bitwarden
     darktable

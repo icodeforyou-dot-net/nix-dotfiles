@@ -2,19 +2,44 @@
 , lib
 , fetchurl
 , autoPatchelfHook
+, dpkg
 , wrapGAppsHook
-  # , gnome
-  # , libsecret
-  # , git
-  # , curl
-  # , nss
-  # , nspr
-  # , xorg
-  # , libdrm
-  # , alsa-lib
-  # , cups
-  # , mesa
-  # , systemd
+, makeWrapper
+, nixosTests
+, gtk3
+, atk
+, at-spi2-atk
+, cairo
+, pango
+, gdk-pixbuf
+, glib
+, freetype
+, fontconfig
+, dbus
+, libX11
+, xorg
+, libXi
+, libXcursor
+, libXdamage
+, libXrandr
+, libXcomposite
+, libXext
+, libXfixes
+, libXrender
+, libXtst
+, libXScrnSaver
+, nss
+, nspr
+, alsa-lib
+, cups
+, expat
+, libuuid
+, at-spi2-core
+, libappindicator-gtk3
+, mesa
+  # Runtime dependencies:
+, systemd
+  # libnotify, libdbusmenu, libpulseaudio, xdg-utils
 }:
 
 stdenv.mkDerivation rec {
@@ -28,51 +53,104 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     autoPatchelfHook
-    wrapGAppsHook
+    dpkg
+    (wrapGAppsHook.override { inherit makeWrapper; })
   ];
 
   buildInputs = [
-    # gnome.gnome-keyring
-    # xorg.libXdamage
-    # xorg.libX11
-    # libsecret
-    # git
-    # curl
-    # nss
-    # nspr
-    # libdrm
-    # alsa-lib
-    # cups
-    # mesa
+    alsa-lib
+    at-spi2-atk
+    at-spi2-core
+    atk
+    cairo
+    cups
+    dbus
+    expat
+    fontconfig
+    freetype
+    gdk-pixbuf
+    glib
+    gtk3
+    libX11
+    libXScrnSaver
+    libXcomposite
+    libXcursor
+    libXdamage
+    libXext
+    libXfixes
+    libXi
+    libXrandr
+    libXrender
+    libXtst
+    libappindicator-gtk3
+    libnotify
+    libuuid
+    mesa # for libgbm
+    nspr
+    nss
+    pango
+    systemd
+    xorg.libxcb
+    xorg.libxshmfence
   ];
-
-  sourceRoot = ".";
-
-  unpackPhase = ''
-    mkdir -p $TMP/${pname} $out/{opt,bin}
-    cp $src $TMP/${pname}.deb
-    ar vx ${pname}.deb
-    pwd
-    ls -la
-    tar --no-overwrite-dir -xvf control.tar.xz -C $TMP/${pname}/
-    tar --no-overwrite-dir -xvf data.tar.xz -C $TMP/${pname}/
-  '';
-
-  installPhase = ''
-    cp -R $TMP/${pname}/usr/share $out/
-    cp -R $TMP/${pname}/usr/lib/${pname}/* $out/opt/
-    ln -sf $out/opt/${pname} $out/bin/${pname}
-  '';
 
   runtimeDependencies = [
     (lib.getLib systemd)
+    # libappindicator-gtk3
+    # libnotify
+    # libdbusmenu
+    # xdg-utils
   ];
 
-  meta = with lib; {
-    description = "An electron based reader for TLG and PHI databases.";
+  unpackPhase = "dpkg-deb -x $src .";
+
+  dontBuild = true;
+  dontConfigure = true;
+  #dontPatchELF = true;
+  # We need to run autoPatchelf manually with the "no-recurse" option, see
+  # https://github.com/NixOS/nixpkgs/pull/78413 for the reasons.
+  #dontAutoPatchelf = true;
+
+  installPhase = ''
+    runHook preInstall
+    # mkdir -p $out/lib
+    # mv usr/share $out/share
+    # mv opt/Signal $out/lib/Signal
+    # Note: The following path contains bundled libraries:
+    # $out/lib/Signal/resources/app.asar.unpacked/node_modules/sharp/vendor/lib/
+    # We run autoPatchelf with the "no-recurse" option to avoid picking those
+    # up, but resources/app.asar still requires them.
+    # Symlink to bin
+    mkdir -p $out/bin
+    ln -s $out/local/diogenes/diogenes $out/bin/diogenes
+    # Create required symlinks:
+    ln -s libGLESv2.so $out/local/diogenes/libGLESv2.so.2
+    runHook postInstall
+  '';
+
+  # preFixup = ''
+  #   gappsWrapperArgs+=(
+  #     --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc ] }"
+  #     --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
+  #     --suffix PATH : ${lib.makeBinPath [ xdg-utils ]}
+  #   )cd
+  #   # Fix the desktop link
+  #   substituteInPlace $out/share/applications/diogenes.desktop \
+  #     --replace /opt/Signal/signal-desktop $out/bin/signal-desktop
+  #   autoPatchelf --no-recurse -- $out/lib/Signal/
+  #   patchelf --add-needed ${libpulseaudio}/lib/libpulse.so $out/lib/Signal/resources/app.asar.unpacked/node_modules/ringrtc/build/linux/libringrtc-x64.node
+  # '';
+
+  meta = {
+    description = "Diogenes: an environment for reading Latin and Greek";
+    longDescription = ''
+      An electron based reader for TLG and PHI databases (among others) for Greek and Latin texts.
+    '';
     homepage = "https://d.iogen.es";
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    license = licenses.gpl3;
-    platforms = platforms.linux;
+    changelog = "https://github.com/pjheslin/diogenes/releases/tag/${version}";
+    license = lib.licenses.gpl3;
+    # maintainers = with lib.maintainers; [ ];
+    platforms = [ "x86_64-linux" ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };
 }
