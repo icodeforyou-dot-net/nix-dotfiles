@@ -83,7 +83,7 @@ stdenv.mkDerivation rec {
     libXrender
     libXtst
     libappindicator-gtk3
-    libnotify
+    #  libnotify
     libuuid
     mesa # for libgbm
     nspr
@@ -113,18 +113,13 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    # mkdir -p $out/lib
-    # mv usr/share $out/share
-    # mv opt/Signal $out/lib/Signal
-    # Note: The following path contains bundled libraries:
-    # $out/lib/Signal/resources/app.asar.unpacked/node_modules/sharp/vendor/lib/
-    # We run autoPatchelf with the "no-recurse" option to avoid picking those
-    # up, but resources/app.asar still requires them.
-    # Symlink to bin
     mkdir -p $out/bin
-    ln -s $out/local/diogenes/diogenes $out/bin/diogenes
+    mkdir -p $out/diogenes
+    # mv . $out/diogenes
+    # Symlink to bin
+    ln -s $out/usr/local/diogenes/diogenes $out/bin/diogenes
     # Create required symlinks:
-    ln -s libGLESv2.so $out/local/diogenes/libGLESv2.so.2
+    # ln -s libGLESv2.so $out/local/diogenes/libGLESv2.so.2
     runHook postInstall
   '';
 
