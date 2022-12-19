@@ -85,6 +85,26 @@ in
       "[nix]"."editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
       "[nix]"."editor.tabSize" = 2;
       "python.formatting.provider" = "black";
+      "python.linting.enabled" = true;
+      "python.linting.flake8Enabled" = true;
+      "python.linting.flake8Args" = [
+        "--max-line-length=120"
+        "--ignore=E402,F841,F401,E302,E305"
+      ];
+      "python.linting.lintOnSave" = true;
+      "python.linting.mypyEnabled" = true;
+      "python.linting.mypyArgs" = [
+        "--ignore-missing-imports"
+        "--follow-imports=silent"
+        "--show-column-numbers"
+        "--strict"
+      ];
+      "python.linting.pylintEnabled" = true;
+      "python.linting.pylintArgs" = [
+        "--disable=missing-module-docstring"
+        "--disable=missing-class-docstring"
+        "--disable=missing-function-docstring"
+      ];
       "redhat.telemetry.enabled" = false;
       "telemetry.telemetryLevel" = "off";
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
