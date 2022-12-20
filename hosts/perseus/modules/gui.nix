@@ -18,6 +18,7 @@ in
 
     simp1e-cursor-theme-catppuccin-frappe
     # diogenes-reader
+    unstable.galaxy-buds-client
 
     unstable.bitwarden
     darktable
