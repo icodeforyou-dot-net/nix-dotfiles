@@ -92,7 +92,6 @@
                   '';
                 });
                 recommendedEnvironment = false;
-                xwayland.enable = true;
               };
             }
             ./hosts/shared_configuration.nix
@@ -123,7 +122,6 @@
                   '';
                 });
                 recommendedEnvironment = false;
-                xwayland.enable = true;
               };
             }
             ./hosts/shared_configuration.nix
