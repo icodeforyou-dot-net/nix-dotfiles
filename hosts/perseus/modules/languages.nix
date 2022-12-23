@@ -24,9 +24,6 @@
 
     # python
     (python3.withPackages (ps: with ps; [ setuptools pip debugpy requests ]))
-    poetry
-    autoflake
-    black
 
     # rust
     rustup
@@ -34,12 +31,12 @@
     lldb # debugging setup
 
     # Julia
-    unstable.julia-bin
+    # unstable.julia-bin
 
     # Containers
     dive
     skopeo
-    
+
     # ansible
     ansible
     ansible-lint
