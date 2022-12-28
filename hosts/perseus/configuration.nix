@@ -11,8 +11,6 @@ let
 in
 
 {
-  boot.kernelPackages = pkgs.linuxPackages;
-
   hardware.bluetooth = {
     enable = true;
     # disabledPlugins = [ "sap" ];

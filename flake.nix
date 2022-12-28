@@ -98,6 +98,7 @@
             ./hosts/perseus/configuration.nix
             ./hosts/perseus/hostname.nix
             ./hosts/perseus/hardware-configuration.nix
+            ./hosts/kernels/linuxPackages_latest.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -128,6 +129,7 @@
             ./hosts/perseus/configuration.nix
             ./hosts/cadmus/hostname.nix
             ./hosts/cadmus/hardware-configuration.nix
+            ./hosts/kernels/linuxPackages_latest.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
