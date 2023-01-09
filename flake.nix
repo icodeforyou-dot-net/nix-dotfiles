@@ -68,6 +68,7 @@
             ./hosts/shared_configuration.nix
             ./hosts/archon/configuration.nix
             ./hosts/kernels/kernel-5.16.9.nix
+            #./hosts/kernels/linuxPackages_latest.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
