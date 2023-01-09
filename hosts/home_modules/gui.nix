@@ -32,7 +32,8 @@ in
     pdfarranger
     unstable.onlyoffice-bin
     zoom-us
-    tutanota-desktop-override
+    # tutanota-desktop-override
+    tutanota-desktop
 
     calibre
     unstable.obsidian
