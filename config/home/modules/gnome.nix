@@ -12,5 +12,6 @@
     tela-icon-theme
     pavucontrol
     wl-clipboard
+    lyrebird
   ];
 }

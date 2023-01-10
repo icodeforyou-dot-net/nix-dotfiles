@@ -23,7 +23,7 @@
     rnix-lsp
 
     # python
-    (python3.withPackages (ps: with ps; [ setuptools pip debugpy requests ]))
+    (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
 
     # rust
     rustup

@@ -94,7 +94,7 @@ in
       alias ans='cd /home/ap/Coding/ansible'
       alias ndf='cd /home/ap/Coding/nix/nix-dotfiles'
 
-      PATH="$PATH:/home/ap/.local/bin/"
+      PATH="$PATH:/home/ap/.local/bin/" 
     '';
   };
 

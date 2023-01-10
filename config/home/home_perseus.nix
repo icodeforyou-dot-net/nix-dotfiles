@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  programs.home-manager.enable = true;
+
   xresources.properties = {
-    "Xft.dpi" = 192;
     "Xft.antialias" = true;
     "Xft.autohint" = false;
+    "Xcursor.theme" = "Simp1e-Catppuccin-Frappe";
     "Xft.lcdfilter" = "lcddefault";
     "Xft.hintsyle" = "hintful";
-    "URxvt.foreground" = "White";
   };
 }
