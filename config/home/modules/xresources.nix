@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   xresources.properties = {
     "Xft.antialias" = true;
     "Xft.autohint" = false;

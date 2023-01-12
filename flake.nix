@@ -164,19 +164,18 @@
               nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/perseus/modules/cli-os.nix
-            #./hosts/perseus/modules/dconf.nix
-            ./hosts/perseus/modules/editors.nix
-            ./hosts/perseus/modules/eww/eww.nix
-            ./hosts/perseus/modules/mako/mako.nix
-            ./hosts/perseus/modules/languages.nix
-            ./hosts/perseus/modules/fonts.nix
-            ./hosts/perseus/modules/gnome.nix
-            ./hosts/perseus/modules/gui.nix
-            ./hosts/perseus/modules/swaylock.nix
-            ./hosts/perseus/modules/wayland.nix
-            ./hosts/perseus/home.nix
+            ./config/home/modules/home_manager.nix
+            ./config/home/modules/cli-os.nix
+            ./config/home/modules/editors.nix
+            ./config/home/modules/eww/eww.nix
+            ./config/home/modules/mako/mako.nix
+            ./config/home/modules/languages.nix
+            ./config/home/modules/fonts.nix
+            ./config/home/modules/gnome.nix
+            ./config/home/modules/gui.nix
+            ./config/home/modules/swaylock.nix
+            ./config/home/modules/wayland.nix
+            ./config/home/modules/xresources.nix
           ];
         };
 
@@ -192,17 +191,18 @@
               nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/perseus/modules/cli-os.nix
-            ./hosts/perseus/modules/editors.nix
-            ./hosts/perseus/modules/eww/eww.nix
-            ./hosts/perseus/modules/mako/mako.nix
-            ./hosts/perseus/modules/languages.nix
-            ./hosts/perseus/modules/fonts.nix
-            ./hosts/perseus/modules/gnome.nix
-            ./hosts/perseus/modules/gui.nix
-            ./hosts/perseus/modules/wayland.nix
-            ./hosts/perseus/home.nix
+            ./config/home/modules/home_manager.nix
+            ./config/home/modules/cli-os.nix
+            ./config/home/modules/editors.nix
+            ./config/home/modules/eww/eww.nix
+            ./config/home/modules/mako/mako.nix
+            ./config/home/modules/languages.nix
+            ./config/home/modules/fonts.nix
+            ./config/home/modules/gnome.nix
+            ./config/home/modules/gui.nix
+            ./config/home/modules/swaylock.nix
+            ./config/home/modules/wayland.nix
+            ./config/home/modules/xresources.nix
           ];
         };
       };

@@ -1,35 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
 
   hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
 
-  boot = {
-    cleanTmpDir = true;
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
-    supportedFilesystems = [ "btrfs" "ntfs" ];
-  };
 
-  fonts.fonts = with pkgs; [
-    material-icons
-    material-design-icons
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    # Replacement for Times New Roman, Arial
-    liberation_ttf
-    google-fonts
-  ];
+
 
   networking = {
     firewall.enable = true;
@@ -71,41 +47,5 @@
 
   security.sudo.execWheelOnly = true;
 
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      firefox = {
-        executable = "${lib.getBin pkgs.firefox}/bin/firefox";
-        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-      };
-      discord = {
-        executable = "${lib.getBin pkgs.discord}/bin/discord";
-        profile = "${pkgs.firejail}/etc/firejail/discord.profile";
-      };
-    };
-  };
-
-  virtualisation = {
-    docker = {
-      enable = true;
-      enableOnBoot = false;
-    };
-
-    libvirtd = {
-      enable = true;
-      extraConfig = ''
-        user="ap"
-      '';
-      # qemu.ovmf = true;
-      qemu.runAsRoot = false;
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-    };
-
-    lxc.lxcfs.enable = true;
-    lxd.enable = true;
-
-    waydroid.enable = true;
-  };
 
 }
