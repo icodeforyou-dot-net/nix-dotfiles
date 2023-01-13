@@ -14,4 +14,6 @@
       package = pkgs.unstable.wireplumber;
     };
   };
+
+  sound.enable = true;
 }

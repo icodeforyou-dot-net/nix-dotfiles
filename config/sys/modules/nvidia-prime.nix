@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, fetchFromGitHub, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''

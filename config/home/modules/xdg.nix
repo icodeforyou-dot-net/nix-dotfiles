@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.userDirs = {
     enable = true;
     documents = "$HOME/misc/";
@@ -13,5 +12,4 @@
     publicShare = "$HOME/misc/";
     templates = "$HOME/misc/";
   };
-
 }
