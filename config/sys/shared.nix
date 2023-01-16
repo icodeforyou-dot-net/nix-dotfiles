@@ -4,9 +4,6 @@
 
   hardware.enableAllFirmware = true;
 
-
-
-
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
@@ -22,7 +19,7 @@
     };
   };
 
-  sound.enable = true;
+
 
   users.users.ap = {
     isNormalUser = true;
@@ -30,22 +27,7 @@
     initialPassword = "123";
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    pstree
-    lm_sensors
-    killall
-    unzip
-    lsof
-    gocryptfs
-    virtmanager
-    gptfdisk
-    acpi
-    virglrenderer
-  ];
 
-  security.sudo.execWheelOnly = true;
 
 
 }
