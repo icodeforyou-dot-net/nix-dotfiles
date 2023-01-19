@@ -1,13 +1,7 @@
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, pkgs-unstable, ... }:
 {
-
-  hardware.enableAllFirmware = true;
-
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
   };
-
-
 }
