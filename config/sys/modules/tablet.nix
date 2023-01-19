@@ -1,4 +1,4 @@
 { config, lib, pkgs, pkgs-unstable, ... }:
 {
-  networking.hostName = "";
+  hardware.opentabletdriver.enable = true;
 }

@@ -19,6 +19,9 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
+  programs.dconf.enable = true;
+  programs.light.enable = true;
+
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
