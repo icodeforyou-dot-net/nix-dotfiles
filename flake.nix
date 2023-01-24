@@ -52,10 +52,11 @@
         archon = lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/shared_configuration.nix
-            ./hosts/archon/configuration.nix
-            #./hosts/kernels/kernel-5.16.9.nix
-            ./hosts/kernels/linuxPackages_latest.nix
+            # ./hosts/shared_configuration.nix
+            # ./hosts/archon/configuration.nix
+            # ./hosts/kernels/kernel-5.16.9.nix
+            # ./hosts/kernels/linuxPackages_latest.nix
+            ./hosts/archon-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -82,11 +83,11 @@
                 recommendedEnvironment = false;
               };
             }
-            ./hosts/shared_configuration.nix
-            ./hosts/perseus/configuration.nix
-            ./hosts/perseus/hostname.nix
-            ./hosts/perseus/hardware-configuration.nix
-            ./hosts/kernels/linuxPackages_latest.nix
+            # ./hosts/shared_configuration.nix
+            # ./hosts/perseus/configuration.nix
+            # ./hosts/perseus/hostname.nix
+            # ./hosts/perseus/hardware-configuration.nix
+            # ./hosts/kernels/linuxPackages_latest.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -113,11 +114,11 @@
                 recommendedEnvironment = false;
               };
             }
-            ./hosts/shared_configuration.nix
-            ./hosts/perseus/configuration.nix
-            ./hosts/cadmus/hostname.nix
-            ./hosts/cadmus/hardware-configuration.nix
-            ./hosts/kernels/linuxPackages_latest.nix
+            # ./hosts/shared_configuration.nix
+            # ./hosts/perseus/configuration.nix
+            # ./hosts/cadmus/hostname.nix
+            # ./hosts/cadmus/hardware-configuration.nix
+            # ./hosts/kernels/linuxPackages_latest.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
