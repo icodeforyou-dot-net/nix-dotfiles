@@ -65,7 +65,7 @@ in
       unstable.vscode-extensions.haskell.haskell
       unstable.vscode-extensions.ms-vscode.cpptools
       vscode-extensions.graphql.vscode-graphql
-      unstable.vscode-extensions.ms-python.python
+      vscode-extensions.ms-python.python
       unstable.vscode-extensions.ms-python.vscode-pylance
       unstable.vscode-extensions.ms-toolsai.jupyter
       vscode-extensions.ms-azuretools.vscode-docker
@@ -77,7 +77,7 @@ in
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Material Icons'";
+      "editor.fontFamily" = "'JetBrains Mono', 'Iosevka Nerd Font Mono', 'Material Icons'";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;
@@ -107,7 +107,7 @@ in
       ];
       "redhat.telemetry.enabled" = false;
       "telemetry.telemetryLevel" = "off";
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
+      "terminal.integrated.fontFamily" = "'JetBrains Mono'";
       "update.mode" = "none";
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "toggle";

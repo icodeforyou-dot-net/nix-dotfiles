@@ -128,15 +128,15 @@
         ap-archon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            # {
-            #   home = {
-            #     username = "ap";
-            #     homeDirectory = "/home/ap";
-            #     stateVersion = "22.11";
-            #   };
-            #   nixpkgs.config = { allowUnfree = true; };
-            #   nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-            # }
+            {
+              # home = {
+              #   username = "ap";
+              #   homeDirectory = "/home/ap";
+              #   stateVersion = "22.11";
+              # };
+              # nixpkgs.config = { allowUnfree = true; };
+              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+            }
             ./config/hosts/archon-home.nix
           ];
         };

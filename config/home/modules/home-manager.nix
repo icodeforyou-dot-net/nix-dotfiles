@@ -8,7 +8,7 @@
   };
 
   nixpkgs.config = { allowUnfree = true; };
-  nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+  # nixpkgs.overlays = [ overlay-unstable overlay-custom ];
 
   programs.home-manager.enable = true;
 }

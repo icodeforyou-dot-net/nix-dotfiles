@@ -13,6 +13,8 @@
       # Replacement for Times New Roman, Arial
       liberation_ttf
       google-fonts
+
+      (nerdfonts.override { fonts = [ "CascadiaCode" "DejaVuSansMono" "JetBrainsMono" "Inconsolata" "Iosevka" "Overpass" "FiraCode" ]; })
     ];
 
     fontconfig.defaultFonts = {
