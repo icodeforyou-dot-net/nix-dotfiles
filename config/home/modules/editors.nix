@@ -77,7 +77,7 @@ in
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'JetBrains Mono', 'Iosevka Nerd Font Mono', 'Material Icons'";
+      "editor.fontFamily" = "'JetBrains Mono Nerd Font'";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;
@@ -107,7 +107,7 @@ in
       ];
       "redhat.telemetry.enabled" = false;
       "telemetry.telemetryLevel" = "off";
-      "terminal.integrated.fontFamily" = "'JetBrains Mono'";
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
       "update.mode" = "none";
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "toggle";
