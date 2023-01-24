@@ -10,7 +10,7 @@
     ../home/modules/cli-os.nixfonts.nix
     ../home/modules/gnome.nix
     ../home/modules/gui.nix
-    ../home/modules/home_manager.nix
+    ../home/modules/home-manager.nix
     ../home/modules/languages.nix
     ../home/modules/swaylock.nix
     ../home/modules/wayland.nix

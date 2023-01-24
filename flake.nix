@@ -52,10 +52,6 @@
         archon = lib.nixosSystem {
           inherit system;
           modules = [
-            # ./hosts/shared_configuration.nix
-            # ./hosts/archon/configuration.nix
-            # ./hosts/kernels/kernel-5.16.9.nix
-            # ./hosts/kernels/linuxPackages_latest.nix
             ./config/hosts/archon-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
@@ -132,24 +128,16 @@
         ap-archon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            {
-              home = {
-                username = "ap";
-                homeDirectory = "/home/ap";
-                stateVersion = "22.11";
-              };
-              nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-            }
-            # ./hosts/shared_home.nix
-            # ./hosts/home_modules/games/openmw.nix
-            # ./hosts/home_modules/audio.nix
-            # ./hosts/home_modules/cli-os.nix
-            # ./hosts/home_modules/coding.nix
-            # ./hosts/home_modules/fonts.nix
-            # ./hosts/home_modules/gnome.nix
-            # ./hosts/home_modules/gui.nix
-            # ./hosts/archon/home.nix
+            # {
+            #   home = {
+            #     username = "ap";
+            #     homeDirectory = "/home/ap";
+            #     stateVersion = "22.11";
+            #   };
+            #   nixpkgs.config = { allowUnfree = true; };
+            #   nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+            # }
+            ./config/hosts/archon-home.nix
           ];
         };
 
