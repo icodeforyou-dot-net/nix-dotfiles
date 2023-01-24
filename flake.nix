@@ -56,7 +56,7 @@
             # ./hosts/archon/configuration.nix
             # ./hosts/kernels/kernel-5.16.9.nix
             # ./hosts/kernels/linuxPackages_latest.nix
-            ./hosts/archon-system.nix
+            ./config/hosts/archon-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -141,15 +141,15 @@
               nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/home_modules/games/openmw.nix
-            ./hosts/home_modules/audio.nix
-            ./hosts/home_modules/cli-os.nix
-            ./hosts/home_modules/coding.nix
-            ./hosts/home_modules/fonts.nix
-            ./hosts/home_modules/gnome.nix
-            ./hosts/home_modules/gui.nix
-            ./hosts/archon/home.nix
+            # ./hosts/shared_home.nix
+            # ./hosts/home_modules/games/openmw.nix
+            # ./hosts/home_modules/audio.nix
+            # ./hosts/home_modules/cli-os.nix
+            # ./hosts/home_modules/coding.nix
+            # ./hosts/home_modules/fonts.nix
+            # ./hosts/home_modules/gnome.nix
+            # ./hosts/home_modules/gui.nix
+            # ./hosts/archon/home.nix
           ];
         };
 
@@ -165,18 +165,18 @@
               nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./config/home/modules/home_manager.nix
-            ./config/home/modules/cli-os.nix
-            ./config/home/modules/editors.nix
-            ./config/home/modules/eww/eww.nix
-            ./config/home/modules/mako/mako.nix
-            ./config/home/modules/languages.nix
-            ./config/home/modules/fonts.nix
-            ./config/home/modules/gnome.nix
-            ./config/home/modules/gui.nix
-            ./config/home/modules/swaylock.nix
-            ./config/home/modules/wayland.nix
-            ./config/home/modules/xresources.nix
+            # ./config/home/modules/home_manager.nix
+            # ./config/home/modules/cli-os.nix
+            # ./config/home/modules/editors.nix
+            # ./config/home/modules/eww/eww.nix
+            # ./config/home/modules/mako/mako.nix
+            # ./config/home/modules/languages.nix
+            # ./config/home/modules/fonts.nix
+            # ./config/home/modules/gnome.nix
+            # ./config/home/modules/gui.nix
+            # ./config/home/modules/swaylock.nix
+            # ./config/home/modules/wayland.nix
+            # ./config/home/modules/xresources.nix
           ];
         };
 
@@ -192,18 +192,18 @@
               nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./config/home/modules/home_manager.nix
-            ./config/home/modules/cli-os.nix
-            ./config/home/modules/editors.nix
-            ./config/home/modules/eww/eww.nix
-            ./config/home/modules/mako/mako.nix
-            ./config/home/modules/languages.nix
-            ./config/home/modules/fonts.nix
-            ./config/home/modules/gnome.nix
-            ./config/home/modules/gui.nix
-            ./config/home/modules/swaylock.nix
-            ./config/home/modules/wayland.nix
-            ./config/home/modules/xresources.nix
+            # ./config/home/modules/home_manager.nix
+            # ./config/home/modules/cli-os.nix
+            # ./config/home/modules/editors.nix
+            # ./config/home/modules/eww/eww.nix
+            # ./config/home/modules/mako/mako.nix
+            # ./config/home/modules/languages.nix
+            # ./config/home/modules/fonts.nix
+            # ./config/home/modules/gnome.nix
+            # ./config/home/modules/gui.nix
+            # ./config/home/modules/swaylock.nix
+            # ./config/home/modules/wayland.nix
+            # ./config/home/modules/xresources.nix
           ];
         };
       };
