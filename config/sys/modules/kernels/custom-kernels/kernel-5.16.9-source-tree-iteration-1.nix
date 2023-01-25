@@ -12,8 +12,8 @@
           src = fetchgit
             {
               url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/";
-              rev = "0398436";
-              sha256 = "Dz+CpecLcVU/jA00gCnOenDhL8yYzMxM58uCXcTtzj0=";
+              rev = "0398436e39b219cc26f44f9a301779e82f1684f7";
+              sha256 = "20BtNw6uuJDa4Vo8ti3JfMIHVvuQHha7zhLymKMmajo=";
             };
 
           kernelPatches = [ ];
