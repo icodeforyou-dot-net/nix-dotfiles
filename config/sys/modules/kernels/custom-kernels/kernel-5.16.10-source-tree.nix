@@ -1,4 +1,4 @@
-{ pkgs, pkgs-22-04, ... }:
+{ pkgs, ... }:
 
 {
   boot.kernelPackages =
@@ -20,7 +20,7 @@
 
           extraMeta.branch = "5.16";
         } // (args.argsOverride or { }));
-      linux_5-16-9 = pks.callPackage linux_pkg { };
+      linux_5-16-9 = pkgs.callPackage linux_pkg { };
     in
-    pkgs.recurseIntoAttrs (pks.linuxPackagesFor linux_5-16-9);
+    pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_5-16-9);
 }

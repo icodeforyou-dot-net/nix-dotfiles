@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
 
-    nixpkgs-22-04.url = "nixpkgs/nixos-22.04";
+    nixpkgs-22-05.url = "nixpkgs/nixos-22.05";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-22-04, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-22-05, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -30,7 +30,7 @@
         };
       };
 
-      pkgs-22-04 = import nixpkgs-22-04 {
+      pkgs-22-05 = import nixpkgs-22-05 {
         inherit system;
         config = {
           allowUnfree = true;
@@ -53,23 +53,14 @@
         };
       };
 
-      overlay-22-04 = final: prev: {
-        unstable = import nixpkgs-22-04 {
+      overlay-22-05 = final: prev: {
+        unstable = import nixpkgs-22-05 {
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
       };
 
-      overlay-pahole = final: prev: {
-        pahole = prev.pahole.overrideAttrs (oldAttrs: {
-          version = "1.23";
-          src = prev.fetchgit {
-            url = "https://git.kernel.org/pub/scm/devel/pahole/pahole.git";
-            rev = "v1.23";
-            sha256 = "sha256-Dt3ZcUfjwdtTTv6qRFRgwK5GFWXdpN7fvb9KhpS1O94=";
-          };
-        });
-      };
+      overlay-custom-kernel = import ./config/sys/modules/kernels/custom-kernels/kernel-5.16.10-source-tree-overlay.nix;
 
       overlay-custom = import ./packages;
 
@@ -85,9 +76,9 @@
             {
               nixpkgs.overlays = [
                 overlay-unstable
-                overlay-22-04
+                overlay-22-05
                 overlay-custom
-                overlay-pahole
+                overlay-custom-kernel
               ];
             }
           ];
