@@ -12,7 +12,7 @@
           src = fetchgit
             {
               url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/";
-              rev = "03fdd1adcac67e38b78a83a5f26979d5efe1279f";
+              rev = "bb3ff8d02c4514eb79ef1cfe6e567d45ec72dd53";
               sha256 = "H+CCaFXZgo8vQXmXNhdDm9g+d5NEnrhV8RBveIF0O9o=";
             };
 
