@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
 
+    nixpkgs-22-04.url = "nixpkgs/nixos-22.04";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -17,11 +19,18 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-22-04, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+      pkgs-22-04 = import nixpkgs-22-04 {
         inherit system;
         config = {
           allowUnfree = true;
@@ -44,6 +53,24 @@
         };
       };
 
+      overlay-22-04 = final: prev: {
+        unstable = import nixpkgs-22-04 {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
+      overlay-pahole = final: prev: {
+        pahole = prev.pahole.overrideAttrs (oldAttrs: {
+          version = "1.23";
+          src = prev.fetchgit {
+            url = "https://git.kernel.org/pub/scm/devel/pahole/pahole.git";
+            rev = "v1.23";
+            sha256 = "sha256-Dt3ZcUfjwdtTTv6qRFRgwK5GFWXdpN7fvb9KhpS1O94=";
+          };
+        });
+      };
+
       overlay-custom = import ./packages;
 
     in
@@ -55,7 +82,14 @@
             ./config/hosts/archon-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
+            {
+              nixpkgs.overlays = [
+                overlay-unstable
+                overlay-22-04
+                overlay-custom
+                overlay-pahole
+              ];
+            }
           ];
         };
 

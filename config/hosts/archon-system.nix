@@ -4,7 +4,8 @@
   imports = [
     ../sys/modules/console/console-desktop.nix
     ../sys/modules/hardware/hardware-archon.nix
-    ../sys/modules/kernels/linuxPackages_latest.nix
+    # ../sys/modules/kernels/linuxPackages_latest.nix
+    ../sys/modules/kernels/kernel-5.16.10-source-tree.nix
     ../sys/modules/bluetooth.nix
     ../sys/modules/boot.nix
     ../sys/modules/firejail.nix
