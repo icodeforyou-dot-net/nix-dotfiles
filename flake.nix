@@ -60,7 +60,7 @@
         };
       };
 
-      overlay-custom-kernel = import ./config/sys/modules/kernels/custom-kernels/kernel-5.16.10-source-tree-overlay.nix;
+      overlay-custom-kernel = import ./config/sys/modules/kernels/custom-kernels/kernel-5.16.9-source-tree-overlay.nix;
 
       overlay-custom = import ./packages;
 
