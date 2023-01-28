@@ -77,7 +77,7 @@ in
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.colorTheme" = "Catppuccin Mocha";
-      "editor.fontFamily" = "'JetBrains Mono Nerd Font'";
+      "editor.fontFamily" = "'JetBrains Mono Nerd Font', monospace";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;

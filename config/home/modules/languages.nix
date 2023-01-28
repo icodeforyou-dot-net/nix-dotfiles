@@ -45,6 +45,7 @@
     # VMs
     quickemu
     vagrant
+    unstable.distrobox
   ];
 
 
