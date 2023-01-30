@@ -48,6 +48,7 @@ in
     insomnia
     vlc
     unstable.tutanota-desktop
+    unstable.rnote
 
     calibre
 
