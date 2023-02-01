@@ -23,6 +23,22 @@ in
     unstable.bitwarden
     darktable
 
+    # Mailspring, thunderbird, tutanota
+    unstable.mailspring
+    unstable.thunderbird-bin
+    unstable.tutanota-desktop
+
+    unstable.obs-studio
+    unstable.obs-studio-plugins.wlrobs
+    davinci-resolve
+
+    # Skype, signal, telegram, whatsapp, element
+    skypeforlinux
+    unstable.signal-desktop
+    unstable.tdesktop
+    unstable.whatsapp-for-linux
+    unstable.element-desktop
+
     # Creating a wrapper for discord to run it in firejail
     (symlinkJoin {
       name = "discord";
@@ -32,27 +48,23 @@ in
       ];
     })
 
-    unstable.element-desktop
-    unstable.mailspring
-    unstable.thunderbird-bin
-
-    unstable.obs-studio
-    unstable.obs-studio-plugins.wlrobs
-    davinci-resolve
-
-    skypeforlinux
-
-    unstable.signal-desktop
-    unstable.tdesktop
-    unstable.whatsapp-for-linux
     insomnia
     vlc
-    unstable.tutanota-desktop
+
+
+    # notetaking app
     unstable.rnote
+
+    # wallpapers from unsplash
+    unstable.fondo
+    # background sounds
+    unstable.blanket
+    # Extract text from image
+    unstable.gnome-frog
 
     calibre
 
-    # Browser
+    # Brave browser
     unstable.brave
 
     # Creating a wrapper for chromium to run it in firejail
