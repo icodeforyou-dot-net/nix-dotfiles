@@ -6,7 +6,7 @@
   programs.mako = {
     enable = true;
     package = pkgs.unstable.mako;
-    iconPath = "~/Coding/nix/nix-dotfiles/hosts/perseus/modules/mako/icons";
+    iconPath = ~/Coding/nix/nix-dotfiles/hosts/perseus/modules/mako/icons;
     actions = true;
     anchor = "top-right";
     backgroundColor = "#1e1e2e";

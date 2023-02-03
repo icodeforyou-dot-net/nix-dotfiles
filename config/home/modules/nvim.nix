@@ -3,6 +3,6 @@
 {
   home.file.".config/nvim/init.lua" = {
     executable = false;
-    source = "./nvim/init.lua";
+    source = ./nvim/init.lua;
   };
 }
