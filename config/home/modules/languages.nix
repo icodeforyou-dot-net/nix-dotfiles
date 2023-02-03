@@ -12,6 +12,7 @@
 
     # lua
     lua
+    unstable.stylua
 
     # markdown
     # nodePackages.livedown
@@ -25,13 +26,7 @@
     # python
     (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
 
-    # rust
-    rustup
-
     lldb # debugging setup
-
-    # Julia
-    # unstable.julia-bin
 
     # Containers
     dive
