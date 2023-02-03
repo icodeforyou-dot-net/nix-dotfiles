@@ -53,7 +53,7 @@ require('packer').startup(function(use)
 
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-  use { 'jose-elias-alvarez/null-ls.nvim' } -- formatting and linting
+  use 'jose-elias-alvarez/null-ls.nvim' -- formatting and linting
 
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
