@@ -7,6 +7,7 @@
     unstable.mako
     unstable.swaybg
     unstable.swaylock
+    unstable.swayidle
     unstable.waybar
     wev
     unstable.wlogout
