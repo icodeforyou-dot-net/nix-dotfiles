@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
 
+    nixpkgs-22-05.url = "nixpkgs/nixos-22.05";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -17,11 +19,18 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-22-05, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+      pkgs-22-05 = import nixpkgs-22-05 {
         inherit system;
         config = {
           allowUnfree = true;
@@ -44,34 +53,60 @@
         };
       };
 
+      overlay-22-05 = final: prev: {
+        unstable = import nixpkgs-22-05 {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
+      # overlay-custom-kernel = import ./config/sys/modules/kernels/custom-kernels/kernel-5.16.9-source-tree-overlay.nix;
+
+      overlay-custom-kernel = final: prev: {
+        pahole = prev.pahole.overrideAttrs (oldAttrs: {
+          version = "1.23";
+          src = prev.fetchgit {
+            url = "https://git.kernel.org/pub/scm/devel/pahole/pahole.git";
+            rev = "v1.23";
+            sha256 = "sha256-Dt3ZcUfjwdtTTv6qRFRgwK5GFWXdpN7fvb9KhpS1O94=";
+          };
+
+          buildInputs = [ prev.elfutils prev.zlib final.libbpf-0-7-0 ];
+        });
+
+        libbpf-0-7-0 = prev.libbpf.overrideAttrs (oldAttrs: {
+          version = "0.7.0";
+
+          src = prev.fetchFromGitHub {
+            owner = "libbpf";
+            repo = "libbpf";
+            rev = "v0.7.0";
+            sha256 = "sha256-NFVJ8JquWVzu+QoaaOMzhnu6/IqdP1FPhtJFidXA4L4=";
+          };
+
+          buildInputs = [ prev.libelf prev.zlib ];
+        });
+      };
+
       overlay-custom = import ./packages;
 
     in
     {
       nixosConfigurations = {
-
-        proteus = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/shared_configuration.nix
-            ./hosts/proteus/configuration.nix
-            ./hosts/system_modules/pipewire.nix
-            { nix.registry.nixpkgs.flake = nixpkgs; }
-            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
-          ];
-        };
-
         archon = lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/shared_configuration.nix
-            ./hosts/archon/configuration.nix
-            ./hosts/kernels/kernel-5.16.9.nix
-            #./hosts/kernels/linuxPackages_latest.nix
+            ./config/hosts/archon-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
+            {
+              nixpkgs.overlays = [
+                overlay-unstable
+                overlay-22-05
+                overlay-custom
+                overlay-custom-kernel
+              ];
+            }
           ];
         };
 
@@ -95,11 +130,7 @@
                 recommendedEnvironment = false;
               };
             }
-            ./hosts/shared_configuration.nix
-            ./hosts/perseus/configuration.nix
-            ./hosts/perseus/hostname.nix
-            ./hosts/perseus/hardware-configuration.nix
-            ./hosts/kernels/linuxPackages_latest.nix
+            ./config/hosts/perseus-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -126,11 +157,7 @@
                 recommendedEnvironment = false;
               };
             }
-            ./hosts/shared_configuration.nix
-            ./hosts/perseus/configuration.nix
-            ./hosts/cadmus/hostname.nix
-            ./hosts/cadmus/hardware-configuration.nix
-            ./hosts/kernels/linuxPackages_latest.nix
+            ./config/hosts/cadmus-system.nix
             { nix.registry.nixpkgs.flake = nixpkgs; }
             { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
@@ -140,50 +167,14 @@
       };
 
       homeConfigurations = {
-        ap-proteus = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          # pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            {
-              home = {
-                username = "ap";
-                homeDirectory = "/home/ap";
-                stateVersion = "22.11";
-              };
-              nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-            }
-            ./hosts/shared_home.nix
-            ./hosts/home_modules/cli-os.nix
-            ./hosts/home_modules/coding.nix
-            ./hosts/home_modules/fonts.nix
-            ./hosts/home_modules/gnome.nix
-            ./hosts/home_modules/gui.nix
-            ./hosts/proteus/home.nix
-          ];
-        };
 
         ap-archon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             {
-              home = {
-                username = "ap";
-                homeDirectory = "/home/ap";
-                stateVersion = "22.11";
-              };
-              nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/home_modules/games/openmw.nix
-            ./hosts/home_modules/audio.nix
-            ./hosts/home_modules/cli-os.nix
-            ./hosts/home_modules/coding.nix
-            ./hosts/home_modules/fonts.nix
-            ./hosts/home_modules/gnome.nix
-            ./hosts/home_modules/gui.nix
-            ./hosts/archon/home.nix
+            ./config/hosts/archon-home.nix
           ];
         };
 
@@ -191,27 +182,15 @@
           inherit pkgs;
           modules = [
             {
-              home = {
-                username = "ap";
-                homeDirectory = "/home/ap";
-                stateVersion = "22.11";
-              };
-              nixpkgs.config = { allowUnfree = true; };
+              # home = {
+              #   username = "ap";
+              #   homeDirectory = "/home/ap";
+              #   stateVersion = "22.11";
+              # };
+              # nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/perseus/modules/cli-os.nix
-            #./hosts/perseus/modules/dconf.nix
-            ./hosts/perseus/modules/editors.nix
-            ./hosts/perseus/modules/eww/eww.nix
-            ./hosts/perseus/modules/mako/mako.nix
-            ./hosts/perseus/modules/languages.nix
-            ./hosts/perseus/modules/fonts.nix
-            ./hosts/perseus/modules/gnome.nix
-            ./hosts/perseus/modules/gui.nix
-            ./hosts/perseus/modules/swaylock.nix
-            ./hosts/perseus/modules/wayland.nix
-            ./hosts/perseus/home.nix
+            ./config/hosts/perseus-home.nix
           ];
         };
 
@@ -219,25 +198,15 @@
           inherit pkgs;
           modules = [
             {
-              home = {
-                username = "ap";
-                homeDirectory = "/home/ap";
-                stateVersion = "22.11";
-              };
-              nixpkgs.config = { allowUnfree = true; };
+              # home = {
+              #   username = "ap";
+              #   homeDirectory = "/home/ap";
+              #   stateVersion = "22.11";
+              # };
+              # nixpkgs.config = { allowUnfree = true; };
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
             }
-            ./hosts/shared_home.nix
-            ./hosts/perseus/modules/cli-os.nix
-            ./hosts/perseus/modules/editors.nix
-            ./hosts/perseus/modules/eww/eww.nix
-            ./hosts/perseus/modules/mako/mako.nix
-            ./hosts/perseus/modules/languages.nix
-            ./hosts/perseus/modules/fonts.nix
-            ./hosts/perseus/modules/gnome.nix
-            ./hosts/perseus/modules/gui.nix
-            ./hosts/perseus/modules/wayland.nix
-            ./hosts/perseus/home.nix
+            ./config/hosts/cadmus-home.nix
           ];
         };
       };
