@@ -41,6 +41,7 @@
     quickemu
     vagrant
     unstable.distrobox
+    unstable.minikube
   ];
 
 
