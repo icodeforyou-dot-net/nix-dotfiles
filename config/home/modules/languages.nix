@@ -20,6 +20,7 @@
 
     # Nix
     nixpkgs-fmt
+    alejandra
     dconf2nix
     rnix-lsp
 
@@ -33,8 +34,8 @@
     skopeo
 
     # ansible
-    ansible
-    ansible-lint
+    unstable.ansible
+    unstable.ansible-lint
     sshpass
 
     # VMs
