@@ -20,7 +20,7 @@
 
     # Nix
     nixpkgs-fmt
-    alejandra
+    unstable.alejandra
     dconf2nix
     rnix-lsp
 
