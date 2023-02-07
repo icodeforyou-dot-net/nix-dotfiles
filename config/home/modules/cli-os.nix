@@ -77,6 +77,8 @@ in
       export MOZ_ENABLE_WAYLAND=1
       export MOZ_USE_XINPUT2=1
       export NIXPKGS_ALLOW_UNFREE=1
+      export DBX_CONTAINER_MANAGER="docker"
+      export DBX_CONTAINER_HOME_PREFIX="/home/ap/dbx"
     '';
     initExtra = ''
       eval "$(direnv hook bash)"
