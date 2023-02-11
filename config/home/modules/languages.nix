@@ -43,6 +43,9 @@
     vagrant
     unstable.distrobox
     unstable.minikube
+    unstable.kube3d
+    unstable.kind
+    unstable.kompose
   ];
 
 
