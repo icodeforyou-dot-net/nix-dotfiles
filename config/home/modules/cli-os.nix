@@ -114,10 +114,10 @@ in
         
       font:
         normal: 
-          family: JetBrains Mono Nerd Font
+          family: "JetBrainsMono Nerd Font"
           style: Regular
         bold:
-          family: JetBrains Mono Nerd Font
+          family: "JetBrainsMono Nerd Font"
           style: Bold
         size: 11
     '';
@@ -539,6 +539,20 @@ in
       bright5=f5c2e7   # bright magenta
       bright6=89dceb   # bright cyan
       bright7=d9e0ee   # bright white
+
+      [csd]
+      preferred=server
+      size=0
+      # font=<primary font>
+      # color=abe9b3
+      # hide-when-typing=no
+      border-width=1
+      # border-color=abe9b3
+      button-width=0
+      # button-color=<background color>
+      # button-minimize-color=<regular4>
+      # button-maximize-color=<regular2>
+      # button-close-color=<regular1>
     '';
   };
 
