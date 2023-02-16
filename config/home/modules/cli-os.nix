@@ -114,10 +114,10 @@ in
         
       font:
         normal: 
-          family: JetBrainsMono Nerd Font
+          family: JetBrains Mono Nerd Font
           style: Regular
         bold:
-          family: JetBrainsMono Nerd Font
+          family: JetBrains Mono Nerd Font
           style: Bold
         size: 11
     '';
