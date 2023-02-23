@@ -9,7 +9,7 @@ final: prev: {
       sha256 = "sha256-Dt3ZcUfjwdtTTv6qRFRgwK5GFWXdpN7fvb9KhpS1O94=";
     };
 
-    buildInputs = [ elfutils zlib libbpf-0-7-0 ];
+    buildInputs = [ prev.elfutils prev.zlib final.libbpf-0-7-0 ];
   });
 
   libbpf-0-7-0 = prev.libbpf.overrideAttrs (oldAttrs: {
@@ -22,6 +22,6 @@ final: prev: {
       sha256 = "sha256-NFVJ8JquWVzu+QoaaOMzhnu6/IqdP1FPhtJFidXA4L4=";
     };
 
-    buildInputs = [ libelf zlib ];
+    buildInputs = [ prev.libelf prev.zlib ];
   });
 }

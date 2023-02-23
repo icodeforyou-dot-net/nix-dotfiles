@@ -102,9 +102,9 @@
             {
               nixpkgs.overlays = [
                 overlay-unstable
-                overlay-22-05
+                # overlay-22-05
                 overlay-custom
-                overlay-custom-kernel
+                # overlay-custom-kernel
               ];
             }
           ];
