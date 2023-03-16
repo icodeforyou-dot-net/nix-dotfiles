@@ -41,11 +41,20 @@
     # VMs
     quickemu
     vagrant
+
+    # distrobox
     unstable.distrobox
+
+    # kubernetes
     unstable.minikube
     unstable.kube3d
     unstable.kind
     unstable.kompose
+    unstable.kubernetes-helm
+    unstable.kubectl
+    unstable.kubectx
+    unstable.kubecfg
+
   ];
 
 
