@@ -51,6 +51,7 @@
     unstable.kind
     unstable.kompose
     unstable.kubernetes-helm
+    unstable.helmfile
     unstable.kubectl
     unstable.kubectx
     unstable.kubecfg
