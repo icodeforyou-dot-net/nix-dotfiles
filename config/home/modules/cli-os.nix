@@ -562,6 +562,11 @@ in
     settings = { };
   };
 
+  # tmux
+  programs.tmux = {
+    enable = true;
+  };
+
   # zellij
   programs.zellij = {
     enable = true;
