@@ -55,6 +55,8 @@
     unstable.kubectl
     unstable.kubectx
     unstable.kubecfg
+    unstable.k9s
+    unstable.stern
 
   ];
 
