@@ -56,6 +56,8 @@ in
     ncdu
     xz
     unstable.youtube-dl
+    unstable.yt-dlp
+
     unrar
     unstable.asciinema
     unstable.moc
