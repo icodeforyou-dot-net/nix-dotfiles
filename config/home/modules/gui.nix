@@ -32,6 +32,9 @@ in
     unstable.obs-studio-plugins.wlrobs
     davinci-resolve
 
+    # To-do task manager
+    unstable.endeavour
+
     # Skype, signal, telegram, whatsapp, element
     skypeforlinux
     unstable.signal-desktop
