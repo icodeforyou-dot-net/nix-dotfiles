@@ -4,7 +4,7 @@
   imports = [
     ../sys/modules/console/console-laptop.nix
     ../sys/modules/hardware/hardware-cadmus.nix
-    ../sys/modules/kernels/linuxPackages_latest.nix
+    ../sys/modules/kernels/linuxPackages.nix
     ../sys/modules/bluetooth.nix
     ../sys/modules/boot.nix
     ../sys/modules/firejail.nix
