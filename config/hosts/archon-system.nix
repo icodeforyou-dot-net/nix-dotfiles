@@ -8,7 +8,7 @@
     # ../sys/modules/kernels/custom-kernels/kernel-5.16.9-source-tree-iteration-6.nix
     ../sys/modules/bluetooth.nix
     ../sys/modules/boot.nix
-    ../sys/modules/firejail.nix
+    # ../sys/modules/firejail.nix
     ../sys/modules/fonts.nix
     ../sys/modules/locale.nix
     ../sys/modules/networking-basic.nix
