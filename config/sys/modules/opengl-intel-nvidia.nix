@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470.overrideAttrs (attrs: {
+    patches = attrs.patches ++ [ ./patches/nvidia-470xx-fix-linux-6.2.patch ];
+  });
 
   hardware.opengl = {
     enable = true;
