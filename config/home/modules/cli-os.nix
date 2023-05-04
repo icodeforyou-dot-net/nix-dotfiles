@@ -81,6 +81,7 @@ in
       export NIXPKGS_ALLOW_UNFREE=1
       export DBX_CONTAINER_MANAGER="docker"
       export DBX_CONTAINER_HOME_PREFIX="/home/ap/dbx"
+      export KUBECONFIG="''${HOME}/.kube/config"
     '';
     initExtra = ''
       eval "$(direnv hook bash)"
@@ -90,6 +91,10 @@ in
       alias cb='xclip -selection c'
       alias ls='exa -al --color=always --group-directories-first' # my preferred listing
       alias cd='z'
+
+      alias k='kubectl'
+      alias kctx='kubectx'
+      alias kns='kubens'
 
       alias js='cd /home/ap/Coding/javascript'
       alias py='cd /home/ap/Coding/python'
