@@ -80,7 +80,7 @@ in
       export MOZ_USE_XINPUT2=1
       export NIXPKGS_ALLOW_UNFREE=1
       export DBX_CONTAINER_MANAGER="docker"
-      export DBX_CONTAINER_HOME_PREFIX="/home/ap/dbx"
+      export DBX_CONTAINER_HOME_PREFIX="''${HOME}/dbx"
       export KUBECONFIG="''${HOME}/.kube/config"
     '';
     initExtra = ''
@@ -96,14 +96,14 @@ in
       alias kctx='kubectx'
       alias kns='kubens'
 
-      alias js='cd /home/ap/Coding/javascript'
-      alias py='cd /home/ap/Coding/python'
-      alias rs='cd /home/ap/Coding/rust'
-      alias cpp='cd /home/ap/Coding/cpp'
-      alias ans='cd /home/ap/Coding/ansible'
-      alias ndf='cd /home/ap/Coding/nix/nix-dotfiles'
+      alias js='cd ''${HOME}/Coding/javascript'
+      alias py='cd ''${HOME}/Coding/python'
+      alias rs='cd ''${HOME}/Coding/rust'
+      alias cpp='cd ''${HOME}/Coding/cpp'
+      alias ans='cd ''${HOME}/Coding/ansible'
+      alias ndf='cd ''${HOME}/Coding/nix/nix-dotfiles'
 
-      PATH="$PATH:/home/ap/.local/bin/" 
+      PATH="$PATH:''${HOME}/.local/bin/" 
     '';
   };
 
