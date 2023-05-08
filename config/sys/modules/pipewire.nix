@@ -11,7 +11,7 @@
     pulse.enable = true;
     wireplumber = {
       enable = true;
-      package = pkgs.unstable.wireplumber;
+      package = pkgs.wireplumber;
     };
   };
 
