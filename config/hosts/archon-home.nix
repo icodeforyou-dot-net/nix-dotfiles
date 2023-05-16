@@ -5,7 +5,6 @@
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/games/openmw.nix
-    ../home/modules/games/wine.nix
     ../home/modules/cli-os.nix
     ../home/modules/editors.nix
     # ../home/modules/fonts.nix
@@ -15,6 +14,7 @@
     ../home/modules/languages.nix
     ../home/modules/swaylock.nix
     ../home/modules/wayland.nix
+    ../home/modules/wine.nix
     #../home/modules/xdg.nix
     ../home/modules/xresources.nix
   ];
