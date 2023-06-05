@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   boot = {
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
