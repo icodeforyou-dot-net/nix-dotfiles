@@ -3,7 +3,7 @@
 {
 
   # mako notifications
-  programs.mako = {
+  services.mako = {
     enable = true;
     package = pkgs.unstable.mako;
     iconPath = "~/Coding/nix/nix-dotfiles/hosts/perseus/modules/mako/icons";
