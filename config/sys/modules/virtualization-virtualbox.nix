@@ -8,7 +8,4 @@
       enableExtensionPack = true;
     };
   };
-};
-
-
 }

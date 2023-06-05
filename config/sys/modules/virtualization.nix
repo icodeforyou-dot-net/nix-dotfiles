@@ -22,15 +22,6 @@
     lxc.lxcfs.enable = true;
     lxd.enable = true;
 
-    virtualbox = {
-      guest.enable = false;
-      host = {
-        enable = true;
-        enableHardening = true;
-        enableExtensionPack = true;
-      };
-    };
-
     waydroid.enable = true;
   };
 
