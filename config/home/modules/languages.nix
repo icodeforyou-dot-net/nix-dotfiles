@@ -5,7 +5,7 @@
 
     # general
     unstable.git
-    unstable.github-desktop
+    #unstable.github-desktop
 
     # C
     unstable.gcc
