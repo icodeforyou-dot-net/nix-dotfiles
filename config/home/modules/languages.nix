@@ -50,9 +50,15 @@
     unstable.minikube
     unstable.kube3d
     unstable.kind
+
+    # kubernetes helm & kompose
     unstable.kompose
     unstable.kubernetes-helm
+    unstable.kubernetes-helmPlugins.helm-diff
     unstable.helmfile
+
+    # kubernetes cli tools
+    unstable.argocd
     unstable.kubectl
     unstable.kubectx
     unstable.kubecfg
