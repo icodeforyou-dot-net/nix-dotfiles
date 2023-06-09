@@ -6,6 +6,7 @@
     # general
     unstable.git
     #unstable.github-desktop
+    gittyup
 
     # C
     unstable.gcc
@@ -55,6 +56,7 @@
     unstable.kubectl
     unstable.kubectx
     unstable.kubecfg
+    unstable.kubie
     unstable.k9s
     unstable.stern
 
