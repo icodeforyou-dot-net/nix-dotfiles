@@ -4,7 +4,7 @@
   imports = [
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
-    # ../home/modules/games/dosbox.nix
+    ../home/modules/games/dosbox.nix
     ../home/modules/games/openmw.nix
     ../home/modules/cli-os.nix
     ../home/modules/editors.nix
