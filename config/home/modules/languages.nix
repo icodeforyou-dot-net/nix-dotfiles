@@ -5,7 +5,7 @@
 
     # general
     unstable.git
-    #unstable.github-desktop
+    #github-desktop
     gittyup
 
     # C
@@ -51,10 +51,14 @@
     unstable.kube3d
     unstable.kind
 
-    # kubernetes helm & kompose
+    # kubernetes helm with plugins, helmfile & kompose
     unstable.kompose
-    unstable.kubernetes-helm
-    unstable.kubernetes-helmPlugins.helm-diff
+    (pkgs.wrapHelm unstable.kubernetes-helm {
+      plugins = [
+        unstable.kubernetes-helmPlugins.helm-secrets
+        unstable.kubernetes-helmPlugins.helm-diff
+      ];
+    })
     unstable.helmfile
 
     # kubernetes cli tools
