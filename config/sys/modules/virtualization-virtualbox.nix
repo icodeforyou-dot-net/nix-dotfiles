@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  virtualbox = {
+  virtualisation.virtualbox = {
     guest.enable = false;
     host = {
       enable = true;

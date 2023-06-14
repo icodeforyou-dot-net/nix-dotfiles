@@ -1,1 +1,1 @@
-sudo nixos-rebuild switch --flake ../#${HOSTNAME}
+sudo nixos-rebuild switch --flake ../#${HOSTNAME} --show-trace
