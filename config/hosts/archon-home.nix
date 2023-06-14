@@ -6,6 +6,7 @@
     ../home/modules/mako/mako.nix
     ../home/modules/games/dosbox.nix
     ../home/modules/games/openmw.nix
+    ../home/modules/games/pcem.nix
     ../home/modules/cli-os.nix
     ../home/modules/editors.nix
     # ../home/modules/fonts.nix
