@@ -44,6 +44,9 @@ in
     nodePackages.bash-language-server
     sumneko-lua-language-server
 
+    # file systems and converters
+    fuseiso
+
     awscli
     kaggle
     ngrok
