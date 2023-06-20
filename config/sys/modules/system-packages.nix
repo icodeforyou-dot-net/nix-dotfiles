@@ -14,5 +14,7 @@
     gptfdisk
     acpi
     virglrenderer
+    nautilus-python
+    nautilus-open-any-terminal
   ];
 }
