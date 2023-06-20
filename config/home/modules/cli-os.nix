@@ -85,6 +85,8 @@ in
       export DBX_CONTAINER_MANAGER="docker"
       export DBX_CONTAINER_HOME_PREFIX="''${HOME}/dbx"
       export KUBECONFIG="''${HOME}/.kube/config"
+
+      export OPENRA_DISPLAY_SCALE=2
     '';
     initExtra = ''
       eval "$(direnv hook bash)"
