@@ -8,7 +8,9 @@
     catppuccin-gtk
     gnome.networkmanager-openvpn
     gnome.gnome-terminal
-    unstable.nautilus-open-any-terminal
+    # don't put nautilus extensions here, see issue https://github.com/NixOS/nixpkgs/issues/126074
+    # unstable.nautilus-python
+    # unstable.nautilus-open-any-terminal
     unstable.gnomeExtensions.dash-to-dock
     gnomeExtensions.tweaks-in-system-menu
     tela-icon-theme
