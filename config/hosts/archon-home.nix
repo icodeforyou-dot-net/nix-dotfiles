@@ -5,6 +5,7 @@
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/games/dosbox.nix
+    ../home/modules/games/games.nix
     ../home/modules/games/openmw.nix
     ../home/modules/games/openra.nix
     ../home/modules/games/pcem.nix

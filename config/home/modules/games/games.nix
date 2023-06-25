@@ -5,9 +5,6 @@
     # Settlers II clone but better
     unstable.widelands
 
-    # Legend of Zelda Ocarina of Time port
-    unstable.shipwright
-
     # Open source version of XCom
     unstable.openxcom
 
@@ -15,7 +12,7 @@
     unstable.openrct2
 
     # Diablo I
-    unstable.devilutionX
+    unstable.devilutionx
 
     # Solarus RPG editor
     unstable.solarus
