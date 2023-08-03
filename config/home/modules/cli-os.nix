@@ -73,6 +73,10 @@ in
     xclip
 
     android-file-transfer
+
+    # Ecnryption, needed for helm secrets
+    sops
+    age
   ];
 
   # bash
