@@ -14,7 +14,7 @@
     gptfdisk
     acpi
     virglrenderer
-    nautilus-python
+    gnome.nautilus-python
     nautilus-open-any-terminal
   ];
 }
