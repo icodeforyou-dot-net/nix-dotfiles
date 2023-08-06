@@ -1,12 +1,16 @@
 { config, pkgs, nixpkgs, ... }:
 
 let
+  bitwarden-wrapper = with pkgs; (writeShellScriptBin "bitwarden" ''
+    exec ${unstable.bitwarden}/bin/bitwarden --disable-gpu
+  '');
+
   wrapped-chromium = with pkgs; (writeShellScriptBin "chromium" ''
     exec firejail ${pkgs.chromium}/bin/chromium
   '');
 
   wrapped-discord = with pkgs; (writeShellScriptBin "Discord" ''
-    exec firejail ${pkgs.discord}/bin/discord
+    exec firejail ${pkgs.discord}/bin/discord --disable-gpu
   '');
 
   wrapped-firefox = with pkgs; (writeShellScriptBin "firefox" ''
@@ -20,7 +24,15 @@ in
     # diogenes-reader
     unstable.galaxy-buds-client
 
-    unstable.bitwarden
+    # pass --disable-gpu to bitwarden desktop via wrapper
+    (symlinkJoin {
+      name = "bitwarden";
+      paths = [
+        bitwarden-wrapper
+        unstable.bitwarden
+      ];
+    })
+
     darktable
 
     # Mailspring, thunderbird, tutanota
@@ -42,7 +54,7 @@ in
     unstable.whatsapp-for-linux
     unstable.element-desktop
 
-    # Creating a wrapper for discord to run it in firejail
+    # Creating a wrapper for discord to run it in firejail and with --disable-gpu
     (symlinkJoin {
       name = "discord";
       paths = [
