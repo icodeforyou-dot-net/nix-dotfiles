@@ -3,24 +3,24 @@
 {
   home.packages = with pkgs; [
     # Settlers II clone but better
-    unstable.widelands
+    # unstable.widelands
 
     # Open source version of XCom
-    unstable.openxcom
+    # unstable.openxcom
 
     # Roller Coaster Tycoon II
-    unstable.openrct2
+    # unstable.openrct2
 
     # Diablo I
     unstable.devilutionx
 
     # Solarus RPG editor
-    unstable.solarus
+    # unstable.solarus
 
     # Dark Forces engines
-    unstable.theforceengine
+    # unstable.theforceengine
 
     # Stalker: Call of Pripyat
-    unstable.openxray
+    # unstable.openxray
   ];
 }
