@@ -14,6 +14,18 @@
     # Diablo I
     unstable.devilutionx
 
+    # (unstable.devilutionx.overrideAttrs
+    #   (oldAttrs: rec {
+    #     pname = "devilutionx";
+    #     version = "1.5.0";
+    #     src = fetchFromGitHub {
+    #       owner = "diasurgical";
+    #       repo = "devilutionX";
+    #       rev = version;
+    #       sha256 = "sha256-SYcekEGOKqTgClVMkE2slA2qIgexxBXBFuK2WC0ACxk=";
+    #     };
+    #   }))
+
     # Solarus RPG editor
     # unstable.solarus
 
