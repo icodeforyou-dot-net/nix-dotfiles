@@ -24,8 +24,6 @@ in
     # diogenes-reader
     unstable.galaxy-buds-client
 
-    unstable.github-desktop
-
     # pass --disable-gpu to bitwarden desktop via wrapper
     (symlinkJoin {
       name = "bitwarden";

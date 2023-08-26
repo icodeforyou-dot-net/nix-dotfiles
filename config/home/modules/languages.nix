@@ -25,7 +25,6 @@ let
       };
     })
   ));
-
 in
 
 {
@@ -33,8 +32,8 @@ in
 
     # general
     unstable.git
-    #github-desktop
-    gittyup
+    unstable.github-desktop
+    # gittyup
 
     # C
     unstable.gcc
