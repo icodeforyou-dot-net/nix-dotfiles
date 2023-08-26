@@ -67,25 +67,23 @@ in
 
     extensions = with pkgs;
       [
-        unstable.vscode-extensions.kamadorueda.alejandra
-        vscode-extensions.pkief.material-icon-theme
+        unstable.vscode-extensions.pkief.material-icon-theme
         unstable.vscode-extensions.catppuccin.catppuccin-vsc
-        # vscode-extensions.arcticicestudio.nord-visual-studio-code
+
         unstable.vscode-extensions.bbenoist.nix
         unstable.vscode-extensions.jnoortheen.nix-ide
         unstable.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
-        # unstable.vscode-extensions.arrterian.nix-env-selector
+        unstable.vscode-extensions.kamadorueda.alejandra
+
         unstable.vscode-extensions.haskell.haskell
         unstable.vscode-extensions.ms-vscode.cpptools
-        vscode-extensions.graphql.vscode-graphql
-        vscode-extensions.ms-python.python
+        unstable.vscode-extensions.ms-python.python
         unstable.vscode-extensions.ms-python.vscode-pylance
         unstable.vscode-extensions.ms-toolsai.jupyter
-        vscode-extensions.ms-azuretools.vscode-docker
+        unstable.vscode-extensions.ms-azuretools.vscode-docker
         unstable.vscode-extensions.matklad.rust-analyzer
         vscode-extensions.ms-vscode-remote.remote-ssh
         vscode-extensions.redhat.vscode-yaml
-        vscode-extensions.svelte.svelte-vscode
       ];
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
