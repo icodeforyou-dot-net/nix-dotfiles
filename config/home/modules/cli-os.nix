@@ -40,6 +40,9 @@ in
     tree-sitter
     jq
 
+    # DuckDuckGo client
+    ddgr
+
     # language servers for neovim to be globally accesible
     nodePackages.bash-language-server
     sumneko-lua-language-server
