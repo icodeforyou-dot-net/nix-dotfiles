@@ -54,6 +54,13 @@ in
     unstable.whatsapp-for-linux
     unstable.element-desktop
 
+    # logseq, alternative to Obsidian
+    unstable.logseq
+    # Appflowy, alternative to notion
+    unstable.appflowy
+    # AnyType note taking
+    unstable.anytype
+
     # Creating a wrapper for discord to run it in firejail and with --disable-gpu
     (symlinkJoin {
       name = "discord";
