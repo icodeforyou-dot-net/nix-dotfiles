@@ -89,6 +89,9 @@ in
     # Brave browser
     unstable.brave
 
+    # Librewolf browser
+    unstable.librewolf
+
     # Creating a wrapper for chromium to run it in firejail
     (symlinkJoin {
       name = "chromium";
