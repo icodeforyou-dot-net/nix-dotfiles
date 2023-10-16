@@ -5,7 +5,8 @@
     ../sys/modules/console/console-desktop.nix
     ../sys/modules/hardware/hardware-archon.nix
     # ../sys/modules/kernels/linuxPackages_latest.nix
-    ../sys/modules/kernels/kernel-6.1.nix
+    ../sys/modules/kernels/linuxPackages.nix
+    # ../sys/modules/kernels/kernel-6.1.nix
     # ../sys/modules/kernels/custom-kernels/kernel-5.16.9-source-tree-iteration-6.nix
     ../sys/modules/bluetooth.nix
     ../sys/modules/boot.nix
