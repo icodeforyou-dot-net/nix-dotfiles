@@ -92,6 +92,9 @@ in
     # Librewolf browser
     unstable.librewolf
 
+    # icedtea-web Java plugin
+    unstable.adoptopenjdk-icedtea-web
+
     # Creating a wrapper for chromium to run it in firejail
     (symlinkJoin {
       name = "chromium";
