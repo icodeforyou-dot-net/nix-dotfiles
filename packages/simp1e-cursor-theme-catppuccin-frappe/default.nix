@@ -6,8 +6,10 @@ stdenv.mkDerivation rec {
 
 
   src = fetchurl {
-    url = "https://gitlab.com/cursors/simp1e/-/jobs/3269567407/artifacts/raw/built_themes/Simp1e-Catppuccin-Frappe.tgz";
-    sha256 = "0r6fm340xr1w3hqjpgfba7gjlkfbngks6q1h2g45kzf02ays0kl3";
+    # url = "https://gitlab.com/cursors/simp1e/-/jobs/3269567407/artifacts/raw/built_themes/Simp1e-Catppuccin-Frappe.tgz";
+    # sha256 = "0r6fm340xr1w3hqjpgfba7gjlkfbngks6q1h2g45kzf02ays0kl3";
+    url = "https://gitlab.com/cursors/simp1e/-/jobs/4889893448/artifacts/raw/built_themes/Simp1e-Catppuccin-Frappe.tar.xz";
+    sha256 = "SqPfiB6d1bnp4UG0OZmVmpAVyaSt57mPMYp8ZWl9e5w=";
   };
 
   # phases = "unpackPhase installPhase";
