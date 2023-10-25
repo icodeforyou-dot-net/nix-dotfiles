@@ -60,6 +60,8 @@ in
     unstable.appflowy
     # AnyType note taking
     unstable.anytype
+    # Obsidian
+    unstable.obsidian
 
     # Creating a wrapper for discord to run it in firejail and with --disable-gpu
     (symlinkJoin {
