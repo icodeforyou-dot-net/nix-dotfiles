@@ -5,11 +5,11 @@ let
   tutanota-desktop-override = with pkgs; (unstable.tutanota-desktop.overrideAttrs
     (oldAttrs: rec {
       pname = "tutanota-desktop";
-      version = "3.98.15";
+      version = "3.118.22";
       src = fetchurl {
         url = "https://github.com/tutao/tutanota/releases/download/tutanota-desktop-release-${version}/${pname}-${version}-unpacked-linux.tar.gz";
         name = "tutanota-desktop-${version}.tar.gz";
-        sha256 = "sha256-yuSFDLQ7ckuZYuXREbW0VvMapzO2VhVIH1Ccr1uQHmo=";
+        sha256 = "hW3Jr0it2MKk0pDk4ytw1sixlAZ/6UhMg6slkmWvRag=";
       };
     }));
 in
