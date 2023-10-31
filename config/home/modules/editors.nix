@@ -77,7 +77,7 @@ in
 
         unstable.vscode-extensions.haskell.haskell
         unstable.vscode-extensions.ms-vscode.cpptools
-        unstable.vscode-extensions.ms-python.python
+        # unstable.vscode-extensions.ms-python.python
         unstable.vscode-extensions.ms-python.vscode-pylance
         unstable.vscode-extensions.ms-toolsai.jupyter
         unstable.vscode-extensions.ms-azuretools.vscode-docker
