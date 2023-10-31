@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../home/modules/apps/element-desktop-wrapped.nix
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/cli-os.nix

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../home/modules/apps/element-desktop.nix
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/games/dosbox.nix
