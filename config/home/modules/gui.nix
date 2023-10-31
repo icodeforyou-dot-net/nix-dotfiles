@@ -64,7 +64,7 @@ in
     unstable.signal-desktop
     unstable.tdesktop
     unstable.whatsapp-for-linux
-    unstable.element-desktop
+    # unstable.element-desktop
 
     # logseq, alternative to Obsidian
     unstable.logseq
