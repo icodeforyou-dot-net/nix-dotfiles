@@ -90,6 +90,8 @@
 
       overlay-custom = import ./packages;
 
+      overlay-nerd-dictation = import ./packages/nerd-dictation-vosk;
+
     in
     {
       nixosConfigurations = {
@@ -188,7 +190,7 @@
               #   stateVersion = "22.11";
               # };
               # nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              nixpkgs.overlays = [ overlay-unstable overlay-custom overlay-nerd-dictation ];
             }
             ./config/hosts/perseus-home.nix
           ];
