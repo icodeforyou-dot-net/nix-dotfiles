@@ -5,7 +5,7 @@
 , python3
 , python3Packages
 , pulseaudio
-, xdotool
+, ydotool
 , python-vosk
 , glib
 , glibc
