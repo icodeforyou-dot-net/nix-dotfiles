@@ -1,4 +1,13 @@
-{ pkgs, fetchFromGitHub, fetchpatch2, stdenv, openblas, kaldi, ... }:
+{ stdenv
+, fetchFromGitHub
+, fetchpatch2
+, cmake
+, kaldi
+, openblas
+, python3
+, lib
+}:
+
 let
   tweakedDependencies = {
     kaldi = kaldi.overrideAttrs (attrs: {
@@ -23,7 +32,7 @@ let
   # Shadow the original kaldi to prevent accidental use.
   inherit (tweakedDependencies) kaldi;
 in
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   name = "vosk-api";
   version = "0.3.45";
 
@@ -34,17 +43,30 @@ stdenv.mkDerivation {
     hash = "sha256-sa+rUJP0JvZo7YOFrWDEAuySlQJstOBnldz/LMiu/pk=";
   };
 
-  KALDI_ROOT = kaldi;
-  OPENFST_ROOT = openfst;
-  OPENBLAS_ROOT = openblas;
-  HAVE_MKL = if mkl == null then 0 else 1;
+  nativeBuildInputs = [
+    cmake
+  ];
 
-  buildInputs = [ kaldi openblas ];
+  buildInputs = [
+    kaldi
+    openblas
+  ];
 
-  patches = [ ./vosk-api-dynamic.patch ];
-  installPhase = ''
-    mkdir -p $out/{lib,include/vosk}
-    cp *.so $out/lib/
-    cp *.h  $out/include/vosk/
-  '';
+  cmakeFlags = [
+    "-DBUILD_SHARED_LIBS:BOOL=on"
+  ];
+
+  passthru = {
+    tests = {
+      python = python3.pkgs.vosk-python;
+    };
+  };
+
+  meta = with lib; {
+    description = "Offline speech recognition API";
+    homepage = "https://github.com/alphacep/vosk-api";
+    license = licenses.asl20;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.unix;
+  };
 }
