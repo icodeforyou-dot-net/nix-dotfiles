@@ -46,8 +46,7 @@ in
 
     unstable.darktable
 
-    # Mailspring, thunderbird, tutanota
-    unstable.mailspring
+    # thunderbird, tutanota
     unstable.thunderbird-bin
     # unstable.tutanota-desktop
     tutanota-desktop-override
