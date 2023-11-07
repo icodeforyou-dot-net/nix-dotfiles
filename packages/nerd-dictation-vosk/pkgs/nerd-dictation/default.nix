@@ -1,4 +1,5 @@
-{ fetchFromGitHub
+{ pkgs
+, fetchFromGitHub
 , substituteAll
 , lib
 , stdenv
@@ -29,9 +30,8 @@ python3.pkgs.buildPythonApplication rec {
     })
   ];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  propagatedBuildInputs = with pkgs; [
     vosk-python
-    python-vosk
   ];
 
   postPatch = ''
