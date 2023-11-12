@@ -2,44 +2,21 @@
 , lib
 , fetchurl
 , autoPatchelfHook
-, dpkg
 , wrapGAppsHook
 , makeWrapper
-, nixosTests
-, gtk3
-, atk
-, at-spi2-atk
-, cairo
-, pango
-, gdk-pixbuf
-, glib
-, freetype
-, fontconfig
-, dbus
-, libX11
-, xorg
-, libXi
-, libXcursor
-, libXdamage
-, libXrandr
-, libXcomposite
-, libXext
-, libXfixes
-, libXrender
-, libXtst
-, libXScrnSaver
+, gnome
+, libsecret
+, git
+, curl
 , nss
 , nspr
+, xorg
+, libdrm
 , alsa-lib
 , cups
-, expat
-, libuuid
-, at-spi2-core
-, libappindicator-gtk3
 , mesa
-  # Runtime dependencies:
 , systemd
-  # libnotify, libdbusmenu, libpulseaudio, xdg-utils
+, openssl
 }:
 
 stdenv.mkDerivation rec {
@@ -53,88 +30,47 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     autoPatchelfHook
-    dpkg
     (wrapGAppsHook.override { inherit makeWrapper; })
   ];
 
   buildInputs = [
-    alsa-lib
-    at-spi2-atk
-    at-spi2-core
-    atk
-    cairo
-    cups
-    dbus
-    expat
-    fontconfig
-    freetype
-    gdk-pixbuf
-    glib
-    gtk3
-    libX11
-    libXScrnSaver
-    libXcomposite
-    libXcursor
-    libXdamage
-    libXext
-    libXfixes
-    libXi
-    libXrandr
-    libXrender
-    libXtst
-    libappindicator-gtk3
-    #  libnotify
-    libuuid
-    mesa # for libgbm
-    nspr
+    xorg.libXdamage
+    xorg.libX11
+    libsecret
+    git
+    curl
     nss
-    pango
-    systemd
-    xorg.libxcb
-    xorg.libxshmfence
+    nspr
+    libdrm
+    cups
+    mesa
+    openssl
   ];
+
+
+
+  unpackPhase = ''
+    mkdir -p $TMP/diogenes-${version} $out/{opt,bin}
+    cp $src $TMP/$diogenes-${version}.deb
+    ar vx diogenes-${version}.deb
+    tar --no-overwrite-dir -xvf data.tar.xz -C $TMP/diogenes-${version}/
+  '';
+
+  installPhase = ''
+    cp -R $TMP/diogenes-${version}/usr/share $out/
+    cp -R $TMP/diogenes-${version}/usr/lib/diogenes-${version}/* $out/opt/
+    ln -sf $out/opt/diogenes $out/bin/diogenes
+  '';
+
+  preFixup = ''
+    gappsWrapperArgs+=(
+      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
+    )
+  '';
 
   runtimeDependencies = [
     (lib.getLib systemd)
-    # libappindicator-gtk3
-    # libnotify
-    # libdbusmenu
-    # xdg-utils
   ];
-
-  unpackPhase = "dpkg-deb -x $src .";
-
-  dontBuild = true;
-  dontConfigure = true;
-  #dontPatchELF = true;
-  # We need to run autoPatchelf manually with the "no-recurse" option, see
-  # https://github.com/NixOS/nixpkgs/pull/78413 for the reasons.
-  #dontAutoPatchelf = true;
-
-  installPhase = ''
-    runHook preInstall
-    mkdir -p $out/bin
-    mkdir -p $out/diogenes
-    # mv . $out/diogenes
-    # Symlink to bin
-    ln -s $out/usr/local/diogenes/diogenes $out/bin/diogenes
-    # Create required symlinks:
-    # ln -s libGLESv2.so $out/local/diogenes/libGLESv2.so.2
-    runHook postInstall
-  '';
-
-  # preFixup = ''
-  #   gappsWrapperArgs+=(
-  #     --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc ] }"
-  #     --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
-  #     --suffix PATH : ${lib.makeBinPath [ xdg-utils ]}
-  #   )cd
-  #   # Fix the desktop link
-  #   substituteInPlace $out/share/applications/diogenes.desktop \
-  #     --replace /opt/Signal/signal-desktop $out/bin/signal-desktop
-  #   autoPatchelf --no-recurse -- $out/lib/Signal/
-  #   patchelf --add-needed ${libpulseaudio}/lib/libpulse.so $out/lib/Signal/resources/app.asar.unpacked/node_modules/ringrtc/build/linux/libringrtc-x64.node
-  # '';
 
   meta = {
     description = "Diogenes: an environment for reading Latin and Greek";
@@ -144,7 +80,7 @@ stdenv.mkDerivation rec {
     homepage = "https://d.iogen.es";
     changelog = "https://github.com/pjheslin/diogenes/releases/tag/${version}";
     license = lib.licenses.gpl3;
-    # maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [ ];
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };
