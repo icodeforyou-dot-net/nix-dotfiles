@@ -200,7 +200,7 @@
               #   stateVersion = "22.11";
               # };
               # nixpkgs.config = { allowUnfree = true; };
-              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              nixpkgs.overlays = [ overlay-unstable overlay-custom overlay-nerd-dictation ];
             }
             ./config/hosts/cadmus-home.nix
           ];

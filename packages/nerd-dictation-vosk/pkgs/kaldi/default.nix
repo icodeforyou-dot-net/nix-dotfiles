@@ -9,7 +9,6 @@
 , fetchFromGitHub
 , git
 , python3
-, Accelerate
 , _experimental-update-script-combinators
 , common-updater-scripts
 , ripgrep
@@ -40,8 +39,6 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     openblas
     icu
-  ] ++ lib.optionals stdenv.isDarwin [
-    Accelerate
   ];
 
   nativeBuildInputs = [

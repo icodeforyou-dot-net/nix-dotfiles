@@ -11,13 +11,13 @@
 }:
 
 buildPythonPackage rec {
-  pname = "vosk";
-  version = "0.3.45";
-  # inherit (vosk-api) src version;
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "";
-  };
+  pname = "python-vosk";
+  # version = "0.3.45";
+  inherit (vosk-api) src version;
+  # src = fetchPypi {
+  #   inherit pname version;
+  #   sha256 = "";
+  # };
 
   patches = [
     (substituteAll {
