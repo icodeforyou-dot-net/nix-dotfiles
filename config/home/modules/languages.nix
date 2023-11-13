@@ -51,7 +51,7 @@ in
     unstable.alejandra
     rnix-lsp
     # nice new lsp for nix
-    nixd
+    unstable.nixd
 
     # python
     (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
