@@ -1,22 +1,16 @@
-{ stdenv
-, lib
+{ lib
+, stdenv
 , fetchurl
+, dpkg
 , autoPatchelfHook
-, wrapGAppsHook
 , makeWrapper
-, gnome
-, libsecret
-, git
-, curl
-, nss
-, nspr
-, xorg
-, libdrm
+, electron
 , alsa-lib
-, cups
+, gtk3
+, libxshmfence
 , mesa
-, systemd
-, openssl
+, nss
+, popt
 }:
 
 stdenv.mkDerivation rec {
@@ -29,48 +23,38 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    dpkg
     autoPatchelfHook
-    (wrapGAppsHook.override { inherit makeWrapper; })
+    makeWrapper
   ];
 
   buildInputs = [
-    xorg.libXdamage
-    xorg.libX11
-    libsecret
-    git
-    curl
-    nss
-    nspr
-    libdrm
-    cups
+    gtk3
+    libxshmfence
     mesa
-    openssl
+    nss
+    popt
   ];
 
-
-
   unpackPhase = ''
-    mkdir -p $TMP/diogenes-${version} $out/{opt,bin}
-    cp $src $TMP/$diogenes-${version}.deb
-    ar vx diogenes-${version}.deb
-    tar --no-overwrite-dir -xvf data.tar.xz -C $TMP/diogenes-${version}/
+    dpkg-deb -x ${src} ./
   '';
 
   installPhase = ''
-    cp -R $TMP/diogenes-${version}/usr/share $out/
-    cp -R $TMP/diogenes-${version}/usr/lib/diogenes-${version}/* $out/opt/
-    ln -sf $out/opt/diogenes $out/bin/diogenes
+    mv usr $out
   '';
 
-  preFixup = ''
-    gappsWrapperArgs+=(
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
-    )
+  libPath = lib.makeLibraryPath buildInputs;
+
+  postFixup = ''
+    makeWrapper ${electron}/bin/electron \
+      $out/bin/diogenes \
+      --prefix LD_LIBRARY_PATH : ${libPath}
   '';
 
-  runtimeDependencies = [
-    (lib.getLib systemd)
-  ];
+  # runtimeDependencies = [
+  #   (lib.getLib systemd)
+  # ];
 
   meta = {
     description = "Diogenes: an environment for reading Latin and Greek";
