@@ -49,8 +49,9 @@ in
     # Nix
     nixpkgs-fmt
     unstable.alejandra
-    dconf2nix
     rnix-lsp
+    # nice new lsp for nix
+    nixd
 
     # python
     (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
