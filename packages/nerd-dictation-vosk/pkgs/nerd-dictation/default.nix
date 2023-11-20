@@ -4,6 +4,7 @@
 , lib
 , stdenv
 , python3
+, python3Vosk
 , pulseaudio
 , xdotool
 , ydotool
@@ -30,7 +31,7 @@ python3.pkgs.buildPythonApplication rec {
     })
   ];
 
-  propagatedBuildInputs = with pkgs; [
+  propagatedBuildInputs = with python3Vosk.pkgs; [
     vosk-python
   ];
 
