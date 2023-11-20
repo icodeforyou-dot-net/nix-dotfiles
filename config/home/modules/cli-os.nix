@@ -32,6 +32,8 @@ in
 
     fzf
     exa
+    # Use eza as a dropin replacement for exa
+    unstable.eza
     zoxide
     ripgrep
     universal-ctags
