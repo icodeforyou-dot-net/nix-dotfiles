@@ -65,8 +65,8 @@ in
     unstable.whatsapp-for-linux
     # unstable.element-desktop
 
-    # logseq, alternative to Obsidian
-    unstable.logseq
+    # Zettlr alternative to Obsidian
+    unstable.zettlr
     # Appflowy, alternative to notion
     unstable.appflowy
     # AnyType note taking
