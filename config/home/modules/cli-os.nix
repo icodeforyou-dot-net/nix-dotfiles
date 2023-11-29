@@ -31,7 +31,6 @@ in
     picocom
 
     fzf
-    exa
     # Use eza as a dropin replacement for exa
     unstable.eza
     zoxide
@@ -103,7 +102,7 @@ in
       eval "$(starship init bash)"
 
       alias cb='xclip -selection c'
-      alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+      alias ls='eza -al --color=always --group-directories-first'
       alias cd='z'
 
       alias k='kubectl'
