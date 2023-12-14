@@ -4,7 +4,7 @@
     enable = true;
     # disabledPlugins = [ "sap" ];
     # hsphfpd.enable = true;
-    package = pkgs.bluezFull;
+    package = pkgs.bluez;
     powerOnBoot = false;
   };
 

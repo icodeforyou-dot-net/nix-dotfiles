@@ -2,9 +2,9 @@
 
 {
   fonts = {
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       material-icons
       material-design-icons
       noto-fonts

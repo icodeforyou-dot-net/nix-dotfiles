@@ -520,7 +520,7 @@ in
       #vertical-letter-offset=0
       #underline-offset=0
       #box-drawings-uses-font-glyphs=no
-      dpi-aware=auto
+      dpi-aware=yes
 
       [scrollback]
       lines=1000

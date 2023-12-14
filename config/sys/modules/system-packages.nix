@@ -10,7 +10,7 @@
     unzip
     lsof
     gocryptfs
-    virtmanager
+    virt-manager
     gptfdisk
     acpi
     virglrenderer

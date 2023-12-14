@@ -16,7 +16,7 @@
     # unstable.nautilus-python
     # unstable.nautilus-open-any-terminal
     unstable.gnomeExtensions.dash-to-dock
-    gnomeExtensions.tweaks-in-system-menu
+    # gnomeExtensions.tweaks-in-system-menu
     tela-icon-theme
     pavucontrol
     wl-clipboard
