@@ -3,6 +3,7 @@
 {
   imports = [
     ../home/modules/apps/element-desktop.nix
+    ../home/modules/apps/nerd-dictation.nix
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/games/dosbox.nix
