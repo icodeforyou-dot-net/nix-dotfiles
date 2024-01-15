@@ -58,12 +58,13 @@ in
     # To-do task manager
     unstable.endeavour
 
-    # Skype, signal, telegram, whatsapp, element
+    # Skype, signal, telegram, whatsapp, element, zulip
     skypeforlinux
     unstable.signal-desktop
     unstable.tdesktop
     unstable.whatsapp-for-linux
     # unstable.element-desktop
+    unstable.zulip
 
     # Zettlr alternative to Obsidian
     unstable.zettlr
