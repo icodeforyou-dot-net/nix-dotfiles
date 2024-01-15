@@ -10,12 +10,10 @@
     unzip
     lsof
     gocryptfs
-    virt-manager
     gptfdisk
     acpi
     virglrenderer
     gnome.nautilus-python
-    nautilus-open-any-terminal
   ];
 
   # To make nautilus extensions gsettings available
