@@ -66,12 +66,6 @@ in
     # unstable.element-desktop
     unstable.zulip
 
-    # Zettlr alternative to Obsidian
-    unstable.zettlr
-    # Appflowy, alternative to notion
-    unstable.appflowy
-    # AnyType note taking
-    unstable.anytype
     # Obsidian
     unstable.obsidian
 
@@ -102,9 +96,6 @@ in
 
     # Brave browser
     unstable.brave
-
-    # Librewolf browser
-    unstable.librewolf
 
     # icedtea-web Java plugin
     # unstable.adoptopenjdk-icedtea-web
