@@ -72,7 +72,7 @@
             {
               nix.registry.nixpkgs.flake = nixpkgs;
               nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-              nix.settings.trusted-users = [ "root" "ap" ];
+              nix.settings.trusted-users = [ "root" "@wheel" ];
             }
             {
               nixpkgs.overlays = [ overlay-unstable overlay-custom ];
@@ -104,7 +104,7 @@
             {
               nix.registry.nixpkgs.flake = nixpkgs;
               nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-              nix.settings.trusted-users = [ "root" "ap" ];
+              nix.settings.trusted-users = [ "root" "@wheel" ];
             }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
@@ -131,8 +131,11 @@
               environment.sessionVariables.NIXOS_OZONE_WL = "0";
             }
             ./config/hosts/cadmus-system.nix
-            { nix.registry.nixpkgs.flake = nixpkgs; }
-            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
+            {
+              nix.registry.nixpkgs.flake = nixpkgs;
+              nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+              nix.settings.trusted-users = [ "root" "@wheel" ];
+            }
             { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
           ];
         };
