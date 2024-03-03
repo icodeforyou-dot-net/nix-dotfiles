@@ -20,15 +20,11 @@ in
     smartmontools
     findutils
     less
-    stress
     starship
     glxinfo
     procps
 
     unstable.gh
-
-    minicom
-    picocom
 
     fzf
     # Use eza as a dropin replacement for exa
@@ -40,9 +36,7 @@ in
     duf
     tree-sitter
     jq
-
-    # DuckDuckGo client
-    ddgr
+    yq
 
     # language servers for neovim to be globally accesible
     nodePackages.bash-language-server
@@ -76,11 +70,10 @@ in
     neofetch
     xclip
 
-    android-file-transfer
+    # amdgpu monitoring
+    unstable.amdgpu_top
 
-    # Ecnryption, needed for helm secrets
-    sops
-    age
+    android-file-transfer
   ];
 
   # bash
