@@ -75,6 +75,7 @@ in
       unstable.vscode-extensions.kamadorueda.alejandra
 
       unstable.vscode-extensions.haskell.haskell
+      unstable.vscode-extensions.astro-build.astro-vscode
       # unstable.vscode-extensions.ms-vscode.cpptools
       # unstable.vscode-extensions.ms-python.python
       unstable.vscode-extensions.ms-python.vscode-pylance
@@ -87,23 +88,16 @@ in
       # Llama Coder extension not yet in nixpkgs
       # (unstable.vscode-utils.buildVscodeMarketplaceExtension {
       #   mktplcRef = {
-      #     name = "vscode-llama-coder";
-      #     publisher = "Continue";
-      #     version = "0.9.67";
+      #     name = "llama-coder";
+      #     publisher = "ex3ndr";
+      #     version = "0.0.13";
       #     sha256 = "sha256-xdM2zLIO4ydGt4M1hDDXEqQgXK2LYBRwOS5QfvG+aQ4=";
       #     arch = "linux-x64";
       #   };
       #   nativeBuildInputs = [
       #     pkgs.autoPatchelfHook
-      #     pkgs.jq
-      #     pkgs.moreutils
       #   ];
-      #   buildInputs = [pkgs.stdenv.cc.cc.lib];
-
-      #   postInstall = ''
-      #     cd "$out/$installPrefix"
-      #     jq '.contributes.configuration.properties."continue.tutorialShown".default = true' package.json | sponge package.json
-      #   '';
+      #   buildInputs = [ pkgs.stdenv.cc.cc.lib ];
       # })
 
       # Continue.dev extension not yet in nixpkgs
