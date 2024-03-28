@@ -102,26 +102,26 @@ in
       # })
 
       # OpenTofu
-      (unstable.vscode-utils.buildVscodeMarketplaceExtension {
-        mktplcRef = {
-          name = "opentofu";
-          publisher = "gamunu";
-          version = "0.1.1";
-          sha256 = "sha256-xdM2zLIO4ydGt4M1hDDXEqQgXK2LYBRwOS5QfvG+aQ4=";
-          arch = "linux-x64";
-        };
+      # (unstable.vscode-utils.buildVscodeMarketplaceExtension {
+      #   mktplcRef = {
+      #     name = "opentofu";
+      #     publisher = "gamunu";
+      #     version = "0.1.1";
+      #     sha256 = "sha256-JgNU7GinMsRhM9zM1AXRZWD8y/pF53I7pmTx0MmQ+o8=";
+      #     arch = "linux-x64";
+      #   };
 
-        patches = [ ./patches/fix-terraform-ls.patch ];
+      #   patches = [ ./patches/fix-terraform-ls.patch ];
 
-        postPatch = ''
-          substituteInPlace out/serverPath.js --replace TERRAFORM-LS-PATH ${terraform-ls}/bin/terraform-ls
-        '';
+      #   postPatch = ''
+      #     substituteInPlace out/serverPath.js --replace TERRAFORM-LS-PATH ${terraform-ls}/bin/terraform-ls
+      #   '';
 
-        meta = {
-          license = lib.licenses.mit;
-          maintainers = [ lib.maintainers.rhoriguchi ];
-        };
-      })
+      #   meta = {
+      #     license = lib.licenses.mit;
+      #     maintainers = [ lib.maintainers.rhoriguchi ];
+      #   };
+      # })
 
       # Continue.dev extension not yet in nixpkgs
       (unstable.vscode-utils.buildVscodeMarketplaceExtension {

@@ -9,6 +9,10 @@
       mesa_drivers
       rocm-opencl-icd
       rocm-opencl-runtime
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
     ];
   };
 

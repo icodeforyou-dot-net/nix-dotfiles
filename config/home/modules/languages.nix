@@ -54,7 +54,7 @@ in
     unstable.nixd
 
     # python
-    (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
+    # (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
 
     lldb # debugging setup
 
@@ -94,7 +94,8 @@ in
 
 
     # kubernetes cli tools
-    kubectl-v1-24-16
+    kubectl
+    # kubectl-v1-24-16
     unstable.argocd
     unstable.kubectx
     unstable.kubecfg

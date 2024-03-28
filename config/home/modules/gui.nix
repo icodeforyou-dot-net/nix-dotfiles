@@ -47,7 +47,7 @@ in
     unstable.darktable
 
     # thunderbird, tutanota
-    unstable.thunderbird-bin
+    unstable.thunderbird
     unstable.tutanota-desktop
 
     unstable.obs-studio

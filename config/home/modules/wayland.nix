@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    unstable.eww-wayland
+    unstable.eww
     unstable.grim
     unstable.mako
     unstable.swaybg
