@@ -82,8 +82,9 @@ in
       unstable.vscode-extensions.ms-toolsai.jupyter
       # unstable.vscode-extensions.ms-azuretools.vscode-docker
       unstable.vscode-extensions.matklad.rust-analyzer
-      vscode-extensions.ms-vscode-remote.remote-ssh
-      vscode-extensions.redhat.vscode-yaml
+      unstable.vscode-extensions.ms-vscode-remote.remote-ssh
+      unstable.vscode-extensions.redhat.vscode-yaml
+      unstable.vscode-extensions.tamasfe.even-better-toml
 
       # Llama Coder extension not yet in nixpkgs
       # (unstable.vscode-utils.buildVscodeMarketplaceExtension {
@@ -99,6 +100,28 @@ in
       #   ];
       #   buildInputs = [ pkgs.stdenv.cc.cc.lib ];
       # })
+
+      # OpenTofu
+      (unstable.vscode-utils.buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "opentofu";
+          publisher = "gamunu";
+          version = "0.1.1";
+          sha256 = "sha256-xdM2zLIO4ydGt4M1hDDXEqQgXK2LYBRwOS5QfvG+aQ4=";
+          arch = "linux-x64";
+        };
+
+        patches = [ ./patches/fix-terraform-ls.patch ];
+
+        postPatch = ''
+          substituteInPlace out/serverPath.js --replace TERRAFORM-LS-PATH ${terraform-ls}/bin/terraform-ls
+        '';
+
+        meta = {
+          license = lib.licenses.mit;
+          maintainers = [ lib.maintainers.rhoriguchi ];
+        };
+      })
 
       # Continue.dev extension not yet in nixpkgs
       (unstable.vscode-utils.buildVscodeMarketplaceExtension {
@@ -122,20 +145,6 @@ in
             --replace 'await showTutorial();' '//await showTutorial();'
         '';
       })
-
-      # (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-      #   mktplcRef = {
-      #     name = "continue";
-      #     publisher = "Continue";
-      #     version = "0.8.0";
-      #     sha256 = "sha256-XVhDIdYHsx1s5v56QULOgdMMuQrf1huY8g1Sz0doSLo=";
-      #     arch = "linux-x64";
-      #   };
-      #   nativeBuildInputs = [
-      #     pkgs.autoPatchelfHook
-      #   ];
-      #   buildInputs = [pkgs.stdenv.cc.cc.lib];
-      # })
     ];
 
     userSettings = {
