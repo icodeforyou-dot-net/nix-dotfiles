@@ -303,6 +303,7 @@ require("lspconfig").clangd.setup({ on_attach = on_attach })
 require("lspconfig").rust_analyzer.setup({ on_attach = on_attach })
 require("lspconfig").pyright.setup({ on_attach = on_attach })
 require("lspconfig").tsserver.setup({ on_attach = on_attach })
+require'lspconfig'.nil_ls.setup({ on_attach = on_attach })
 
 -- Turn on lsp status information
 require("fidget").setup()

@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixpkgs-22-05.url = "nixpkgs/nixos-22.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -17,18 +16,11 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-22-05, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-
-      pkgs-22-05 = import nixpkgs-22-05 {
         inherit system;
         config = {
           allowUnfree = true;
@@ -46,13 +38,6 @@
 
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
-
-      overlay-22-05 = final: prev: {
-        unstable = import nixpkgs-22-05 {
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
@@ -83,23 +68,6 @@
         perseus = lib.nixosSystem {
           inherit system;
           modules = [
-            hyprland.nixosModules.default
-            {
-              programs.hyprland = {
-                enable = true;
-                package = hyprland.packages.${pkgs.system}.default.overrideAttrs (old: {
-                  nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
-                  postInstall = ''
-                    wrapProgram $out/bin/Hyprland \
-                      --set NIXOS_OZONE_WL 1 \
-                      --set GDK_BACKEND wayland \
-                      --set _JAVA_AWT_WM_NONREPARENTING 1 \
-                      --set XDG_SESSION_TYPE wayland
-                  '';
-                });
-              };
-              environment.sessionVariables.NIXOS_OZONE_WL = "0";
-            }
             ./config/hosts/perseus-system.nix
             {
               nix.registry.nixpkgs.flake = nixpkgs;
