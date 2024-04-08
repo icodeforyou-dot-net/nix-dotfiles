@@ -47,11 +47,10 @@ in
     pandoc
 
     # Nix
-    nixpkgs-fmt
+    unstable.nixpkgs-fmt
+    unstable.nixfmt
     unstable.alejandra
-    rnix-lsp
-    # nice new lsp for nix
-    unstable.nixd
+    unstable.nil
 
     # python
     # (python3.withPackages (ps: with ps; [ setuptools pip debugpy ]))
