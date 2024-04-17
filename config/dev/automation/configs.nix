@@ -24,7 +24,7 @@ in
   cog = (mkNixago configs.cog) {
     data.changelog = {
       remote = "github.com";
-      repository = "Nix dotfiles";
+      repository = "nix-dotfiles";
       owner = "icodeforyou-dot-net";
     };
   };
@@ -32,7 +32,7 @@ in
   githubsettings = (mkNixago configs.githubsettings) {
     data = {
       repository = {
-        name = "nix-dotfile";
+        name = "nix-dotfiles";
         description = "WIP";
         topics = "Nix, NixOS";
         default_branch = "main";
