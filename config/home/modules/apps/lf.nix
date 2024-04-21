@@ -35,8 +35,6 @@
 
       ee = "editor-open";
       V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
-
-      # ...
     };
 
     settings = {
@@ -73,6 +71,4 @@
         set previewer ${previewer}/bin/pv.sh
       '';
   };
-
-  # ...
 }
