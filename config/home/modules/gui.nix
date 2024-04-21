@@ -77,7 +77,9 @@ in
       ];
     })
 
-    insomnia
+    # bruno API client, bye bye insomnia
+    unstable.bruno
+
     vlc
 
 
@@ -94,10 +96,7 @@ in
     calibre
 
     # Brave browser
-    unstable.brave
-
-    # icedtea-web Java plugin
-    # unstable.adoptopenjdk-icedtea-web
+    # unstable.brave
 
     # Creating a wrapper for chromium to run it in firejail
     (symlinkJoin {
@@ -126,4 +125,15 @@ in
     unstable.zotero
 
   ];
+
+  programs.brave = {
+    enable = true;
+    package = unstable.brave;
+    commandLineArgs = [
+      "--enable-features=Vulkan,DefaultANGLEVulkan,VulkanFromANGLE,VaapiVideoEncoder,VaapiVideoDecoder,VaapiIgnoreDriverChecks,VaapiVideoDecodeLinuxGL"
+      "--use-gl=angle"
+      "--use-angle=gl"
+      "--ozone-platform=wayland"
+    ];
+  };
 }
