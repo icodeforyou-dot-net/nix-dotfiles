@@ -1,2 +1,16 @@
 ./.vscode
 .vscode/settings.json
+*.secrets
+
+# Nix
+.data
+.cache
+.bin
+.config
+.run
+
+# nixago: ignore-linked-files
+/cog.toml
+/lefthook.yml
+/.conform.yaml
+/treefmt.toml

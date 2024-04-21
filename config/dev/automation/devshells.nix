@@ -6,7 +6,7 @@ let
 in
 {
   default = dev.mkShell {
-    name = "nix devShell";
+    name = "NixOS configurations devShell";
     imports = [ std.devshellProfiles.default ];
     commands = [
       { package = pkgs.nil; }
@@ -18,7 +18,6 @@ in
       configs.conform
       configs.treefmt
       configs.editorconfig
-      configs.githubsettings
       configs.lefthook
       configs.cog
     ];
