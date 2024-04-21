@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 {
+
+  programs.virt-manager.enable = true;
+
   virtualisation = {
     docker = {
       enable = true;
@@ -22,8 +25,9 @@
     lxc.lxcfs.enable = true;
     lxd.enable = true;
 
+    podman.enable = true;
+
     waydroid.enable = true;
   };
-
 
 }
