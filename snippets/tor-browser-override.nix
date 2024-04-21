@@ -1,7 +1,7 @@
-  # Overriding the tutanota package installed via home-manager
-  { config, pkgs, nixpkgs, ... }:
-  
-  let
+# Overriding the tutanota package installed via home-manager
+{ config, pkgs, nixpkgs, ... }:
+
+let
   tor-browser-bundle-bin-override = with pkgs; (unstable.tor-browser-bundle-bin.overrideAttrs
     (oldAttrs: rec {
       version = "11.5.1-11.5.2";

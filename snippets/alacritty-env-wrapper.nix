@@ -1,8 +1,8 @@
-# Overriding the tutanota package installed via home-manager
+# Overriding the alacritty package installed via home-manager
 { config, pkgs, nixpkgs, ... }:
 {
   home.packages = with pkgs; [
-    #Creating a wrappter for alacritty to run it in XWayland
+    #Creating a wrapper for alacritty to run it in XWayland
     (symlinkJoin {
       paths = [ alacritty ];
       inherit (alacritty) name pname version;
