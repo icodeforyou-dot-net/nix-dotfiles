@@ -14,9 +14,17 @@
       url = "github:hyprwm/Hyprland/289d424"; #b80c72c #b4f7552 #d87d2da #d87d2da #39a4f82 #2c2e35e #7a775c0 #9370c7a
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+    std.inputs.devshell.url = "github:numtide/devshell";
+    std.inputs.nixago.url = "github:nix-community/nixago";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { std, self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -44,103 +52,95 @@
       };
 
       overlay-custom = import ./packages;
-
-      overlay-nerd-dictation = import ./packages/nerd-dictation-vosk;
-
     in
-    {
-      nixosConfigurations = {
-        archon = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./config/hosts/archon-system.nix
-            {
-              nix.registry.nixpkgs.flake = nixpkgs;
-              nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-              nix.settings.trusted-users = [ "root" "@wheel" ];
-            }
-            {
-              nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-            }
-          ];
+    std.growOn
+      {
+        inherit inputs;
+        nixpkgsConfig.allowUnfree = true;
+        systems = [ "x86_64-linux" ];
+        cellsFrom = ./config/dev;
+        cellBlocks = with std.blockTypes; [
+          (nixago "configs")
+          (devshells "devshells")
+        ];
+      }
+      # std soil for standard nixosConfigs homeConfigs and classical devShells
+      {
+        nixosConfigurations = {
+          archon = lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./config/hosts/archon-system.nix
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+                nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+                nix.settings.trusted-users = [ "root" "@wheel" ];
+              }
+              {
+                nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              }
+            ];
+          };
+
+          perseus = lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./config/hosts/perseus-system.nix
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+                nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+                nix.settings.trusted-users = [ "root" "@wheel" ];
+              }
+              { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
+            ];
+          };
+
+          cadmus = lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./config/hosts/cadmus-system.nix
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+                nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+                nix.settings.trusted-users = [ "root" "@wheel" ];
+              }
+              { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
+            ];
+          };
+
         };
 
-        perseus = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./config/hosts/perseus-system.nix
-            {
-              nix.registry.nixpkgs.flake = nixpkgs;
-              nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-              nix.settings.trusted-users = [ "root" "@wheel" ];
-            }
-            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
-          ];
-        };
+        homeConfigurations = {
 
-        cadmus = lib.nixosSystem {
-          inherit system;
-          modules = [
-            hyprland.nixosModules.default
-            {
-              programs.hyprland = {
-                enable = true;
-                package = hyprland.packages.${pkgs.system}.default.overrideAttrs (old: {
-                  nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
-                  postInstall = ''
-                    wrapProgram $out/bin/Hyprland \
-                      --set NIXOS_OZONE_WL 1 \
-                      --set GDK_BACKEND wayland \
-                      --set _JAVA_AWT_WM_NONREPARENTING 1 \
-                      --set XDG_SESSION_TYPE wayland
-                  '';
-                });
-              };
-              environment.sessionVariables.NIXOS_OZONE_WL = "0";
-            }
-            ./config/hosts/cadmus-system.nix
-            {
-              nix.registry.nixpkgs.flake = nixpkgs;
-              nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-              nix.settings.trusted-users = [ "root" "@wheel" ];
-            }
-            { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
-          ];
-        };
+          ap-archon = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              {
+                nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              }
+              ./config/hosts/archon-home.nix
+            ];
+          };
 
-      };
+          ap-perseus = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              {
+                nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              }
+              ./config/hosts/perseus-home.nix
+            ];
+          };
 
-      homeConfigurations = {
-
-        ap-archon = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            {
-              nixpkgs.overlays = [ overlay-unstable overlay-custom overlay-nerd-dictation ];
-            }
-            ./config/hosts/archon-home.nix
-          ];
-        };
-
-        ap-perseus = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            {
-              nixpkgs.overlays = [ overlay-unstable overlay-custom overlay-nerd-dictation ];
-            }
-            ./config/hosts/perseus-home.nix
-          ];
-        };
-
-        ap-cadmus = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            {
-              nixpkgs.overlays = [ overlay-unstable overlay-custom overlay-nerd-dictation ];
-            }
-            ./config/hosts/cadmus-home.nix
-          ];
+          ap-cadmus = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              {
+                nixpkgs.overlays = [ overlay-unstable overlay-custom ];
+              }
+              ./config/hosts/cadmus-home.nix
+            ];
+          };
         };
       };
-    };
 }
