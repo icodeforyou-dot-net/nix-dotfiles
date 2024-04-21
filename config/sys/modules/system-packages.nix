@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vim
     wget
     pstree
     lm_sensors
@@ -14,6 +13,7 @@
     acpi
     virglrenderer
     gnome.nautilus-python
+    gnome.polari
   ];
 
   # To make nautilus extensions gsettings available
