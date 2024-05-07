@@ -6,9 +6,10 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      mesa_drivers
+      # mesa_drivers
       rocm-opencl-icd
       rocm-opencl-runtime
+      rocmPackages.rocm-runtime
       amdvlk
     ];
     extraPackages32 = with pkgs; [
