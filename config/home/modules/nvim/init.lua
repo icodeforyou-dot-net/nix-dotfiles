@@ -53,7 +53,7 @@ require("packer").startup(function(use)
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", cond = vim.fn.executable("make") == 1 })
 
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("nvimtools/none-ls.nvim")
 
 	-- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
 	local has_plugins, plugins = pcall(require, "custom.plugins")
@@ -308,7 +308,7 @@ require'lspconfig'.nil_ls.setup({ on_attach = on_attach })
 -- Turn on lsp status information
 require("fidget").setup()
 
---- null-ls setup
+--- none-ls / null-ls setup
 local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -319,17 +319,18 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		formatting.prettier,
-		formatting.rome,
 		formatting.black,
-		-- formatting.alejandra,
+		diagnostics.flake8,
 		formatting.nixpkgs_fmt,
 		formatting.stylua,
 		formatting.rustfmt,
-		-- formatting.yamlfmt,
 		diagnostics.ansiblelint.with({
 			filetypes = { "yaml", "ansible" },
 		}),
-		diagnostics.flake8,
+		diagnostics.tflint.with({
+			filetypes = { "tf" },
+		}),
+
 		diagnostics.mypy,
 		diagnostics.pylint,
 		diagnostics.eslint,

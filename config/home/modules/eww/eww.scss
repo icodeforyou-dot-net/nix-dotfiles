@@ -108,7 +108,7 @@ tooltip label {
 
 .icon_text {
   font-size: 3rem;
-  padding: .7rem;
+  padding: 0.7rem;
 }
 
 .bright_icon {
@@ -169,7 +169,7 @@ calendar {
   background-color: $bg;
   border-radius: 16px 0 0 16px;
   color: $fg;
-  padding: .2em;
+  padding: 0.2em;
 }
 
 calendar:selected {
@@ -303,11 +303,11 @@ calendar.highlight {
 }
 
 .mic_icon {
-  background-image: url('images/mic.png');
+  background-image: url("images/mic.png");
 }
 
 .speaker_icon {
-  background-image: url('images/speaker.png');
+  background-image: url("images/speaker.png");
 }
 
 .volume_icon {
@@ -346,5 +346,5 @@ calendar.highlight {
   font-family: monospace;
   font-size: 1.5rem;
   margin: 2px;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
 }

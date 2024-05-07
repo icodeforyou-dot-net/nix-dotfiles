@@ -4,6 +4,7 @@
   imports = [
     ../home/modules/apps/element-desktop.nix
     ../home/modules/apps/lf.nix
+    ../home/modules/apps/davinci-resolve.nix
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/games/dosbox.nix
