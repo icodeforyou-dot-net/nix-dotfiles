@@ -9,7 +9,6 @@ let
       preFixup =
         oldAttrs.preFixup
         + ''
-
           gappsWrapperArgs+=(
             --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--disable-gpu}}"
           )
@@ -69,7 +68,6 @@ in
       unstable.vscode-extensions.bbenoist.nix
       unstable.vscode-extensions.jnoortheen.nix-ide
       unstable.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
-      unstable.vscode-extensions.kamadorueda.alejandra
 
       unstable.vscode-extensions.haskell.haskell
       unstable.vscode-extensions.astro-build.astro-vscode

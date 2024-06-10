@@ -13,6 +13,7 @@ in
       { package = pkgs.nixpkgs-fmt; }
       { package = pkgs.sops; }
       { package = pkgs.age; }
+      { package = pkgs.statix; }
     ];
     nixago = [
       configs.conform

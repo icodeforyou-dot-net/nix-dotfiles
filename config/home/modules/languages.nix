@@ -14,6 +14,8 @@ let
     helmfile-wrapped.override {
       inherit (my-kubernetes-helm.passthru) pluginsDir;
     };
+
+
   # kubectl-v1-24-16 = with pkgs.unstable; (kubectl.overrideAttrs (oldAttrs: rec {
   #   version = "1.24.16";
   #   src = fetchFromGitHub {
@@ -44,8 +46,6 @@ in
 
     # Nix
     unstable.nixpkgs-fmt
-    unstable.nixfmt
-    unstable.alejandra
     unstable.nil
 
     # python
