@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   wrapped-alacritty = with pkgs; (writeShellScriptBin "alacritty" ''
     if pgrep ".gnome-shell" > /dev/null; then env WAYLAND_DISPLAY= ${pkgs.alacritty}/bin/alacritty; else ${pkgs.alacritty}/bin/alacritty; fi
@@ -287,7 +287,7 @@ in
 
       [[colors.indexed_colors]]
       index = 17
-      color = "#f4dbd6"    
+      color = "#f4dbd6"
     '';
   };
 
@@ -369,7 +369,7 @@ in
 
       [[colors.indexed_colors]]
       index = 17
-      color = "#f5e0dc"    
+      color = "#f5e0dc"
     '';
   };
 }

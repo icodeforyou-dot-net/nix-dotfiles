@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     gnome.dconf-editor
     desktop-file-utils
@@ -14,7 +12,7 @@
     # unstable.nautilus-python
     # unstable.nautilus-open-any-terminal
     unstable.gnomeExtensions.dash-to-dock
-    unstable.gnomeExtensions.command-menu
+    # unstable.gnomeExtensions.command-menu
     # gnomeExtensions.tweaks-in-system-menu
     tela-icon-theme
     pavucontrol

@@ -1,10 +1,7 @@
-{ config
-, pkgs
-, ...
-}:
+{ pkgs, ... }:
 let
   vscode-override = with pkgs; (unstable.vscode.overrideAttrs
-    (oldAttrs: rec {
+    (oldAttrs: {
       desktopItem = oldAttrs.desktopItem.override {
         mimeTypes = [ "text/plain" ];
       };
@@ -81,47 +78,10 @@ in
       unstable.vscode-extensions.ms-python.vscode-pylance
       unstable.vscode-extensions.ms-toolsai.jupyter
       # unstable.vscode-extensions.ms-azuretools.vscode-docker
-      unstable.vscode-extensions.matklad.rust-analyzer
+      unstable.vscode-extensions.rust-lang.rust-analyzer
       unstable.vscode-extensions.ms-vscode-remote.remote-ssh
       unstable.vscode-extensions.redhat.vscode-yaml
       unstable.vscode-extensions.tamasfe.even-better-toml
-
-      # Llama Coder extension not yet in nixpkgs
-      # (unstable.vscode-utils.buildVscodeMarketplaceExtension {
-      #   mktplcRef = {
-      #     name = "llama-coder";
-      #     publisher = "ex3ndr";
-      #     version = "0.0.13";
-      #     sha256 = "sha256-xdM2zLIO4ydGt4M1hDDXEqQgXK2LYBRwOS5QfvG+aQ4=";
-      #     arch = "linux-x64";
-      #   };
-      #   nativeBuildInputs = [
-      #     pkgs.autoPatchelfHook
-      #   ];
-      #   buildInputs = [ pkgs.stdenv.cc.cc.lib ];
-      # })
-
-      # OpenTofu
-      # (unstable.vscode-utils.buildVscodeMarketplaceExtension {
-      #   mktplcRef = {
-      #     name = "opentofu";
-      #     publisher = "gamunu";
-      #     version = "0.1.1";
-      #     sha256 = "sha256-JgNU7GinMsRhM9zM1AXRZWD8y/pF53I7pmTx0MmQ+o8=";
-      #     arch = "linux-x64";
-      #   };
-
-      #   patches = [ ./patches/fix-terraform-ls.patch ];
-
-      #   postPatch = ''
-      #     substituteInPlace out/serverPath.js --replace TERRAFORM-LS-PATH ${terraform-ls}/bin/terraform-ls
-      #   '';
-
-      #   meta = {
-      #     license = lib.licenses.mit;
-      #     maintainers = [ lib.maintainers.rhoriguchi ];
-      #   };
-      # })
 
       # Continue.dev extension not yet in nixpkgs
       (unstable.vscode-utils.buildVscodeMarketplaceExtension {
@@ -156,8 +116,9 @@ in
       "editor.formatOnSave" = true;
       "extensions.autoUpdate" = false;
       "extensions.autoCheckUpdates" = false;
-      "[nix]"."editor.defaultFormatter" = "B4dM4n.nixpkgs-fmt";
       "[nix]"."editor.tabSize" = 2;
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
       "python.formatting.provider" = "black";
       "python.linting.enabled" = true;
       "python.linting.flake8Enabled" = true;

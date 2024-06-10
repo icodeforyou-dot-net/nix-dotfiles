@@ -10,7 +10,7 @@
     extraPackages = with pkgs; [
       mesa_drivers
       intel-ocl
-      beignet
+      intel-compute-runtime
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl

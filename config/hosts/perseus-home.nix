@@ -3,7 +3,7 @@
 {
   imports = [
     ../home/modules/apps/element-desktop.nix
-    # ../home/modules/apps/nerd-dictation.nix
+    ../home/modules/apps/alacritty.nix
     ../home/modules/eww/eww.nix
     ../home/modules/mako/mako.nix
     ../home/modules/cli-os.nix

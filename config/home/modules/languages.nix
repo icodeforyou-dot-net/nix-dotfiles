@@ -1,35 +1,31 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
-  my-kubernetes-helm = with pkgs.unstable; wrapHelm kubernetes-helm {
-    plugins = with pkgs.unstable.kubernetes-helmPlugins; [
-      helm-secrets
-      helm-diff
-      helm-s3
-      helm-git
-    ];
-  };
+  my-kubernetes-helm = with pkgs.unstable;
+    wrapHelm kubernetes-helm {
+      plugins = with pkgs.unstable.kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+        helm-s3
+        helm-git
+      ];
+    };
 
-  my-helmfile = with pkgs.unstable; helmfile-wrapped.override {
-    inherit (my-kubernetes-helm.passthru) pluginsDir;
-  };
-
-  kubectl-v1-24-16 = with pkgs.unstable; (kubectl.overrideAttrs (
-    (oldAttrs: rec {
-      version = "1.24.16";
-
-      src = fetchFromGitHub {
-        owner = "kubernetes";
-        repo = "kubernetes";
-        rev = "v${version}";
-        hash = "sha256-rZtcCmDxpAN8zL4D0xGRC6yiEk65fHYADQjFN/HLLJU=";
-      };
-    })
-  ));
+  my-helmfile = with pkgs.unstable;
+    helmfile-wrapped.override {
+      inherit (my-kubernetes-helm.passthru) pluginsDir;
+    };
+  # kubectl-v1-24-16 = with pkgs.unstable; (kubectl.overrideAttrs (oldAttrs: rec {
+  #   version = "1.24.16";
+  #   src = fetchFromGitHub {
+  #     owner = "kubernetes";
+  #     repo = "kubernetes";
+  #     rev = "v${version}";
+  #     hash = "sha256-rZtcCmDxpAN8zL4D0xGRC6yiEk65fHYADQjFN/HLLJU=";
+  #   };
+  # }));
 in
-
 {
   home.packages = with pkgs; [
-
     # general
     unstable.git
     unstable.github-desktop
@@ -91,7 +87,6 @@ in
     my-kubernetes-helm
     my-helmfile
 
-
     # kubernetes cli tools
     kubectl
     # kubectl-v1-24-16
@@ -103,9 +98,7 @@ in
     unstable.stern
   ];
 
-
   programs.go = {
     enable = true;
   };
-
 }

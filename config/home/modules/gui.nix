@@ -128,7 +128,7 @@ in
 
   programs.brave = {
     enable = true;
-    package = unstable.brave;
+    package = pkgs.unstable.brave;
     commandLineArgs = [
       "--enable-features=Vulkan,DefaultANGLEVulkan,VulkanFromANGLE,VaapiVideoEncoder,VaapiVideoDecoder,VaapiIgnoreDriverChecks,VaapiVideoDecodeLinuxGL"
       "--use-gl=angle"
