@@ -12,7 +12,7 @@ in
       { package = pkgs.nil; }
       { package = pkgs.nixpkgs-fmt; }
       { package = pkgs.sops; }
-      { package = pkgs.rage; }
+      { package = pkgs.age; }
     ];
     nixago = [
       configs.conform

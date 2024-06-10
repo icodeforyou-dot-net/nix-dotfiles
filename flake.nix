@@ -2,16 +2,16 @@
   description = "System Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/289d424"; #b80c72c #b4f7552 #d87d2da #d87d2da #39a4f82 #2c2e35e #7a775c0 #9370c7a
+      url = "github:hyprwm/Hyprland/7ba2c31"; #7ba2c31
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
