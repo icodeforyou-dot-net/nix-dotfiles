@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
 {
-
   programs.virt-manager.enable = true;
 
   virtualisation = {
@@ -29,5 +27,4 @@
 
     waydroid.enable = true;
   };
-
 }

@@ -1,5 +1,3 @@
-{ config, lib, pkgs, ... }:
-
 {
   users.users.ap = {
     isNormalUser = true;

@@ -1,6 +1,7 @@
 ./.vscode
 .vscode/settings.json
 *.secrets
+_sources/
 
 # Nix
 .data

@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   xresources.properties = {
     "Xft.antialias" = true;

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   xdg.configFile."lf/icons".source = ./lf-icons;

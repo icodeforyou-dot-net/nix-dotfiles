@@ -1,4 +1,3 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
 {
   services.power-profiles-daemon.enable = false;
   powerManagement.powertop.enable = true;

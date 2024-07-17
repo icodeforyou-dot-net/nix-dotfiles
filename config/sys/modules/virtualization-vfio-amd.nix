@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 let
   user = "ap";
   platform = "amd";
@@ -41,7 +41,7 @@ in
 
       qemu = {
         package = pkgs.qemu_kvm;
-        ovmf = enabled;
+        ovmf.enabled = true;
         verbatimConfig = ''
            namespaces = []
           user = "+${builtins.toString config.users.users.${user}.uid}"

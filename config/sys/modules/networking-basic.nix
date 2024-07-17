@@ -1,4 +1,3 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
 {
   networking = {
     firewall.enable = true;

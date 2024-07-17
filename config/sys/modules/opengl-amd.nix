@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   hardware.opengl = {
@@ -23,7 +23,7 @@
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
-    layout = "us";
+    xkb.layout = "us";
     videoDrivers = [ "amdgpu" ];
   };
 

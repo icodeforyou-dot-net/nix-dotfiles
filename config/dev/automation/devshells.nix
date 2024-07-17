@@ -14,6 +14,7 @@ in
       { package = pkgs.sops; }
       { package = pkgs.age; }
       { package = pkgs.statix; }
+      { package = pkgs.nvfetcher; }
     ];
     nixago = [
       configs.conform

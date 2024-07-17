@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 let
   IMAGE = "~/.config/hypr/wallpapers/lockscreen.png";
 

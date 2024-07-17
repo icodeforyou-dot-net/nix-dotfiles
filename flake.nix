@@ -18,10 +18,14 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    std.url = "github:divnix/std";
-    std.inputs.nixpkgs.follows = "nixpkgs";
-    std.inputs.devshell.url = "github:numtide/devshell";
-    std.inputs.nixago.url = "github:nix-community/nixago";
+    std = {
+      url = "github:divnix/std";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        devshell.url = "github:numtide/devshell";
+        nixago.url = "github:nix-community/nixago";
+      };
+    };
   };
 
   outputs = { std, self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
@@ -72,9 +76,13 @@
             modules = [
               ./config/hosts/archon-system.nix
               {
-                nix.registry.nixpkgs.flake = nixpkgs;
-                nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-                nix.settings.trusted-users = [ "root" "@wheel" ];
+                nix = {
+                  registry.nixpkgs.flake = nixpkgs;
+                  nixPath = [ "nixpkgs=${nixpkgs}" ];
+                  settings.trusted-users = [ "root" "@wheel" ];
+                };
+
+
               }
               {
                 nixpkgs.overlays = [ overlay-unstable overlay-custom ];
