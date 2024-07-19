@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     gnome.dconf-editor
     desktop-file-utils
-    unstable.gnome.gnome-tweaks
+    unstable.gnome-tweaks
     catppuccin-gtk
     gnome.networkmanager-openvpn
     gnome.gnome-terminal

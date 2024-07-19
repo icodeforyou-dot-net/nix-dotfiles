@@ -1,5 +1,5 @@
 {
   imports = [
-    "./gh-login.sh"
+    ./gh-login.nix
   ];
 }
