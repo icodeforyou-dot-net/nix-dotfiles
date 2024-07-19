@@ -52,11 +52,6 @@ in
     '';
   };
 
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-  };
-
   programs.vscode = {
     enable = true;
     package = vscode-override;

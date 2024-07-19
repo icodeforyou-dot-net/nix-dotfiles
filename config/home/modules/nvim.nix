@@ -1,6 +1,6 @@
+{ inputs }:
 {
-  home.file.".config/nvim/init.lua" = {
-    executable = false;
-    source = ./nvim/init.lua;
-  };
+  home.packages = [
+    inputs.nixvim.packages.x86_64-linux.default
+  ];
 }

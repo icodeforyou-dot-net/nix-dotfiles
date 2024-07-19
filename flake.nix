@@ -15,6 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    nixvim.url = "github:icodeforyou-dot-net/nixvim-config";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
