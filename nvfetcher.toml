@@ -1,4 +1,4 @@
-# nvfetcherExample.toml
 [vscode-continue]
-src.vsmarketplace = "ms-python.python"
-fetch.vsmarketplace = "ms-python.python"
+src.vsmarketplace = "continue.continue"
+fetch.vsmarketplace = "continue.continue"
+passthru = { name = "continue", publisher = "continue" }
