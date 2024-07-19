@@ -54,6 +54,9 @@ in
     unstable.zulip
     unstable.mattermost-desktop
 
+    # display color calibration 
+    unstable.displaycal
+
     # Obsidian
     unstable.obsidian
 
