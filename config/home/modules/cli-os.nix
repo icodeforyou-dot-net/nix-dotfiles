@@ -23,15 +23,9 @@
     jq
     yq
 
-    # language servers for neovim to be globally accesible
-    nodePackages.bash-language-server
-    sumneko-lua-language-server
-
     # file systems and converters
     fuseiso
 
-    kaggle
-    ngrok
     gnumake
     gnused
     gawk
@@ -83,6 +77,8 @@
       alias ls='eza -al --color=always --group-directories-first'
       alias cd='z'
       alias lg='lazygit'
+
+      alias gh-login='~/scripts/gh-login.sh'
 
       alias k='kubectl'
       alias kctx='kubectx'
@@ -199,7 +195,15 @@
   # tmux
   programs.tmux = {
     enable = true;
-    plugins = [
+    plugins = with pkgs; [
+      tmuxPlugins.resurrect
+      unstable.tmuxPlugins.sensible
+      unstable.tmuxPlugins.yank
+      unstable.tmuxPlugins.resurrect
+      unstable.tmuxPlugins.continuum
+      unstable.tmuxPlugins.tmux-thumbs
+      unstable.tmuxPlugins.tmux-fzf
+      unstable.tmuxPlugins.catppuccin
     ];
   };
 
@@ -207,7 +211,48 @@
   home.file.".tmux.conf" = {
     executable = false;
     text = ''
-      # source-file ~/.config/tmux/tmux.reset.conf
+      # First remove *all* keybindings
+      # unbind-key -a
+      # Now reinsert all the regular tmux keys
+      bind ^X lock-server
+      bind ^C new-window -c "$HOME"
+      bind ^D detach
+      bind * list-clients
+
+      bind H previous-window
+      bind L next-window
+
+      bind r command-prompt "rename-window %%"
+      bind R source-file ~/.config/tmux/tmux.conf
+      bind ^A last-window
+      bind ^W list-windows
+      bind w list-windows
+      bind z resize-pane -Z
+      bind ^L refresh-client
+      bind l refresh-client
+      bind | split-window
+      bind s split-window -v -c "#{pane_current_path}"
+      bind v split-window -h -c "#{pane_current_path}"
+      bind '"' choose-window
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+      bind -r -T prefix , resize-pane -L 20
+      bind -r -T prefix . resize-pane -R 20
+      bind -r -T prefix - resize-pane -D 7
+      bind -r -T prefix = resize-pane -U 7
+      bind : command-prompt
+      bind * setw synchronize-panes
+      bind P set pane-border-status
+      bind c kill-pane
+      bind x swap-pane -D
+      bind S choose-session
+      bind R source-file ~/.config/tmux/tmux.conf
+      bind K send-keys "clear"\; send-keys "Enter"
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+      # rest of config
       set-option -g default-terminal 'screen-254color'
       set-option -g terminal-overrides ',xterm-256color:RGB'
 
@@ -227,7 +272,6 @@
       set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
       set -g @fzf-url-history-limit '2000'
 
-      set -g @plugin 'tmux-plugins/tpm'
       set -g @plugin 'tmux-plugins/tmux-sensible'
       set -g @plugin 'tmux-plugins/tmux-yank'
       set -g @plugin 'tmux-plugins/tmux-resurrect'
