@@ -31,7 +31,7 @@
     };
   };
 
-  outputs = { std, self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { std, self, nixpkgs, nixvim, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -129,7 +129,7 @@
               {
                 nixpkgs.overlays = [ overlay-unstable overlay-custom ];
               }
-              ./config/hosts/archon-home.nix
+              (import ./config/hosts/archon-home.nix { inherit inputs system; })
             ];
           };
 
@@ -139,7 +139,7 @@
               {
                 nixpkgs.overlays = [ overlay-unstable overlay-custom ];
               }
-              ./config/hosts/perseus-home.nix
+              (import ./config/hosts/perseus-home.nix { inherit inputs system; })
             ];
           };
 
@@ -149,7 +149,7 @@
               {
                 nixpkgs.overlays = [ overlay-unstable overlay-custom ];
               }
-              ./config/hosts/cadmus-home.nix
+              (import ./config/hosts/cadmus-home.nix { inherit inputs system; })
             ];
           };
         };

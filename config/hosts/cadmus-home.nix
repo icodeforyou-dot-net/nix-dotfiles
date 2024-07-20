@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ inputs, system, ... }:
 {
   imports = [
     ../home/modules/apps/element-desktop.nix
@@ -12,6 +11,7 @@
     ../home/modules/gui.nix
     ../home/modules/home-manager.nix
     ../home/modules/languages.nix
+    (import ../home/modules/nvim.nix { inherit inputs system; })
     ../home/modules/wayland.nix
     #../home/modules/xdg.nix
     ../home/modules/xresources.nix
