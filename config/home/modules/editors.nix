@@ -1,20 +1,20 @@
 { pkgs, ... }:
-let
-  vscode-override = with pkgs; (unstable.vscode.overrideAttrs
-    (oldAttrs: {
-      desktopItem = oldAttrs.desktopItem.override {
-        mimeTypes = [ "text/plain" ];
-      };
+# let
+#   vscode-override = with pkgs; (unstable.vscode.overrideAttrs
+#     (oldAttrs: {
+#       desktopItem = oldAttrs.desktopItem.override {
+#         mimeTypes = [ "text/plain" ];
+#       };
 
-      preFixup =
-        oldAttrs.preFixup
-        + ''
-          gappsWrapperArgs+=(
-            --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--disable-gpu}}"
-          )
-        '';
-    }));
-in
+#       preFixup =
+#         oldAttrs.preFixup
+#         + ''
+#           gappsWrapperArgs+=(
+#             --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--disable-gpu}}"
+#           )
+#         '';
+#     }));
+# in
 {
   home.packages = with pkgs; [
     # Coding
@@ -54,7 +54,7 @@ in
 
   programs.vscode = {
     enable = true;
-    package = vscode-override;
+    package = pkgs.vscode;
 
     extensions = with pkgs; [
       unstable.vscode-extensions.pkief.material-icon-theme
