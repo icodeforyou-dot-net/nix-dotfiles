@@ -1,5 +1,3 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
-
 {
   imports = [
     ../sys/modules/console/console-desktop.nix

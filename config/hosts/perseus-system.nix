@@ -1,5 +1,3 @@
-{ config, lib, pkgs, pkgs-unstable, fetchFromGitHub, ... }:
-
 {
   imports = [
     ../sys/modules/console/console-laptop.nix

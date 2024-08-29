@@ -1,11 +1,10 @@
-{ config, lib, pkgs, pkgs-unstable, fetchFromGitHub, ... }:
-
 {
   imports = [
     ../sys/modules/console/console-laptop.nix
     ../sys/modules/hardware/hardware-cadmus.nix
     ../sys/modules/kernels/linuxPackages.nix
     # ../sys/modules/kernels/kernel-6.1.nix
+    ../sys/modules/adb.nix
     ../sys/modules/bluetooth.nix
     ../sys/modules/boot.nix
     ../sys/modules/firejail.nix
