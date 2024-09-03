@@ -42,13 +42,6 @@
         };
       };
 
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-
       lib = nixpkgs.lib;
 
       overlay-unstable = final: prev: {
@@ -84,12 +77,8 @@
                   nixPath = [ "nixpkgs=${nixpkgs}" ];
                   settings.trusted-users = [ "root" "@wheel" ];
                 };
-
-
               }
-              {
-                nixpkgs.overlays = [ overlay-unstable overlay-custom ];
-              }
+              { nixpkgs.overlays = [ overlay-unstable overlay-custom ]; }
             ];
           };
 
