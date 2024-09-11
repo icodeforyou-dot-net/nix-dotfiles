@@ -3,6 +3,8 @@
   imports = [
     ../home/modules/apps/element-desktop.nix
     ../home/modules/apps/alacritty.nix
+    ../home/modules/apps/atuin.nix
+    # ../home/modules/apps/lf.nin
     ../home/modules/scripts
     ../home/modules/cli-os.nix
     ../home/modules/editors.nix
