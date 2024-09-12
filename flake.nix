@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland/7ba2c31"; #7ba2c31
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     nixvim.url = "github:icodeforyou-dot-net/nixvim-config";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
@@ -31,7 +26,7 @@
     };
   };
 
-  outputs = { std, self, nixpkgs, nixvim, nixpkgs-unstable, home-manager, hyprland, ... }@inputs:
+  outputs = { std, self, nixpkgs, nixvim, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
 
